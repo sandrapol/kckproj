@@ -17,3 +17,8 @@ button{
 button:hover {
     background-color: #111111;
   }
+  .post{
+    margin:1%;
+    background-color: rgba(29, 29, 29, 0.082);
+    filter: alpha(opacity=50);
+}

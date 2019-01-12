@@ -8,6 +8,8 @@ import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './content/home/home.component';
 import { CoffeListComponent } from './content/coffe-list/coffe-list.component';
 import { FooterComponent } from './footer/footer.component';
+import { CoffeeDetailsComponent } from './content/coffee-details/coffee-details.component';
+
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { FooterComponent } from './footer/footer.component';
     MenuComponent,
     HomeComponent,
     CoffeListComponent,
-    FooterComponent
+    FooterComponent,
+    CoffeeDetailsComponent
   ],
   imports: [
     BrowserModule,

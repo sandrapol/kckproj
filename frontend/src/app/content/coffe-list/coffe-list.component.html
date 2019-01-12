@@ -1,3 +1,22 @@
-<p>
-  coffe-list works!
-</p>
+<div class="content">
+  <div *ngFor="let coffee of coffeeList">
+    <article class="post" routerLink="/details/{{coffee.id}}">
+      <header>
+        <h2 class="post_title">{{coffee.name}}</h2>
+      </header>
+      <img class="post_img" src="assets/images/logo.jpg">
+      <div class="post_text">
+        <p><b>Kraj pochodzenia: </b> {{coffee.origin}}</p>
+        <p><b>Typ: </b> {{coffee.type}}</p>
+        
+       </div>
+      <div class="post_text">
+        <p><b>Opis:</b></p>
+        <p>{{coffee.description}}</p>
+      </div>
+
+      <footer class="post_date">
+        <p class="price"><b>Cena:</b>{{coffee.price}} zl/kg</p>
+      </footer>
+    </article>
+  </div>
