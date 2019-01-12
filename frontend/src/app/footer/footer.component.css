@@ -1,11 +1,11 @@
-.footer{
+footer{
     background-color: #111;
     color: #898989;
     padding-top: 98px;
     font-size: 14px;
 }
 
-.footer .footer-middle{
+footer .footer-middle{
     padding: 24px 0 67px;
    
 }
@@ -48,7 +48,7 @@
     margin: 0 0 30px;
 }
 
-.footer .footer-middle .block .title{
+footer .footer-middle .block .title{
     text-transform: uppercase;
     color:#fff;
     position: relative;
@@ -57,12 +57,12 @@
     padding-bottom: 15px;
 }
 
-.footer .footer-middle .block.ft-contact-us .content{
+footer .footer-middle .block.ft-contact-us .content{
     padding-right: 40px;
     margin-top: 23px;
 }
 
-.footer a{
+footer a{
     color: #898989;
 }
 
@@ -111,7 +111,7 @@ li{
     padding-left: 15px;
 }
 
-.footer .copyright{
+footer .copyright{
     background-color: #000;
     padding: 21px 0 15px;
 }
@@ -138,18 +138,18 @@ li{
     padding-left: 15px;
 }
 
-.footer .copyright .copyright-footer{
+footer .copyright .copyright-footer{
     margin-top: 3px;
     font-size: 82.71%;
     color: #636363;
     letter-spacing: 0.2em;
 }
 
-.footer .copyright .payment-footer{
+footer .copyright .payment-footer{
     text-align: right;
 }
 
-.footer .footer-middle .block .content > p{
+footer .footer-middle .block .content > p{
     margin-bottom: 10px;
 }
 p{
@@ -166,7 +166,7 @@ content: " ";
     display: block;
 }
 
-.footer .footer-middle .block .title::before{
+footer .footer-middle .block .title::before{
     content: "";
     position: absolute;
     bottom: 0;
@@ -202,7 +202,7 @@ content: " ";
     content: " ";
 }
 
-.footer::after{
+footer::after{
     display: block;
     content: ".";
     clear: both;
@@ -212,7 +212,7 @@ content: " ";
     overflow: hidden;
 }
 
-.footer .footer-middle .block{
+footer .footer-middle .block{
     background: none;
 }
 
