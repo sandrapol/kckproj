@@ -7,6 +7,7 @@ import { EmployeeListComponent } from './content/employee-list/employee-list.com
 import { BillListComponent } from './content/bill-list/bill-list.component';
 import { MagazineListComponent } from './content/magazine-list/magazine-list.component';
 import { PlantationListComponent } from './content/plantation-list/plantation-list.component';
+import { AboutComponent } from './content/about/about.component';
 
 const routes: Routes = [
   {path:"", component: HomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:"bills", component:BillListComponent},
   {path:"employeeList", component:EmployeeListComponent},
   {path:"magazines", component:MagazineListComponent},
-  {path:"plantations", component: PlantationListComponent}
+  {path:"plantations", component: PlantationListComponent},
+  {path:"about", component:AboutComponent}
 ];
 
 @NgModule({
