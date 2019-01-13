@@ -1,3 +1,21 @@
-<p>
-  employee-list works!
-</p>
+<div class="content">
+  <div *ngFor="let employee of employeeList">
+    <article class="post" (click)="showDetails(employee.id)">
+      <header>
+        <h2 class="post_title">{{employee.name}}</h2>
+      </header>
+      <img class="post_img" src="assets/images/logo.jpg">
+      <div class="post_text">
+        <p><b>Kraj pochodzenia: </b> {{employee.position}}</p>
+        <p><b>Typ: </b> {{employee.salary}}</p>
+       </div>
+      <div class="post_text">
+        <p><b>Opis:</b></p>
+        <p>{{employee.bonus}}</p>
+      </div>
+
+      <footer class="post_date">
+        <p class="price"><b>Cena:</b>{{employee.regularPost}} zl/kg</p>
+      </footer>
+    </article>
+  </div>
