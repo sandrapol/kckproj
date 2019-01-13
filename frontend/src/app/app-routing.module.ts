@@ -11,6 +11,7 @@ import { PlantationListComponent } from './content/plantation-list/plantation-li
 import { AboutComponent } from './content/about/about.component';
 import { CustomerListComponent } from './content/customer-list/customer-list.component';
 import { CustomerDeatilsComponent } from './content/customer-deatils/customer-deatils.component';
+import { RegistrationComponent } from './content/registration/registration.component';
 
 const routes: Routes = [
   {path:"", component: HomeComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path:"about", component:AboutComponent},
   {path:"customers", component: CustomerListComponent},
   {path:"customer/:id", component:CustomerDeatilsComponent},
-  {path:"employee/:id",component: EmployeeDetailsComponent}
+  {path:"employee/:id",component: EmployeeDetailsComponent},
+  {path:"/registration",component:RegistrationComponent}
 ];
 
 @NgModule({

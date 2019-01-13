@@ -16,6 +16,7 @@ import { AboutComponent } from './content/about/about.component';
 import { CustomerListComponent } from './content/customer-list/customer-list.component';
 import { CustomerDeatilsComponent } from './content/customer-deatils/customer-deatils.component';
 import { EmployeeDetailsComponent } from './content/employee-details/employee-details.component';
+import { RegistrationComponent } from './content/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { EmployeeDetailsComponent } from './content/employee-details/employee-de
     AboutComponent,
     CustomerListComponent,
     CustomerDeatilsComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
