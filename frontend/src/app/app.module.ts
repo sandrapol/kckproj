@@ -13,6 +13,7 @@ import { EmployeeListComponent } from './content/employee-list/employee-list.com
 import { PlantationListComponent } from './content/plantation-list/plantation-list.component';
 import { MagazineListComponent } from './content/magazine-list/magazine-list.component';
 import { BillListComponent } from './content/bill-list/bill-list.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -28,7 +29,8 @@ import { BillListComponent } from './content/bill-list/bill-list.component';
     EmployeeListComponent,
     PlantationListComponent,
     MagazineListComponent,
-    BillListComponent
+    BillListComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
