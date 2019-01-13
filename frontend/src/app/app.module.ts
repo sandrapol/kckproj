@@ -9,6 +9,10 @@ import { HomeComponent } from './content/home/home.component';
 import { CoffeListComponent } from './content/coffe-list/coffe-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { CoffeeDetailsComponent } from './content/coffee-details/coffee-details.component';
+import { EmployeeListComponent } from './content/employee-list/employee-list.component';
+import { PlantationListComponent } from './content/plantation-list/plantation-list.component';
+import { MagazineListComponent } from './content/magazine-list/magazine-list.component';
+import { BillListComponent } from './content/bill-list/bill-list.component';
 
 
 
@@ -20,7 +24,11 @@ import { CoffeeDetailsComponent } from './content/coffee-details/coffee-details.
     HomeComponent,
     CoffeListComponent,
     FooterComponent,
-    CoffeeDetailsComponent
+    CoffeeDetailsComponent,
+    EmployeeListComponent,
+    PlantationListComponent,
+    MagazineListComponent,
+    BillListComponent
   ],
   imports: [
     BrowserModule,
