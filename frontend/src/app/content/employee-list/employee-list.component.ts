@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/statics/employee';
-import { EMPLOYEES } from 'src/app/statics/mEployee';
 import { Router } from '@angular/router';
+import { EmployeeService } from 'src/app/statics/mEployee';
 
 @Component({
   selector: 'app-employee-list',
@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-  private employeeList:Employee[]=EMPLOYEES;
+  private empServ= new EmployeeService();
+  private employeeList:Employee[]=this.empServ.EmployeeList;
 
   constructor(private router:Router) { }
 

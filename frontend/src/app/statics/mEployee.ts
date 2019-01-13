@@ -1,7 +1,6 @@
 import { Employee } from "./employee";
 
 
-  
 export class EmployeeService {
     EmployeeList: Employee[] = [
         { id: 1, forename: "Jan", name: "Piotrowski", position: "prezes", salary: 100, bonus: 0, regularPost: "pelny etat" },
