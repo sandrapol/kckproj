@@ -1,0 +1,187 @@
+::before, ::after{
+    box-sizing: border-box;
+}
+
+.main{
+    margin: 0 auto;
+    min-height: 400px;
+    padding: 0px 0px 40px;
+    text-align: left;
+}
+
+.main::after{
+    display: block;
+    content: ".";
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+    height: 0;
+}
+
+.breadcrumbs{
+    background-color: #686868;
+    text-align: center;
+    height: 200px;
+    padding: 100px 0 0;
+    color: #fff;
+    margin-bottom: 100px;
+}
+
+.container::after{
+    clear: both;
+}
+
+.container::after, .container::before{
+    display: table;
+    content: " ";
+}
+
+.container{
+    width: 1200px !important;
+    max-width: 1200px !important;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row::after{
+    clear: both;
+}
+
+.row::after, .row::before{
+    display: table;
+    content: " ";
+}
+
+.row{
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-lg-12{
+    width: 100%;
+}
+
+.col-md-12{
+    width: 100%;
+}
+
+.col-md-12, .col-lg-12{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.breadcrumbs ul{
+    margin: 0;
+    padding: 9px 0 5px 16px;
+}
+
+ul{
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.breadcrumbs ul li::after{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    content: ">";
+    position: absolute;
+    top: 4px;
+    right: 0;
+    font-size: 14px;
+}
+
+.breadcrumbs ul li:first-child{
+    padding-left: 0;
+}
+
+.breadcrumbs ul li{
+    display: inline-block;
+    padding: 0 18px 0 8px;
+    position: relative;
+}
+
+.breadcrumbs ul li a{
+    display: block;
+    padding: 5px 0px;
+    color: #fff;
+}
+
+a{
+    text-decoration: none;
+    background: transparent;
+}
+
+.breadcrumbs ul li:last-child::after{
+    display: none;
+}
+
+.breadcrumbs ul li:last-child strong{
+    font-weight: normal;
+    padding: 5px 0px;
+}
+
+strong{
+    font-weight: bold;
+}
+
+.breadcrumbs .title-page h1{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 250%;
+    font-weight: bold;
+}
+
+h1{
+    margin: 0 0 5px;
+    line-height: 1.35;
+    color:inherit;
+}
+
+.col-main, .sidebar{
+padding-top: 30px;
+}
+
+.col-lg-9, .col-md-9{
+    width: 75%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+h2{
+    margin: 0 0 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-family: inherit;
+    line-height: 1.35;
+    font-weight: 500;
+    color: inherit;
+}
+
+.std p{
+    margin: 0 0 1em;
+    padding: 0;
+}
+
+.sidebar{
+    padding-top: 30px;
+}
+
+.col-lg-3, .col-md-3{
+    width: 25%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
