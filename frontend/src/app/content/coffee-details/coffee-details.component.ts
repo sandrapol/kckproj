@@ -1,7 +1,8 @@
 import { Coffee } from './../../statics/coffe';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { COFFEE } from 'src/app/statics/mCoffee';
+import { find } from 'rxjs/operators';
 
 @Component({
   selector: 'app-coffee-details',
@@ -11,15 +12,18 @@ import { COFFEE } from 'src/app/statics/mCoffee';
 export class CoffeeDetailsComponent implements OnInit {
   currentId: number;
   coffee:Coffee;
+  loading=true;
+  findCoffee:Coffee[]= COFFEE;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.subscribe(
-      params => {this.currentId = params['id'];},
-      );
-      let findCoffee:Coffee[]= COFFEE.filter(elem=>elem.id=this.currentId);
-      this.coffee=findCoffee[0];
-      console.log(this.coffee);
+    this.coffee=null;
+    this.currentId=this.route.snapshot.params['id'];
+    for(let elem of this.findCoffee){
+      if(elem.id==this.currentId){
+        this.coffee=elem;
+      }
+    }
   }
-
+ 
 }

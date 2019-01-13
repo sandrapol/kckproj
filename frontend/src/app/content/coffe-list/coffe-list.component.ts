@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { COFFEE } from 'src/app/statics/mCoffee';
 import { Coffee } from 'src/app/statics/coffe';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-coffe-list',
@@ -9,9 +10,12 @@ import { Coffee } from 'src/app/statics/coffe';
 })
 export class CoffeListComponent implements OnInit {
   private coffeeList:Coffee[]= COFFEE;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+  showDetails(id:number){
+    this.router.navigateByUrl("/details/"+id);
   }
 
 }

@@ -1,129 +1,37 @@
 <body>
-  <div class="main-container col1-layout">
-    <div class="main">
-      <div class="col-main">
-        <div class="container" style="clear:both">
-          <div class="row">
-            <div class="col-lg-12 col-md-12">
-              <div class="std">
-                <div class="home-default homestyle2">
-                  <div class="sj-listing-tabs first-load index2-listing-tabs">
-                    <div class="ltabs-wrap">
-                      <div class="ltabs-items-container show-loadmore no-control show-viewall" style="width: 100%">
-                        <h3 style="text-align:center; margin-top:15px">New Products</h3>
-                        <div class="ltabs-items ltabs-items-selected ltabs-items-loaded">
-                          <div class="products-grid ltabs-items-inner ltabs00-4 ltabs01-04 ltabs02-3 ltabs03-2 ltabs04-1 bounceIn play">
-                            <div class="ltabs-item item" style="animation: bounceIn 200ms 200ms; opacity: 1;">
-                              <div class="item-inner">
-                                <div class="box-image">
-                                  <div class="effect-thumbs">
-                                    <a class="product-image" title="kawka1" href="obrazeczek1">
-                                      <img alt="kawka1" src="https://image.ceneostatic.pl/data/products/49910888/i-caffe-mauro-de-luxe-ground-coffee-70-arabica-30-robusta-250g.jpg" width="100%" height="100%">
-                                    </a>
-                                  </div>
-                                  <div class="box-info">
-                                    <h2 class="product-name">
-                                      <a href="obrazeczek1" title="kawka1">kawka1</a>
-                                    </h2>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="ltabs-item item" style="animation: bounceIn 200ms 200ms; opacity: 1;">
-                              <div class="item-inner">
-                                <div class="box-image">
-                                  <div class="effect-thumbs">
-                                    <a class="product-image" title="kawka1" href="obrazeczek1">
-                                      <img alt="kawka1" src="https://image.ceneostatic.pl/data/products/49910888/i-caffe-mauro-de-luxe-ground-coffee-70-arabica-30-robusta-250g.jpg" width="100%" height="100%">
-                                    </a>
-                                  </div>
-                                  <div class="box-info">
-                                    <h2 class="product-name">
-                                      <a href="https://8.allegroimg.com/s128/032420/5485d7c84bcaa363c38178acc3b8" title="kawka1">kawka1</a>
-                                    </h2>
+    <div class="main-container col1-layout">
+      <div class="main">
+        <div class="col-main">
+          <div class="container" style="clear:both">
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <div class="std">
+                  <div class="home-default homestyle2">
+                    <div class="sj-listing-tabs first-load index2-listing-tabs">
+                      <div class="ltabs-wrap">
+                        <div class="ltabs-items-container show-loadmore no-control show-viewall" style="width: 100%">
+                          <h3 style="text-align:center; margin-top:15px">New Products</h3>
+                          <div class="ltabs-items ltabs-items-selected ltabs-items-loaded">
+                            <div class="products-grid ltabs-items-inner ltabs00-4 ltabs01-04 ltabs02-3 ltabs03-2 ltabs04-1 bounceIn play">
+                              <div *ngFor="let coffee of newCoffee">
+                                <div class="ltabs-item item" style="animation: bounceIn 200ms 200ms; opacity: 1;" routerLink="/details/{{coffee.id}}">
+                                <div class="item-inner" >
+                                  <div class="box-image">
+                                    <div class="effect-thumbs">
+                                      <a class="product-image">
+                                        <img alt="kawka1" src="https://image.ceneostatic.pl/data/products/49910888/i-caffe-mauro-de-luxe-ground-coffee-70-arabica-30-robusta-250g.jpg"
+                                          width="100%" height="100%">
+                                      </a>
+                                    </div>
+                                    <div class="box-info">
+                                      <h2 class="product-name">
+                                        <a title="kawka1">{{coffee.name}}</a>
+                                      </h2>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                            <div class="ltabs-item item" style="animation: bounceIn 200ms 200ms; opacity: 1;">
-                              <div class="item-inner">
-                                <div class="box-image">
-                                  <div class="effect-thumbs">
-                                    <a class="product-image" title="kawka1" href="obrazeczek1">
-                                      <img alt="kawka1" src="https://image.ceneostatic.pl/data/products/49910888/i-caffe-mauro-de-luxe-ground-coffee-70-arabica-30-robusta-250g.jpg" width="100%" height="100%">
-                                    </a>
-                                  </div>
-                                  <div class="box-info">
-                                    <h2 class="product-name">
-                                      <a href="obrazeczek1" title="kawka1">kawka1</a>
-                                    </h2>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="ltabs-item item" style="animation: bounceIn 200ms 200ms; opacity: 1;">
-                              <div class="item-inner">
-                                <div class="box-image">
-                                  <div class="effect-thumbs">
-                                    <a class="product-image" title="kawka1" href="obrazeczek1">
-                                      <img alt="kawka1" src="https://image.ceneostatic.pl/data/products/49910888/i-caffe-mauro-de-luxe-ground-coffee-70-arabica-30-robusta-250g.jpg" width="100%" height="100%">
-                                    </a>
-                                  </div>
-                                  <div class="box-info">
-                                    <h2 class="product-name">
-                                      <a href="obrazeczek1" title="kawka1">kawka1</a>
-                                    </h2>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="ltabs-item item" style="animation: bounceIn 200ms 200ms; opacity: 1;">
-                              <div class="item-inner">
-                                <div class="box-image">
-                                  <div class="effect-thumbs">
-                                    <a class="product-image" title="kawka1" href="obrazeczek1">
-                                      <img alt="kawka1" src="https://image.ceneostatic.pl/data/products/49910888/i-caffe-mauro-de-luxe-ground-coffee-70-arabica-30-robusta-250g.jpg" width="100%" height="100%">
-                                    </a>
-                                  </div>
-                                  <div class="box-info">
-                                    <h2 class="product-name">
-                                      <a href="obrazeczek1" title="kawka1">kawka1</a>
-                                    </h2>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="ltabs-item item" style="animation: bounceIn 200ms 200ms; opacity: 1;">
-                              <div class="item-inner">
-                                <div class="box-image">
-                                  <div class="effect-thumbs">
-                                    <a class="product-image" title="kawka1" href="obrazeczek1">
-                                      <img alt="kawka1" src="https://image.ceneostatic.pl/data/products/49910888/i-caffe-mauro-de-luxe-ground-coffee-70-arabica-30-robusta-250g.jpg" width="100%" height="100%">
-                                    </a>
-                                  </div>
-                                  <div class="box-info">
-                                    <h2 class="product-name">
-                                      <a href="obrazeczek1" title="kawka1">kawka1</a>
-                                    </h2>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="ltabs-item item" style="animation: bounceIn 200ms 200ms; opacity: 1;">
-                              <div class="item-inner">
-                                <div class="box-image">
-                                  <div class="effect-thumbs">
-                                    <a class="product-image" title="kawka1" href="obrazeczek1">
-                                      <img alt="kawka1" src="https://image.ceneostatic.pl/data/products/49910888/i-caffe-mauro-de-luxe-ground-coffee-70-arabica-30-robusta-250g.jpg" width="100%" height="100%">
-                                    </a>
-                                  </div>
-                                  <div class="box-info">
-                                    <h2 class="product-name">
-                                      <a href="obrazeczek1" title="kawka1">kawka1</a>
-                                    </h2>
-                                  </div>
-                                </div>
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -137,5 +45,4 @@
         </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>

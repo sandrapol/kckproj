@@ -1,6 +1,6 @@
 <div class="content">
   <div *ngFor="let coffee of coffeeList">
-    <article class="post" routerLink="/details/{{coffee.id}}">
+    <article class="post" (click)="showDetails(coffee.id)">
       <header>
         <h2 class="post_title">{{coffee.name}}</h2>
       </header>
@@ -8,7 +8,6 @@
       <div class="post_text">
         <p><b>Kraj pochodzenia: </b> {{coffee.origin}}</p>
         <p><b>Typ: </b> {{coffee.type}}</p>
-        
        </div>
       <div class="post_text">
         <p><b>Opis:</b></p>
