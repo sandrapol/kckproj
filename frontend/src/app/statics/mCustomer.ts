@@ -1,7 +1,9 @@
-import { Cusomer } from './customer';
+import { Customer } from './customer';
 
-export const CUSTOMERS: Cusomer[]=[
-    {id: 1,name:"Kowalski",forename: "Jan",telephoneNumber:123456789,street:"Zimowa",houseNumber:1,city:"Warszawa",},
+
+export class CustomerService {
+    CustomerList: Customer[] = [
+        {id: 1,name:"Kowalski",forename: "Jan",telephoneNumber:123456789,street:"Zimowa",houseNumber:1,city:"Warszawa",},
     {id: 2,name:"Kowalski",forename: "Jan",telephoneNumber:123456789,street:"Zimowa",houseNumber:1,city:"Warszawa",},
     {id: 3,name:"Kowalski",forename: "Jan",telephoneNumber:123456789,street:"Zimowa",houseNumber:1,city:"Warszawa",},
     {id: 4,name:"Kowalski",forename: "Jan",telephoneNumber:123456789,street:"Zimowa",houseNumber:1,city:"Warszawa",},
@@ -12,4 +14,21 @@ export const CUSTOMERS: Cusomer[]=[
     {id: 9,name:"Kowalski",forename: "Jan",telephoneNumber:123456789,street:"Zimowa",houseNumber:1,city:"Warszawa",},
     {id: 10,name:"Kowalski",forename: "Jan",telephoneNumber:123456789,street:"Zimowa",houseNumber:1,city:"Warszawa",},
     {id: 11,name:"Kowalski",forename: "Jan",telephoneNumber:123456789,street:"Zimowa",houseNumber:1,city:"Warszawa",}
-]
+    ];
+    constructor() { }
+    addCustomer(cof:Customer) {
+        this.CustomerList.push(cof);
+    }
+    deleteCustomer(cof:Customer) {
+        this.CustomerList=this.CustomerList.filter(elem=> elem.id!=cof.id);
+    }
+    findCoffee(id:number) {
+        let customer
+        for(let elem of this.CustomerList){
+            if(elem.id==id){
+                customer=elem;
+            }
+          }
+          return customer;
+    }
+}
