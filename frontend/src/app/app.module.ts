@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,8 +13,9 @@ import { PlantationListComponent } from './content/plantation-list/plantation-li
 import { MagazineListComponent } from './content/magazine-list/magazine-list.component';
 import { BillListComponent } from './content/bill-list/bill-list.component';
 import { AboutComponent } from './content/about/about.component';
-
-
+import { CustomerListComponent } from './content/customer-list/customer-list.component';
+import { CustomerDeatilsComponent } from './content/customer-deatils/customer-deatils.component';
+import { EmployeeDetailsComponent } from './content/employee-details/employee-details.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,10 @@ import { AboutComponent } from './content/about/about.component';
     PlantationListComponent,
     MagazineListComponent,
     BillListComponent,
-    AboutComponent
+    AboutComponent,
+    CustomerListComponent,
+    CustomerDeatilsComponent,
+    EmployeeDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { EmployeeDetailsComponent } from './content/employee-details/employee-details.component';
 import { HomeComponent } from './content/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -8,16 +9,21 @@ import { BillListComponent } from './content/bill-list/bill-list.component';
 import { MagazineListComponent } from './content/magazine-list/magazine-list.component';
 import { PlantationListComponent } from './content/plantation-list/plantation-list.component';
 import { AboutComponent } from './content/about/about.component';
+import { CustomerListComponent } from './content/customer-list/customer-list.component';
+import { CustomerDeatilsComponent } from './content/customer-deatils/customer-deatils.component';
 
 const routes: Routes = [
   {path:"", component: HomeComponent},
   {path:"coffee",component:CoffeListComponent},
   {path:"details/:id",component: CoffeeDetailsComponent},
   {path:"bills", component:BillListComponent},
-  {path:"employeeList", component:EmployeeListComponent},
+  {path:"employees", component:EmployeeListComponent},
   {path:"magazines", component:MagazineListComponent},
   {path:"plantations", component: PlantationListComponent},
-  {path:"about", component:AboutComponent}
+  {path:"about", component:AboutComponent},
+  {path:"customers", component: CustomerListComponent},
+  {path:"customer/:id", component:CustomerDeatilsComponent},
+  {path:"employee/:id",component: EmployeeDetailsComponent}
 ];
 
 @NgModule({
