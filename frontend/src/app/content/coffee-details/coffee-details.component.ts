@@ -1,8 +1,9 @@
+import { CoffeeService } from './../../statics/mCoffee';
 import { Coffee } from './../../statics/coffe';
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { COFFEE } from 'src/app/statics/mCoffee';
 import { find } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-coffee-details',
@@ -10,20 +11,17 @@ import { find } from 'rxjs/operators';
   styleUrls: ['./coffee-details.component.css']
 })
 export class CoffeeDetailsComponent implements OnInit {
+  private cofServ= new CoffeeService();
+  private coffeeList:Coffee[]= this.cofServ.CoffeeList;
   currentId: number;
   coffee:Coffee;
   loading=true;
-  findCoffee:Coffee[]= COFFEE;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.coffee=null;
-    this.currentId=this.route.snapshot.params['id'];
-    for(let elem of this.findCoffee){
-      if(elem.id==this.currentId){
-        this.coffee=elem;
-      }
-    }
+    this.currentId=Number(this.route.snapshot.params['id']);
+    this.coffee=this.cofServ.findCoffee(this.currentId)
   }
  
 }
