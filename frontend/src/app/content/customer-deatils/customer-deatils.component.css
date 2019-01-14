@@ -1,0 +1,22 @@
+.post{
+    margin-right: 3%;
+    margin-left:3%;
+}
+.img{
+    max-width: 50%;
+    max-height: 50%;
+    align-self: center
+}
+.main{
+    text-align: center;
+    align-content: center;
+    width: 100%;
+}
+.details{
+    margin:5%;
+    padding-bottom: 2%;
+}
+.name{
+    padding-top:3%;
+    font-size: 300%;
+}

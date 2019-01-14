@@ -1,3 +1,21 @@
-<p>
-  customer-list works!
-</p>
+<div class="content">
+    <div *ngFor="let customer of customerList">
+      <article class="post" (click)="showDetails(customer.id)">
+        <header>
+          <h2 class="post_title">{{customer.forename}} {{customer.name}}</h2>
+        </header>
+        <img class="post_img" src="http://www.opiniotools.pl/wp-content/uploads/zadowolony-klient.jpg">
+        <div class="post_text">
+          <p><b>Identyfikator: </b> {{customer.id}}</p>
+          <p><b>Imie: </b> {{customer.forename}}</p>
+          <p><b>Numer Telefonu: </b> {{customer.telephoneNumber}}</p>
+          <p><b>Ulica: </b> {{customer.street}}</p>
+          <p><b>Numer Domu:</b> {{customer.houseNumber}}</p>
+          <p><b>Miasto:</b> {{customer.city}}</p>
+        </div>
+  
+        <footer class="post_date">
+            <p class="price"></p>
+          </footer>
+      </article>
+    </div>
