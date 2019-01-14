@@ -1,4 +1,4 @@
-import { ForgotComponent } from './forgot/forgot.component';
+import { ForgotComponent } from './content/forgot/forgot.component';
 import { CoffeeAddComponent } from './content/coffee-add/coffee-add.component';
 import { EmployeeDetailsComponent } from './content/employee-details/employee-details.component';
 import { HomeComponent } from './content/home/home.component';
