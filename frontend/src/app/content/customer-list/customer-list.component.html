@@ -1,4 +1,5 @@
 <div class="content">
+    <button routerLink="/newCustomer">Dodaj klienta</button>
     <div *ngFor="let customer of customerList">
       <article class="post" (click)="showDetails(customer.id)">
         <header>

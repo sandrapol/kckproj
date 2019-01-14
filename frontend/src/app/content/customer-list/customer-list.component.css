@@ -2,6 +2,9 @@ h1,h2{
     margin: 0;
     padding:1.5%;
 }
+button{
+    float:right;
+}
 .content{
     margin-left: 3%;
     margin-right: 3%;

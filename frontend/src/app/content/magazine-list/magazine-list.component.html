@@ -1,4 +1,5 @@
 <div class="content">
+    <button routerLink="/newCoffee">Dodaj magazyn</button>
     <div *ngFor="let magazine of magazineList">
       <article class="post" (click)="showDetails(magazine.id)">
         <header>

@@ -1,4 +1,5 @@
 <div class="content">
+    <button routerLink="/newEmployee">Dodaj pracownika</button>
   <div *ngFor="let employee of employeeList">
     <article class="post" (click)="showDetails(employee.id)">
       <header>
