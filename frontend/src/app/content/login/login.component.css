@@ -1,0 +1,255 @@
+#modal-login {
+    overflow-y: auto !important;
+}
+
+.fade.in {
+    opacity: 1;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    display: none;
+    overflow: auto;
+        overflow-y: auto;
+    overflow-y: scroll;
+}
+
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity 0.15s linear;
+    transition: opacity 0.15s linear;
+} 
+
+::before, ::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0, -25%);
+    -ms-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    -moz-transition: -moz-transform 0.3s ease-out;
+    -o-transition: -o-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+}
+
+.block-popup-login {
+    margin-top: 170px;
+    width: 50%;
+    padding: 0px 20px 0px;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog {
+    width: 55%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: relative;
+    z-index: 1050;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.block-popup-login .close-login {
+    color: #fff;
+    font-size: 26px;
+    margin: 8px -10px 0 0;
+    opacity: 1;
+}
+
+.fa {
+    display: inline-block;
+    font-size: 14px;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000000;
+    text-shadow: 0 1px 0 #ffffff;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+
+a{
+    text-decoration: none;
+    background: transparent;
+}
+
+.block-popup-login .tt_popup_login {
+    margin: 0 -10px;
+    background-color: #B18E47;
+    color: #fff;
+    line-height: 42px;
+    padding: 0 20px 0px 70px;
+    text-transform: uppercase;
+    font-size: 125%;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.block-popup-login .block-content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: normal;
+}
+
+.block-popup-login .block-content .col-reg.registered-account {
+    padding-right: none;
+    border-right: none;
+}
+
+
+
+.block-popup-login .block-content .col-reg {
+    width: 100%;
+}
+
+.block-popup-login .block-content .col-reg {
+    width: 50%;
+    float: left;
+    min-height: 188px;
+}
+
+.block-popup-login .email-input::before {
+    background: url(https://www.meritcoffeewholesale.com/skin/frontend/sm-fcstore/default/images/icon-username.png) no-repeat top left #f7f7f7;
+    content: "";
+    display: inline-block;
+    width: 42px;
+    height: 40px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.block-popup-login .email-input, body .block-popup-login .pass-input {
+    position: relative;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+.block-popup-login .input-text {
+    border: none;
+    margin-bottom: 14px;
+    width: 100%;
+    padding: 0 5px 0px 52px;
+    height: 40px;
+    border: 1px solid #d1d1d1;
+    background-color: #f7f7f7;
+    color: #909090;
+}
+
+input.input-text {
+    height: 36px;
+    padding: 0 5px;
+    width: 100%;
+}
+
+input.input-text, select, textarea {
+    background: #fff;
+        background-color: rgb(255, 255, 255);
+    border: 1px solid #e5e5e5;
+}
+
+input[type="text"], .qty, select {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
+input.input-text, textarea {
+    padding: 5px;
+}
+input, select, textarea, button {
+    vertical-align: middle;
+    color: #636363;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.block-popup-login .pass-input::before {
+    background: url(https://www.meritcoffeewholesale.com/skin/frontend/sm-fcstore/default/images/icon-pass.png) no-repeat top left  #f7f7f7;
+    content: "";
+    display: inline-block;
+    width: 42px;
+    height: 40px;
+    position: absolute;
+    top: 128px;
+    left: 10px;
+}
+
+
+
+.block-popup-login .block-content {
+    font-weight: normal;
+}
+
+.block-popup-login .submit-login {
+    clear: both;
+    display: inline-block;
+    margin-top: 19px;
+    padding: 0;
+    height: 42px;
+    position: relative;
+}
+
+.block-popup-login .submit-login .btn-submit-login {
+    height: 42px;
+    font-size: 116.67%;
+    font-weight: bold;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+
+.button {
+    overflow: visible;
+    width: auto;
+    border: 0;
+    margin: 0;
+    background-color: #B18E47;
+    cursor: pointer;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 20px;
+    white-space: nowrap;
+    color: #fff;
+    font-size: 107.69%;
+    font-weight: 700;
+}
+
+
+
+

@@ -1,3 +1,32 @@
-<p>
-  login works!
-</p>
+<div id="modal-login" class="modal fade in" tabindex="-1" role="dialog" aria-hidden="false" style="display:block;">
+<div class="modal-dialog block-popup-login">
+  <a class="close close-login fa fa-times-circle" href="/home" title="Close" data-dismiss="modal">
+  </a>
+  <div class="tt_popup_login">
+    <strong>Sign in</strong>
+  </div>
+  <form action="zaloguj" method="POST">
+    <input name="form_key" type="hidden" value="ASazaXIJmxVRXZKF">
+    <div class="block-content">
+      <div class="col-reg registered-account">
+        <div class="email-input">
+          <input id="mini-login" class="input-text" title="Username" type="text" name="login[username]" value="Username">
+        </div>
+        <div class="pass-input">
+            <input id="mini-password" class="input-text" title="Password" type="password" name="login[password]" value="........">
+          </div>
+          <div class = "ft-link-p">
+          <a title="Forgot your password?" href="/forgot">Forgot your passsword?</a>
+      </div>
+      <div class = "actions">
+        <div class = "submit-login">
+          <input class = "button btn-submit-login" title="Login" type="submit" name="submit" value="LOGIN">
+        </div>
+      </div>
+    </div>
+    <div style = "clear:both;"></div>
+  </div>
+  </form>
+</div>
+</div>
+

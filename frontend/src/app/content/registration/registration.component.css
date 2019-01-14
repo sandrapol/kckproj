@@ -39,7 +39,7 @@ overflow: hidden;
 }
 
 .container{
-    width: 1200px !important;
+    width: 100% !important;
     max-width: 1200px !important;
     padding-right: 15px;
     padding-left: 15px;
