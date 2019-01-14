@@ -100,7 +100,7 @@ a{
 
 .block-popup-login .tt_popup_login {
     margin: 0 -10px;
-    background-color: #B18E47;
+    background-color: #636363;
     color: #fff;
     line-height: 42px;
     padding: 0 20px 0px 70px;
@@ -116,6 +116,13 @@ strong {
     padding-top: 20px;
     padding-bottom: 20px;
     font-weight: normal;
+}
+
+.back-link {
+    float: right;
+    margin: 0;
+    margin-bottom: 15px;
+    padding-bottom: 20px;
 }
 
 .block-popup-login .block-content .col-reg.registered-account {

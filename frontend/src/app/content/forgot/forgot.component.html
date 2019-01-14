@@ -1,3 +1,42 @@
-<p>
-  forgot works!
-</p>
+<div class="main-container col1-layout">
+    <div class="main">
+        <div class="col-main">
+            <div class="container" style="clear:both;">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="page-title">
+                        <h1>Zapomniałeś hasła?</h1>
+                    </div>
+                    <form id="form-validate" action="forgotpost" method="POST">
+                        <div id="test" class="fieldset">
+                            <h2 class="legend">Odzyskaj swoje hasło tutaj</h2>
+                            <p>Podaj swój adres e-mail poniżej. Otrzymasz link do zresetowania hasła.</p>
+                            <ul class="form-list">
+                                <li>
+                                    <label class="required" for="email_address">Adres Email</label>
+                                    <div class="input-box">
+                                        <input id="email_address" class="input-text required-entry validate-email" type="text" name="email" alt="email" value="">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="buttons-set">
+                            <p class="required">
+                                    Wymagane pola
+                            </p>
+                            <p class="back-link">
+                                <a href="/login">Powrót do logowania</a>
+                            </p>
+                            <button class="button" type="submit" title="Submit">
+                                <span>
+                                    <span>Zatwierdź</span>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

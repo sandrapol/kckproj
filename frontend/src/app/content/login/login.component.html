@@ -3,20 +3,20 @@
   <a class="close close-login fa fa-times-circle" href="/home" title="Close" data-dismiss="modal">
   </a>
   <div class="tt_popup_login">
-    <strong>Sign in</strong>
+    <strong>Zaloguj</strong>
   </div>
   <form action="zaloguj" method="POST">
     <input name="form_key" type="hidden" value="ASazaXIJmxVRXZKF">
     <div class="block-content">
       <div class="col-reg registered-account">
         <div class="email-input">
-          <input id="mini-login" class="input-text" title="Username" type="text" name="login[username]" value="Username">
+          <input id="mini-login" class="input-text" title="Username" type="text" name="login[username]" value="Użytkownik" onfocus="if(this.value !=''){this.value='';}" onblur="if(this.value == ''){this.value = 'Username';}">
         </div>
         <div class="pass-input">
-            <input id="mini-password" class="input-text" title="Password" type="password" name="login[password]" value="........">
+            <input id="mini-password" class="input-text" title="Password" type="password" name="login[password]" value="........" onfocus="if(this.value !=''){this.value='';}" onblur="if(this.value == ''){this.value = '...........';}">
           </div>
           <div class = "ft-link-p">
-          <a title="Forgot your password?" href="/forgot">Forgot your passsword?</a>
+          <a title="Forgot your password?" href="/forgot">Zapomniałeś swojego hasła?</a>
       </div>
       <div class = "actions">
         <div class = "submit-login">
@@ -25,6 +25,9 @@
       </div>
     </div>
     <div style = "clear:both;"></div>
+    <p class="back-link">
+        <a href="">Powrót do strony głównej</a>
+    </p>
   </div>
   </form>
 </div>
