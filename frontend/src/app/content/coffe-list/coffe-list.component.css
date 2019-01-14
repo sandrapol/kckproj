@@ -3,13 +3,13 @@ h1,h2{
     padding:1.5%;
 }
 .content{
+    margin-top:3%;
     margin-left: 3%;
     margin-right: 3%;
 }
-.post{
-    margin:1%;
-    background-color: rgba(29, 29, 29, 0.082);
-    filter: alpha(opacity=50);
+
+button{
+    float: right;
 }
 
 .post_title{
