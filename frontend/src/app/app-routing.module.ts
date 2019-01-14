@@ -1,3 +1,7 @@
+import { EmployeeAddComponent } from './content/employee-add/employee-add.component';
+import { MagazineAddComponent } from './content/magazine-add/magazine-add.component';
+import { PlantationAddComponent } from './content/plantation-add/plantation-add.component';
+import { CustomerAddComponent } from './content/customer-add/customer-add.component';
 import { ForgotComponent } from './content/forgot/forgot.component';
 import { CoffeeAddComponent } from './content/coffee-add/coffee-add.component';
 import { EmployeeDetailsComponent } from './content/employee-details/employee-details.component';
@@ -31,7 +35,11 @@ const routes: Routes = [
   {path:"registration",component:RegistrationComponent},
   {path:"newCoffee",component: CoffeeAddComponent},
   {path:"login", component: LoginComponent},
-  {path:"forgot",component:ForgotComponent}
+  {path:"forgot",component:ForgotComponent},
+  {path:"newCustomer",component: CustomerAddComponent},
+  {path:"newPlantation",component: PlantationAddComponent},
+  {path:"newMagazine",component: MagazineAddComponent},
+  {path:"newEmployee",component:EmployeeAddComponent}
 ];
 
 @NgModule({
