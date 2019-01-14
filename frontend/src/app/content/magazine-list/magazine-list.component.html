@@ -1,6 +1,9 @@
 <div class="content">
-    <button routerLink="/newCoffee">Dodaj magazyn</button>
-    <div *ngFor="let magazine of magazineList">
+    <div class="button_cont">.
+        <button routerLink="/newCoffee">Dodaj magazyn</button>
+      </div>
+  
+    <div class="lista" *ngFor="let magazine of magazineList">
       <article class="post" (click)="showDetails(magazine.id)">
         <header>
           <h2 class="post_title">{{magazine.name}}</h2>

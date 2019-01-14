@@ -1,16 +1,18 @@
 <div class="content">
-  <button routerLink="/newCoffee">Dodaj kawę</button>
-  <div *ngFor="let coffee of coffeeList">
+  <div class="button_cont">.
+    <button routerLink="/newCoffee">Dodaj kawę</button>
+  </div>
+  <div class="lista" *ngFor="let coffee of coffeeList">
     <article class="post" (click)="showDetails(coffee.id)">
       <header>
         <h2 class="post_title">{{coffee.name}}</h2>
       </header>
-      <img class="post_img" src="assets/images/logo.jpg">
+      <div class="img_cont">
+        <img class="post_img" src="assets/images/logo.jpg">
+      </div>
       <div class="post_text">
         <p><b>Kraj pochodzenia: </b> {{coffee.origin}}</p>
         <p><b>Typ: </b> {{coffee.type}}</p>
-       </div>
-      <div class="post_text">
         <p><b>Opis:</b></p>
         <p>{{coffee.description}}</p>
       </div>

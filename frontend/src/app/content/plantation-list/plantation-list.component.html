@@ -1,5 +1,8 @@
 <div class="content">
-    <div *ngFor="let plantation of plantationList">
+    <div class="button_cont">.
+        <button routerLink="/newPlantation">Dodaj magazyn</button>
+      </div>
+      <div class="lista" *ngFor="let plantation of plantationList">
       <article class="post" (click)="showDetails(plantation.id)">
         <header>
           <h2 class="post_title">{{plantation.name}}</h2>
