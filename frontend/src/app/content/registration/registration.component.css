@@ -120,6 +120,7 @@ a{
 .account-create .fieldset{
     min-height: 244px;
     background-color: #fff;
+    margin-right:20px;
 }
 
 .fieldset{
@@ -135,6 +136,7 @@ a{
     margin: 0 0 14px;
     padding: 0 0 5px;
     text-transform: uppercase;
+    
 }
 
 ul, ol{

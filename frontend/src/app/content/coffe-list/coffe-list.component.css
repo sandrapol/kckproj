@@ -39,6 +39,7 @@ button{
     height: auto;
     width:100%;
     display:inherit;
+    margin-top: 35px;
 }
 .img_cont{
     display: inline-block;
