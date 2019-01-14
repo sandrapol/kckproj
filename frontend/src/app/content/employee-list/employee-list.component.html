@@ -2,20 +2,21 @@
   <div *ngFor="let employee of employeeList">
     <article class="post" (click)="showDetails(employee.id)">
       <header>
-        <h2 class="post_title">{{employee.name}}</h2>
+        <h2 class="post_title">{{employee.forename}} {{employee.name}}</h2>
       </header>
-      <img class="post_img" src="assets/images/logo.jpg">
+      <img class="post_img" src="https://i.wpimg.pl/730x0/m.gadzetomania.pl/enhanced-buzz-16839-1297-548d0f9.jpg">
       <div class="post_text">
-        <p><b>Kraj pochodzenia: </b> {{employee.position}}</p>
-        <p><b>Typ: </b> {{employee.salary}}</p>
-       </div>
-      <div class="post_text">
-        <p><b>Opis:</b></p>
-        <p>{{employee.bonus}}</p>
+        <p><b>Identyfikator: </b> {{employee.id}}</p>
+        <p><b>Stanowisko: </b> {{employee.position}}</p>
+        <p><b>Imie: </b> {{employee.forename}}</p>
+        <p><b>Nazwisko: </b> {{employee.name}}</p>
+        <p><b>Pensja: </b> {{employee.salary}}</p>
+        <p><b>Premia:</b> {{employee.bonus}}</p>
+        <p><b>Etat:</b> {{employee.regularPost}}</p>
       </div>
 
       <footer class="post_date">
-        <p class="price"><b>Cena:</b>{{employee.regularPost}} zl/kg</p>
-      </footer>
+          <p class="price"></p>
+        </footer>
     </article>
   </div>

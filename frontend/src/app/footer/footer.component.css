@@ -222,6 +222,14 @@ address{
     margin-bottom: 20px;
 }
 
+img{
+    
+        border: 0;
+        vertical-align: top;
+        width: auto;
+        max-width: 100%;
+}
+
 *{
     letter-spacing: 0.14em;
     margin: 0;

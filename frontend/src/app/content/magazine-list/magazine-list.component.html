@@ -1,3 +1,19 @@
-<p>
-  magazine-list works!
-</p>
+<div class="content">
+    <div *ngFor="let magazine of magazineList">
+      <article class="post" (click)="showDetails(employee.id)">
+        <header>
+          <h2 class="post_title">{{magazine.name}}</h2>
+        </header>
+        <img class="post_img" src="https://static.seattletimes.com/wp-content/uploads/2017/03/bdce5802-fed2-11e6-a186-82a2c6d1afcd-780x439.jpg">
+        <div class="post_text">
+          <p><b>Identyfikator: </b> {{magazine.id}}</p>
+          <p><b>Nazwa: </b> {{magazine.name}}</p>
+          <div class="kawka"><b>Dostępność: </b><p *ngIf="magazine.coffeeAvailability"> dostępna</p><p *ngIf="!(magazine.coffeeAvailability)">niedostępna</p></div>
+          <p><b>Dostawa: </b> {{magazine.supply}}</p>
+        </div>
+  
+        <footer class="post_date">
+            <p class="price"></p>
+          </footer>
+      </article>
+    </div>
