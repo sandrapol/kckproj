@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CoffeeService } from 'src/app/statics/mCoffee';
 import { Coffee } from 'src/app/statics/coffe';
 import { Router } from '@angular/router';
+import { Employee } from 'src/app/statics/employee';
+import { EmployeeService } from 'src/app/statics/mEployee';
 
 @Component({
   selector: 'app-employee-add',
@@ -10,49 +12,49 @@ import { Router } from '@angular/router';
 })
 export class EmployeeAddComponent implements OnInit {
 
-  coffeeServ=new CoffeeService();
-  coffee:Coffee= new Coffee();
+  employeeServ=new EmployeeService();
+  employee:Employee= new Employee();
   error:boolean;
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
   setName(value){
-    if(value!=null || value!=''){
-    this.coffee.name=value;
+    this.employee.name=value;
     this.error=false;
-    }
-    else
+    if(this.employee.name.length<1)
     this.error=true;
   }
-  setOrigin(value){
-    if(value!=null){
-    this.coffee.origin=value;
+  setForename(value){
+    this.employee.forename=value;
     this.error=false;
-    }
-    else
+    if(this.employee.forename.length<1)
     this.error=true;
   }
-  setDesc(value){
-    if(value!=null){
-    this.coffee.description=value;
+  setPosition(value){
+    this.employee.position=value;
     this.error=false;
-    }
-    else
+    if(this.employee.position.length<1)
     this.error=true;
   }
-  setType(value){
-    if(value!=null){
-    this.coffee.type=value;
+  setPost(value){
+    this.employee.regularPost=value;
     this.error=false;
-    }
-    else
+    if(this.employee.regularPost.length<1)
     this.error=true;
   }
 
-  setParam(value,header){
+  setSalary(value){
     if(Number(value)>0){
-    this.coffee.price=Number(value);
+    this.employee.salary=Number(value);
+    this.error=false;
+    }
+    else
+    this.error=true;
+  }
+  setBonus(value){
+    if(Number(value)>0){
+    this.employee.bonus=Number(value);
     this.error=false;
     }
     else
@@ -60,9 +62,9 @@ export class EmployeeAddComponent implements OnInit {
   }
   submit(){
     if(!this.error){
-      this.coffeeServ.addCoffee(this.coffee);
-      console.log(this.coffee);
-      this.router.navigateByUrl("/coffee");
+      this.employeeServ.addEmployee(this.employee);
+      console.log(this.employee);
+      this.router.navigateByUrl("/employees");
     }
   }
 

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CoffeeService } from 'src/app/statics/mCoffee';
 import { Coffee } from 'src/app/statics/coffe';
 import { Router } from '@angular/router';
+import { MagazineService } from 'src/app/statics/mMagazine';
+import { Magazine } from 'src/app/statics/magazine';
 
 @Component({
   selector: 'app-magazine-add',
@@ -10,59 +12,36 @@ import { Router } from '@angular/router';
 })
 export class MagazineAddComponent implements OnInit {
 
-  coffeeServ=new CoffeeService();
-  coffee:Coffee= new Coffee();
-  error:boolean;
+  magazineServ = new MagazineService();
+  magazine: Magazine = new Magazine();
+  error: boolean;
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
-  setName(value){
-    if(value!=null || value!=''){
-    this.coffee.name=value;
-    this.error=false;
+  setName(value) {
+    this.magazine.name = value;
+    this.error = false;
+    if (this.magazine.name.length < 1)
+      this.error = true;
+  }
+  setParam(value) {
+    if (Number(value) > -1) {
+      this.magazine.supply = Number(value);
+      this.error = false;
     }
     else
-    this.error=true;
+      this.error = true;
   }
-  setOrigin(value){
-    if(value!=null){
-    this.coffee.origin=value;
-    this.error=false;
-    }
-    else
-    this.error=true;
-  }
-  setDesc(value){
-    if(value!=null){
-    this.coffee.description=value;
-    this.error=false;
-    }
-    else
-    this.error=true;
-  }
-  setType(value){
-    if(value!=null){
-    this.coffee.type=value;
-    this.error=false;
-    }
-    else
-    this.error=true;
-  }
-
-  setParam(value,header){
-    if(Number(value)>0){
-    this.coffee.price=Number(value);
-    this.error=false;
-    }
-    else
-    this.error=true;
-  }
-  submit(){
-    if(!this.error){
-      this.coffeeServ.addCoffee(this.coffee);
-      console.log(this.coffee);
-      this.router.navigateByUrl("/coffee");
+  submit() {
+    if (!this.error) {
+      if (this.magazine.supply == 0)
+        this.magazine.coffeeAvailability = false;
+      else
+        this.magazine.coffeeAvailability = true;
+      this.magazineServ.addMagazine(this.magazine);
+      console.log(this.magazine);
+      this.router.navigateByUrl("/magazines");
     }
   }
 
