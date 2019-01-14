@@ -32,7 +32,6 @@ h1,h2{
 }
 
 .post_img{
-    min-width: 90px;
    max-width: 16%;
    max-height: 16%;
    height: auto;

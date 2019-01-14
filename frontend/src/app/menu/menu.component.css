@@ -52,4 +52,12 @@ ul {
   option a:hover {
     background-color: #111111;
   }
+
+  .buttons{
+    cursor: pointer;
+  }
+
+  #dropdown{
+    cursor: pointer;
+  }
   

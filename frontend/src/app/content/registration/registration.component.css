@@ -263,10 +263,19 @@ input[type="checkbox"] {
 }
 
 .button {
-    cursor: pointer;
-    line-height: 36px;
-    white-space: nowrap;
-    color: #fff;
-    font-size: 107.69%;
-    font-weight: 700;
+        overflow: visible;
+        width: auto;
+        border: 0;
+        margin: 0;
+            margin-left: 0px;
+            margin-right: 2px;
+        background-color: #444444;
+        cursor: pointer;
+        height: 36px;
+        line-height: 36px;
+        padding: 0 20px;
+        white-space: nowrap;
+        color: #fff;
+        font-size: 105.69%;
+        font-weight: 700;
 }
