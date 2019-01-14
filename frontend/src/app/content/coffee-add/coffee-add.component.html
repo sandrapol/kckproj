@@ -6,19 +6,19 @@
   <div class="cont">
     <div class="one">
       <p class="one"><b>Nazwa: </b> &nbsp; </p>
-      <input class="one" placeholder="____________" type="text" required #box (keyup)="setName(box.value)"><br>
+      <input class="one" placeholder="____________" type="text" required  #modelbox (keyup)="setName(modelbox.value)"><br>
     </div>
   </div>
   <div class="cont">
     <div class="one">
       <p class="one"><b>Typ: </b> &nbsp; </p>
-      <input class="one" placeholder="____________" type="text" required #box (keyup)="setType(box.value)"><br>
+      <input class="one" placeholder="____________" type="text" required #typebox (keyup)="setType(typebox.value)"><br>
     </div>
   </div>
   <div class="cont">
     <div class="one">
       <p class="one"><b>Kraj pochodzenia: </b> &nbsp; </p>
-      <input class="one" placeholder="____________" type="text" required #box (keyup)="setOrigin(box.value)"><br>
+      <input class="one" placeholder="____________" type="text" required #orbox (keyup)="setOrigin(orbox.value)"><br>
     </div>
   </div>
 
@@ -31,7 +31,7 @@
   <div class="cont">
     <div class="one">
       <p class="one"><b>Opis: </b> &nbsp; </p>
-      <input class="one" placeholder="____________" type="text" required #box (keyup)="setDesc(box.value)"><br>
+      <input class="one" placeholder="____________" type="text" required #debox (keyup)="setDesc(debox.value)"><br>
       <button (click)="submit()">Zatwierdź</button>
     </div>
   </div>

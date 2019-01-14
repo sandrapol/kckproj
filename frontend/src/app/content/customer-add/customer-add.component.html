@@ -1,3 +1,43 @@
-<p>
-  customer-add works!
-</p>
+<div class="post">
+    <header>
+      <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
+      <h2>Wprowadź dane nowego klienta</h2>
+    </header>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Imie: </b> &nbsp; </p>
+        <input class="one" placeholder="____________" type="text" required #fbox (keyup)="setForename(fbox.value)"><br>
+      </div>
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Nazwisko: </b> &nbsp; </p>
+        <input class="one" placeholder="____________" type="text" required #nbox (keyup)="setName(nbox.value)"><br>
+      </div>
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Ulica: </b> &nbsp; </p>
+        <input class="one" placeholder="____________" type="text" required #sbox (keyup)="setStreet(sbox.value)"><br>
+      </div>
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Numer domu: </b> (zl/kg) &nbsp; </p>
+        <input class="one" placeholder="____________" type="number" required #hbox (mouseup)="setNumber(hbox.value)" (keyup)="setParam(box.value)"><br>
+      </div>
+    </div>
+    <div class="cont">
+        <div class="one">
+          <p class="one"><b>Miasto: </b> &nbsp; </p>
+          <input class="one" placeholder="____________" type="text" required #cbox (keyup)="setCity(cbox.value)"><br>
+        </div>
+      </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Telephone number: </b> &nbsp; </p>
+        <input  class="one" placeholder="____________" type="number" required #tbox (mouseup)="setTelephone(tbox.value)" (keyup)="setTelephone(box.value)"><br>
+        <button (click)="submit()">Zatwierdź</button>
+      </div>
+    </div>
+  </div>

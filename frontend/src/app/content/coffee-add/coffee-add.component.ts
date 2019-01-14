@@ -16,36 +16,28 @@ export class CoffeeAddComponent implements OnInit {
 
   ngOnInit() {
   }
-  setName(value){
-    if(value!=null || value!=''){
-    this.coffee.name=value;
+  setName(writtenname) {
+    this.coffee.name = writtenname;
     this.error=false;
-    }
-    else
+    if(this.coffee.name.length<1)
     this.error=true;
   }
   setOrigin(value){
-    if(value!=null){
     this.coffee.origin=value;
     this.error=false;
-    }
-    else
+    if(this.coffee.origin.length<1)
     this.error=true;
   }
   setDesc(value){
-    if(value!=null){
     this.coffee.description=value;
     this.error=false;
-    }
-    else
+    if(this.coffee.description.length<1)
     this.error=true;
   }
   setType(value){
-    if(value!=null){
     this.coffee.type=value;
     this.error=false;
-    }
-    else
+    if(this.coffee.type.length<1)
     this.error=true;
   }
 

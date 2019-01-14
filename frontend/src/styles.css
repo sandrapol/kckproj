@@ -2,6 +2,12 @@
 body{
     margin:0;
 }
+
+.post{
+    margin:1%;
+    background-color: rgba(29, 29, 29, 0.082);
+    filter: alpha(opacity=50);
+}
 button{
     margin: 0;
     padding: 0;
@@ -17,8 +23,5 @@ button{
 button:hover {
     background-color: #111111;
   }
-  .post{
-    margin:1%;
-    background-color: rgba(29, 29, 29, 0.082);
-    filter: alpha(opacity=50);
-}
+  
+  
