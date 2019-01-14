@@ -22,7 +22,7 @@ export class PlantationService {
     deleteCoffee(cof:Plantation) {
         this.PlantationList=this.PlantationList.filter(elem=> elem.id!=cof.id);
     }
-    findCoffee(id:number) {
+    findPlantation(id:number) {
         let plantation
         for(let elem of this.PlantationList){
             if(elem.id==id){
