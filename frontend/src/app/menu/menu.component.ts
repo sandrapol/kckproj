@@ -10,26 +10,32 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  clicked:boolean=false;
+  selected;
+
+  clicked: boolean = false;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-  .pipe(
-    map(result => result.matches)
-  );
+    .pipe(
+      map(result => result.matches)
+    );
   constructor(private breakpointObserver: BreakpointObserver, private router: Router) { }
 
   ngOnInit() {
   }
-  change(){
-    if(!this.clicked)
-    {
-    this.clicked=true;
+  change() {
+    if (!this.clicked) {
+      this.clicked = true;
     }
-    else{
-      this.clicked=false;
+    else {
+      this.clicked = false;
     }
   }
-  goTo(site:string){
-    this.router.navigateByUrl("/"+site)
+  goTo(site: string) {
+    this.router.navigateByUrl("/" + site)
   }
-
+  setSelected() {
+    let e = (document.getElementById("dropdown")) as HTMLSelectElement;
+    let sel = e.selectedIndex;
+    var opt = e.options[sel];
+    this.goTo(opt.value)
+  }
 }

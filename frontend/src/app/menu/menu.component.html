@@ -12,10 +12,12 @@
     <li><a href="#contact">Contact</a></li>
     <li><a (click)="goTo('about')">About</a></li>
   </div>
-  <select>
-    <option value="volvo">Login</option>
-    <option value="saab">Register</option>
-    <option value="opel">My account</option>
-    <option value="audi">Checkout</option>
+  
+  <select id="dropdown"  (change)='setSelected()' >
+    <option>Wybierz</option>
+    <option value="login">Zaloguj</option>
+    <option value="registration">Zarejestruj się</option>
+    <option value="">Moje konto</option>
+    <option value="">Wyloguj</option>
   </select>
 </ul>
