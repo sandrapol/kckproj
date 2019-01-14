@@ -18,6 +18,7 @@ import { CustomerDeatilsComponent } from './content/customer-deatils/customer-de
 import { EmployeeDetailsComponent } from './content/employee-details/employee-details.component';
 import { RegistrationComponent } from './content/registration/registration.component';
 import { CoffeeAddComponent } from './content/coffee-add/coffee-add.component';
+import { LoginComponent } from './content/login/login.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CoffeeAddComponent } from './content/coffee-add/coffee-add.component';
     CustomerDeatilsComponent,
     EmployeeDetailsComponent,
     RegistrationComponent,
-    CoffeeAddComponent
+    CoffeeAddComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

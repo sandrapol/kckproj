@@ -13,6 +13,7 @@ import { AboutComponent } from './content/about/about.component';
 import { CustomerListComponent } from './content/customer-list/customer-list.component';
 import { CustomerDeatilsComponent } from './content/customer-deatils/customer-deatils.component';
 import { RegistrationComponent } from './content/registration/registration.component';
+import { LoginComponent } from './content/login/login.component';
 
 const routes: Routes = [
   {path:"", component: HomeComponent},
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path:"customer/:id", component:CustomerDeatilsComponent},
   {path:"employee/:id",component: EmployeeDetailsComponent},
   {path:"registration",component:RegistrationComponent},
-  {path:"newCoffee",component: CoffeeAddComponent}
+  {path:"newCoffee",component: CoffeeAddComponent},
+  {path:"login", component: LoginComponent}
 ];
 
 @NgModule({
