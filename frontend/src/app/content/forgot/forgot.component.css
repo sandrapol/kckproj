@@ -41,7 +41,7 @@
 
 .container {
     width: 100% !important;
-    max-width: 1200px !important;
+    max-width: 1100px !important;
     padding-right: 15px;
 padding-left: 15px;
 margin-right: auto;
@@ -106,6 +106,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
     margin-bottom: 20px;
     background-color: #fff;
+    width: 92%;
 }
 
 .fieldset .legend {
@@ -206,15 +207,18 @@ button, input, select, textarea {
 .buttons-set {
     clear: both;
     text-align: right;
+    margin-right: 5px;
 }
 
 .buttons-set p.required {
     margin: 0 0 10px;
+    margin-right: 50px;
 }
 
 p.required {
     font-size: 11px;
-    text-align: right;
+ 
+    margin-right: 50px;
     color: #EB340A;
 }
 
@@ -242,10 +246,29 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 .buttons-set button.button {
     float: right;
     margin-left: 5px;
+    margin-right: 50px;
 }
 
 
 button, html input[type="button"], input[type="reset"], input[type="submit"] {
     cursor: pointer;
     -webkit-appearance: button;
+}
+.button{
+overflow: visible;
+        width: auto;
+        -webkit-border-fit: lines;
+        border: 0;
+        margin: 0;
+            margin-left: 0px;
+            margin-right: 50%;
+        background-color: #444444;
+        cursor: pointer;
+        height: 36px;
+        line-height: 36px;
+        padding: 0 20px;
+        white-space: nowrap;
+        color: #fff;
+        font-size: 105.69%;
+        font-weight: 700;
 }
