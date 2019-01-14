@@ -20,7 +20,7 @@ export class CustomerDeatilsComponent implements OnInit {
   ngOnInit() {
     this.customer=null;
     this.currentId=Number(this.route.snapshot.params['id']);
-    this.customer=this.custServ.findCustomer(this.currentId)
+    this.customer=this.custServ.findCustomer(this.currentId);
   }
 
 }

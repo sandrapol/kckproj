@@ -21,7 +21,7 @@ export class MagazineService {
     deleteCoffee(cof:Magazine) {
         this.MagazineList=this.MagazineList.filter(elem=> elem.id!=cof.id);
     }
-    findCoffee(id:number) {
+    findMagazine(id:number) {
         let magazine
         for(let elem of this.MagazineList){
             if(elem.id==id){

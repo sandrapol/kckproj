@@ -19,6 +19,7 @@ import { CustomerListComponent } from './content/customer-list/customer-list.com
 import { CustomerDeatilsComponent } from './content/customer-deatils/customer-deatils.component';
 import { RegistrationComponent } from './content/registration/registration.component';
 import { LoginComponent } from './content/login/login.component';
+import { MagazineDetailsComponent } from './content/magazine-details/magazine-details.component';
 
 const routes: Routes = [
   {path:"", component: HomeComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path:"customers", component: CustomerListComponent},
   {path:"customer/:id", component:CustomerDeatilsComponent},
   {path:"employee/:id",component: EmployeeDetailsComponent},
+  {path:"magazine/:id",component: MagazineDetailsComponent},
   {path:"registration",component:RegistrationComponent},
   {path:"newCoffee",component: CoffeeAddComponent},
   {path:"login", component: LoginComponent},

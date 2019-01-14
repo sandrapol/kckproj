@@ -1,6 +1,6 @@
 <div class="content">
     <div *ngFor="let magazine of magazineList">
-      <article class="post" (click)="showDetails(employee.id)">
+      <article class="post" (click)="showDetails(magazine.id)">
         <header>
           <h2 class="post_title">{{magazine.name}}</h2>
         </header>

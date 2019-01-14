@@ -1,0 +1,17 @@
+<div  class="post">
+    <div class="main">
+      <header>
+          <h2 class="name">{{magazine.name}}</h2>
+        </header>
+        <img class="img" src="https://www.wonolo.com/wp-content/uploads/2017/07/Warehouse-worker.jpg">
+        
+        </div>
+        <div class="details">
+          <p><b>Identyfikator: </b> {{magazine.id}}</p>
+          <p><b>Nazwa: </b> {{magazine.name}}</p>
+          <div class="kawka"><b>Dostępność: </b><p *ngIf="magazine.coffeeAvailability"> dostępna</p><p *ngIf="!(magazine.coffeeAvailability)">niedostępna</p></div>
+          <p><b>Dostawa:</b>{{magazine.supply}} </p>
+        </div>
+       
+  </div>
+  
