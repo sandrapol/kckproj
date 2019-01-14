@@ -1,19 +1,21 @@
-<div *ngIf="(isHandset$ | async)">
-    <ul>
-  <li (click)="change()"><a>Menu</a></li>
-</ul>
-  <div *ngIf="clicked" class="mobileMenu" >
-    <ul>
-    <li><a (click)="goTo(''); change()">Home</a></li>
-    <li><a (click)="goTo('coffee');change()">Kawa</a></li>
-    </ul>
+<ul>
+  <div *ngIf="(isHandset$ | async)">
+    <li (click)="change()"><a>Menu</a></li>
+    <div *ngIf="clicked" class="mobileMenu">
+      <li><a (click)="goTo(''); change()">Home</a></li>
+      <li><a (click)="goTo('coffee');change()">Kawa</a></li>
+    </div>
   </div>
-</div>
-<div *ngIf="!(isHandset$ | async)">
-  <ul>
+  <div *ngIf="!(isHandset$ | async)">
     <li><a (click)="goTo('')">Home</a></li>
     <li><a (click)="goTo('coffee')">Kawa</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a (click)="goTo('about')">About</a></li>
-  </ul>
-</div>
+  </div>
+  <select>
+    <option value="volvo">Login</option>
+    <option value="saab">Register</option>
+    <option value="opel">My account</option>
+    <option value="audi">Checkout</option>
+  </select>
+</ul>

@@ -1,3 +1,4 @@
+import { ForgotComponent } from './forgot/forgot.component';
 import { CoffeeAddComponent } from './content/coffee-add/coffee-add.component';
 import { EmployeeDetailsComponent } from './content/employee-details/employee-details.component';
 import { HomeComponent } from './content/home/home.component';
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path:"employee/:id",component: EmployeeDetailsComponent},
   {path:"registration",component:RegistrationComponent},
   {path:"newCoffee",component: CoffeeAddComponent},
-  {path:"login", component: LoginComponent}
+  {path:"login", component: LoginComponent},
+  {path:"forgot",component:ForgotComponent}
 ];
 
 @NgModule({

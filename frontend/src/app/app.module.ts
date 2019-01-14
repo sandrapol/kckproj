@@ -19,6 +19,7 @@ import { EmployeeDetailsComponent } from './content/employee-details/employee-de
 import { RegistrationComponent } from './content/registration/registration.component';
 import { CoffeeAddComponent } from './content/coffee-add/coffee-add.component';
 import { LoginComponent } from './content/login/login.component';
+import { ForgotComponent } from './content/forgot/forgot.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { LoginComponent } from './content/login/login.component';
     EmployeeDetailsComponent,
     RegistrationComponent,
     CoffeeAddComponent,
-    LoginComponent
+    LoginComponent,
+    ForgotComponent
   ],
   imports: [
     BrowserModule,
