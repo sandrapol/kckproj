@@ -34,7 +34,7 @@ export class CustomerService {
     deleteCustomer(cof:Customer) {
         this.CustomerList=this.CustomerList.filter(elem=> elem.id!=cof.id);
     }
-    findCoffee(id:number) {
+    findCustomer(id:number) {
         let customer
         for(let elem of this.CustomerList){
             if(elem.id==id){
