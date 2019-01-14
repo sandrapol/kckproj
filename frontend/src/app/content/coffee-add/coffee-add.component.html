@@ -1,0 +1,39 @@
+<div class="post">
+  <header>
+    <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
+    <h2>Wprowadź dane</h2>
+  </header>
+  <div class="cont">
+    <div class="one">
+      <p class="one"><b>Nazwa: </b> &nbsp; </p>
+      <input class="one" placeholder="____________" type="text" required #box (keyup)="setName(box.value)"><br>
+    </div>
+  </div>
+  <div class="cont">
+    <div class="one">
+      <p class="one"><b>Typ: </b> &nbsp; </p>
+      <input class="one" placeholder="____________" type="text" required #box (keyup)="setType(box.value)"><br>
+    </div>
+  </div>
+  <div class="cont">
+    <div class="one">
+      <p class="one"><b>Kraj pochodzenia: </b> &nbsp; </p>
+      <input class="one" placeholder="____________" type="text" required #box (keyup)="setOrigin(box.value)"><br>
+    </div>
+  </div>
+
+  <div class="cont">
+    <div class="one">
+      <p class="one"><b>Cena: </b> &nbsp; </p>
+      <input class="one" placeholder="____________" type="number" required #box (mouseup)="setParam(box.value)" (keyup)="setParam(box.value)"><br>
+    </div>
+    <p class="one">&nbsp;<b>zl/kg</b></p>
+  </div>
+  <div class="cont">
+    <div class="one">
+      <p class="one"><b>Opis: </b> &nbsp; </p>
+      <input class="one" placeholder="____________" type="text" required #box (keyup)="setDesc(box.value)"><br>
+      <button (click)="submit()">Zatwierdź</button>
+    </div>
+  </div>
+</div>

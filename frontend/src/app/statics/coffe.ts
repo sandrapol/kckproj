@@ -5,4 +5,5 @@ export class Coffee {
     description:string;
     type: string;
     price: number;
+    constructor(){}
   }

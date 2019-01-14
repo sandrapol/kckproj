@@ -1,0 +1,21 @@
+.cont{
+    text-align: center;
+    align-content: center;
+    width: 100%;
+    padding:2%;
+}
+header{
+    text-align: center;
+    padding: 4%;
+    padding-bottom: 1%;
+}
+.post{
+    margin-right: 3%;
+    margin-left:3%;
+}
+.one{
+    display: inline;
+}
+button{
+    margin-left:65%
+}

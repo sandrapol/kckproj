@@ -1,3 +1,4 @@
+import { CoffeeAddComponent } from './content/coffee-add/coffee-add.component';
 import { EmployeeDetailsComponent } from './content/employee-details/employee-details.component';
 import { HomeComponent } from './content/home/home.component';
 import { NgModule } from '@angular/core';
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:"customers", component: CustomerListComponent},
   {path:"customer/:id", component:CustomerDeatilsComponent},
   {path:"employee/:id",component: EmployeeDetailsComponent},
-  {path:"registration",component:RegistrationComponent}
+  {path:"registration",component:RegistrationComponent},
+  {path:"newCoffee",component: CoffeeAddComponent}
 ];
 
 @NgModule({
