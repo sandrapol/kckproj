@@ -20,6 +20,10 @@ import { RegistrationComponent } from './content/registration/registration.compo
 import { CoffeeAddComponent } from './content/coffee-add/coffee-add.component';
 import { LoginComponent } from './content/login/login.component';
 import { ForgotComponent } from './content/forgot/forgot.component';
+import { EmployeeAddComponent } from './content/employee-add/employee-add.component';
+import { CustomerAddComponent } from './content/customer-add/customer-add.component';
+import { MagazineAddComponent } from './content/magazine-add/magazine-add.component';
+import { PlantationAddComponent } from './content/plantation-add/plantation-add.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,11 @@ import { ForgotComponent } from './content/forgot/forgot.component';
     RegistrationComponent,
     CoffeeAddComponent,
     LoginComponent,
-    ForgotComponent
+    ForgotComponent,
+    EmployeeAddComponent,
+    CustomerAddComponent,
+    MagazineAddComponent,
+    PlantationAddComponent
   ],
   imports: [
     BrowserModule,

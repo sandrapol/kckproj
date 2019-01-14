@@ -1,8 +1,7 @@
 .cont{
-    text-align: center;
-    align-content: center;
     width: 100%;
     padding:2%;
+    padding-left: 10%
 }
 header{
     text-align: center;
