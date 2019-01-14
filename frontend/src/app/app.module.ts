@@ -25,6 +25,7 @@ import { CustomerAddComponent } from './content/customer-add/customer-add.compon
 import { MagazineAddComponent } from './content/magazine-add/magazine-add.component';
 import { PlantationAddComponent } from './content/plantation-add/plantation-add.component';
 import { MagazineDetailsComponent } from './content/magazine-details/magazine-details.component';
+import { PlantationDetailsComponent } from './content/plantation-details/plantation-details.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { MagazineDetailsComponent } from './content/magazine-details/magazine-de
     CustomerAddComponent,
     MagazineAddComponent,
     PlantationAddComponent,
-    MagazineDetailsComponent
+    MagazineDetailsComponent,
+    PlantationDetailsComponent
   ],
   imports: [
     BrowserModule,

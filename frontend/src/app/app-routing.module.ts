@@ -14,6 +14,7 @@ import { EmployeeListComponent } from './content/employee-list/employee-list.com
 import { BillListComponent } from './content/bill-list/bill-list.component';
 import { MagazineListComponent } from './content/magazine-list/magazine-list.component';
 import { PlantationListComponent } from './content/plantation-list/plantation-list.component';
+import { PlantationDetailsComponent } from './content/plantation-details/plantation-details.component';
 import { AboutComponent } from './content/about/about.component';
 import { CustomerListComponent } from './content/customer-list/customer-list.component';
 import { CustomerDeatilsComponent } from './content/customer-deatils/customer-deatils.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path:"customer/:id", component:CustomerDeatilsComponent},
   {path:"employee/:id",component: EmployeeDetailsComponent},
   {path:"magazine/:id",component: MagazineDetailsComponent},
+  {path:"plantation/:id",component: PlantationDetailsComponent},
   {path:"registration",component:RegistrationComponent},
   {path:"newCoffee",component: CoffeeAddComponent},
   {path:"login", component: LoginComponent},
