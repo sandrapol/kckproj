@@ -2,41 +2,54 @@ h1,h2{
     margin: 0;
     padding:1.5%;
 }
-button{
-    float:right;
-}
 .content{
+    margin-top:3%;
     margin-left: 3%;
     margin-right: 3%;
 }
-.post{
-    margin:1%;
-    background-color: rgba(29, 29, 29, 0.082);
-    filter: alpha(opacity=50);
+
+button{
+    margin-right: 2%;
+    float: right;
 }
 
 .post_title{
     text-align: center;
-    font-weight: bold;
+    font-variant: small-caps;
 }
 
 .post_text{
     text-indent: 2%;
-   width: 80%;
+   width: auto;
    padding: 1%;
-   font-size: 16px;
-   float:right;
+   display: inline-block;
 
 }
 .post_text p{
-
     margin: 0%;
 }
-
+.button_cont{
+    height: fit-content;
+    width: 100%;
+    display: initial;
+    position: relative
+}
+.lista{
+    position: relative;
+    height: auto;
+    width:100%;
+    display:inherit;
+}
+.img_cont{
+    display: inline-block;
+    min-width: 100px;
+   max-width: 14%;
+   height: 100%;
+}
 .post_img{
     min-width: 13%;
-   max-width: 14%;
-   max-height: 14%;
+   max-width: 100%;
+   max-height: 100%;
    min-height: 13%;
    float: left;
 }
@@ -48,4 +61,7 @@ button{
 .price{
     padding-bottom:1%;
      padding-right:1%
+}
+header{
+    width: 100%;
 }

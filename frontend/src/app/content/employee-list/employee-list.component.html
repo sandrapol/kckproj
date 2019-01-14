@@ -1,6 +1,8 @@
 <div class="content">
-    <button routerLink="/newEmployee">Dodaj pracownika</button>
-  <div *ngFor="let employee of employeeList">
+    <div class="button_cont">.
+        <button routerLink="/newEmployee">Dodaj pracownika</button>
+      </div>
+  <div class="lista" *ngFor="let employee of employeeList">
     <article class="post" (click)="showDetails(employee.id)">
       <header>
         <h2 class="post_title">{{employee.forename}} {{employee.name}}</h2>
