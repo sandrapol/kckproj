@@ -1,27 +1,26 @@
 <div class="content">
-    <div class="button_cont">.
-        <button routerLink="/newEmployee">Dodaj pracownika</button>
-      </div>
+  <div class="button_cont">.
+    <button routerLink="/newCustomer">Dodaj klienta</button>
+  </div>
   <div class="lista" *ngFor="let employee of employeeList">
     <article class="post" (click)="showDetails(employee.id)">
       <header>
         <h2 class="post_title">{{employee.forename}} {{employee.name}}</h2>
       </header>
-      <div class="img_cont">
-      <img class="post_img" src="https://i.wpimg.pl/730x0/m.gadzetomania.pl/enhanced-buzz-16839-1297-548d0f9.jpg">
+      <div class="cont">
+        <div class="img_cont">
+          <img class="post_img" src="https://i.wpimg.pl/730x0/m.gadzetomania.pl/enhanced-buzz-16839-1297-548d0f9.jpg">
+        </div>
+        <div class="post_text">
+          <p><b>Identyfikator: </b> {{employee.id}}</p>
+          <p><b>Stanowisko: </b> {{employee.position}}</p>
+          <p><b>Imie: </b> {{employee.forename}}</p>
+          <p><b>Nazwisko: </b> {{employee.name}}</p>
+          <p><b>Pensja: </b> {{employee.salary}}</p>
+          <p><b>Premia:</b> {{employee.bonus}}</p>
+          <p><b>Etat:</b> {{employee.regularPost}}</p>
+        </div>
       </div>
-      <div class="post_text">
-        <p><b>Identyfikator: </b> {{employee.id}}</p>
-        <p><b>Stanowisko: </b> {{employee.position}}</p>
-        <p><b>Imie: </b> {{employee.forename}}</p>
-        <p><b>Nazwisko: </b> {{employee.name}}</p>
-        <p><b>Pensja: </b> {{employee.salary}}</p>
-        <p><b>Premia:</b> {{employee.bonus}}</p>
-        <p><b>Etat:</b> {{employee.regularPost}}</p>
-      </div>
-
-      <footer class="post_date">
-          <p class="price"></p>
-        </footer>
     </article>
   </div>
+</div>
