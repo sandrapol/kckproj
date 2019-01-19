@@ -8,7 +8,9 @@ import java.util.List;
 public class Plantation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
+    @Column(name="Name")
+    private String name;
     @Column(name="Country")
     private String Country;
     @Column(name="Region")
@@ -18,6 +20,14 @@ public class Plantation {
     @OneToMany(mappedBy="plantation")
     private List<Delivery> deliveries;
     public Plantation() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public long getId() {

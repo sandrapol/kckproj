@@ -26,6 +26,8 @@ import { MagazineAddComponent } from './content/magazine-add/magazine-add.compon
 import { PlantationAddComponent } from './content/plantation-add/plantation-add.component';
 import { MagazineDetailsComponent } from './content/magazine-details/magazine-details.component';
 import { PlantationDetailsComponent } from './content/plantation-details/plantation-details.component';
+import { LoadingComponent } from './content/loading/loading.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -53,11 +55,13 @@ import { PlantationDetailsComponent } from './content/plantation-details/plantat
     MagazineAddComponent,
     PlantationAddComponent,
     MagazineDetailsComponent,
-    PlantationDetailsComponent
+    PlantationDetailsComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

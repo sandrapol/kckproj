@@ -8,7 +8,7 @@ import java.util.List;
 public class RegularPost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column
     private double startTime;
     @Column

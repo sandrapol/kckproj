@@ -8,7 +8,9 @@ import java.util.List;
 public class Magazine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
+    @Column
+    private String name;
     @Column
     private boolean coffeeAvailability;
     @Column
@@ -23,6 +25,14 @@ public class Magazine {
     public Magazine(boolean coffeeAvailability, double supply) {
         this.coffeeAvailability = coffeeAvailability;
         this.supply = supply;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public long getId() {

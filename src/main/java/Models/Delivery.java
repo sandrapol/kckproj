@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Delivery {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column
     private String conveyance;
     @ManyToOne

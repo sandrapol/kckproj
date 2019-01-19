@@ -8,7 +8,7 @@ import java.util.List;
 public class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(name="netValue")
     private double netValue;
     @Column(name="grossValue")

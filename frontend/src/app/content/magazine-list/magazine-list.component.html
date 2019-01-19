@@ -1,10 +1,12 @@
-<div class="content">
-    <div class="button_cont">.
+<div *ngIf="loading">
+  <app-loading></app-loading>
+</div>
+<div *ngIf="!loading" class="content">
+    <div class="button_cont">
         <button routerLink="/newCoffee">Dodaj magazyn</button>
       </div>
-  
     <div class="lista" *ngFor="let magazine of magazineList">
-      <article class="post" (click)="showDetails(magazine.id)">
+      <article class="post">
         <header>
           <h2 class="post_title">{{magazine.name}}</h2>
         </header>

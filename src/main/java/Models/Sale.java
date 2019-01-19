@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Sale {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column
     private double quantityInKg;
     @Column

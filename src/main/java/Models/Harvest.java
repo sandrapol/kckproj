@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Harvest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column
     private String guality;
     @Column
