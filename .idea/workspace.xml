@@ -2,44 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa1899a2-870d-449a-9716-0a6d3697540a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/DBGeneric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/main/java/DAO/DBGeneric.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/main/java/Utils/HibernateUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/content/magazine-add/magazine-add.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/content/magazine-add/magazine-add.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/content/magazine-list/magazine-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/content/magazine-list/magazine-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/content/magazine-list/magazine-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/content/magazine-list/magazine-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/magazine.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/magazine.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/BillController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/CoffeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/CoffeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/HibernateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Coffee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Delivery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Delivery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Harvest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Harvest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Magazine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Plantation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Plantation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/RegularPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/RegularPost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Sale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Time.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Projekt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projekt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Controllers/CoffeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Controllers/CoffeeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/HibernateUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Models/Bill.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Models/Bill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Models/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Models/City.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Models/Coffee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Models/Coffee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Models/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Models/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Models/Delivery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Models/Delivery.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Models/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Models/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Models/Harvest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Models/Harvest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Models/Magazine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Models/Magazine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Models/Payment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Models/Payment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Models/Plantation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Models/Plantation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Models/RegularPost.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Models/RegularPost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Models/Sale.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Models/Sale.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Models/Time.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Models/Time.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Projekt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Projekt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/MagazineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/MagazineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Controllers/MagazineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Controllers/MagazineController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -132,26 +105,26 @@
     <session id="-506828085">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="71" />
-          <entry key="xml" value="3" />
+          <entry key="java" value="78" />
+          <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Enforced Plain Text" value="1" />
-          <entry key="JAVA" value="71" />
+          <entry key="Enforced Plain Text" value="2" />
+          <entry key="JAVA" value="78" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="503" />
+          <entry key="java" value="788" />
           <entry key="xml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="503" />
+          <entry key="JAVA" value="788" />
           <entry key="XML" value="6" />
         </counts>
       </usages-collector>
@@ -160,13 +133,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CustomerController.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="340">
+              <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -174,8 +144,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Models/Magazine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="180">
+              <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#708#709#0" expanded="true" />
@@ -187,14 +157,92 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/MagazineController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="38" column="35" lean-forward="true" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+            <state relative-caret-position="282">
+              <caret line="48" column="5" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="48" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/PlantationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/BillController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="45" column="13" lean-forward="true" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CityController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CoffeeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/RegularPostController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Models/Coffee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Models/Payment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -220,7 +268,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Models/TestModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/Repos/TestRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/Models/HarvestModel.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Models/Bill.java" />
         <option value="$PROJECT_DIR$/src/main/java/Models/City.java" />
         <option value="$PROJECT_DIR$/src/main/java/Models/Coffee.java" />
@@ -235,21 +282,22 @@
         <option value="$PROJECT_DIR$/src/main/java/DAO/DBGeneric.java" />
         <option value="$PROJECT_DIR$/src/main/java/Projekt.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/ResponseFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Controllers/CoffeeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/CustomerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/CityController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Controllers/BillController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/DeliveryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/HarvestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/PaymentController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Controllers/PlantationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/RegularPostController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/SaleController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/EmployeeController.java" />
         <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Models/Plantation.java" />
         <option value="$PROJECT_DIR$/src/main/java/Models/Magazine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Controllers/PlantationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/MagazineController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/Controllers/CoffeeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Controllers/BillController.java" />
       </list>
     </option>
   </component>
@@ -282,7 +330,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -329,6 +377,14 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="kckproj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kckproj" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -344,7 +400,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547908976668" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547921775719" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -415,7 +471,7 @@
     <option name="totallyTimeSpent" value="25562000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25567323" />
@@ -525,13 +581,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Models/Coffee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Models/Customer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -561,13 +610,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Models/Harvest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Models/Payment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
@@ -645,26 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/RegularPostController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/PlantationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/PaymentController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -692,33 +714,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CoffeeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="19" selection-start-line="19" selection-end-line="23" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/BillController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="145" column="10" selection-start-line="145" selection-start-column="10" selection-end-line="145" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -753,16 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CustomerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
@@ -773,10 +758,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Models/Coffee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Models/Magazine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="180">
+          <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#708#709#0" expanded="true" />
@@ -787,10 +779,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Models/Payment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/PlantationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CoffeeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/RegularPostController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/MagazineController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="38" column="35" lean-forward="true" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+        <state relative-caret-position="282">
+          <caret line="48" column="5" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="48" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/BillController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="45" column="13" lean-forward="true" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
