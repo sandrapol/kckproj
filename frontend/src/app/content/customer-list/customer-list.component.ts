@@ -1,6 +1,6 @@
 import { Customer } from './../../statics/customer';
 import { Component, OnInit } from '@angular/core';
-import { CustomerService } from 'src/app/statics/mCustomer';
+import { CustomerService } from 'src/app/services/customer.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,12 +9,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
-  private custServ= new CustomerService();
-  private customerList:Customer[]= this.custServ.CustomerList;
+  private customerList:any;
+  loading:boolean= true;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private serv: CustomerService) { }
 
   ngOnInit() {
+    this.serv.getCustomerList().subscribe(
+      elem=> this.customerList= elem,
+      err=> console.log(err),
+      ()=> this.loading=false
+    )
   }
   showDetails(id:number){
     this.router.navigateByUrl("/customer/"+id);

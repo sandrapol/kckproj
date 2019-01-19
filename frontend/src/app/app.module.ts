@@ -28,6 +28,7 @@ import { MagazineDetailsComponent } from './content/magazine-details/magazine-de
 import { PlantationDetailsComponent } from './content/plantation-details/plantation-details.component';
 import { LoadingComponent } from './content/loading/loading.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BillDetailsComponent } from './content/bill-details/bill-details.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { HttpClientModule } from '@angular/common/http';
     PlantationAddComponent,
     MagazineDetailsComponent,
     PlantationDetailsComponent,
-    LoadingComponent
+    LoadingComponent,
+    BillDetailsComponent
   ],
   imports: [
     BrowserModule,

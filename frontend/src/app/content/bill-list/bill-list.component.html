@@ -1,22 +1,33 @@
-<div class="content">
-    <div *ngFor="let bill of billList">
-      <article class="post" (click)="showDetails(bill.id)">
-        <header>
-          <h2 class="post_title">{{bill.forename}} {{bill.name}}</h2>
-        </header>
-        <img class="post_img" src="https://i.wpimg.pl/730x0/m.gadzetomania.pl/enhanced-buzz-16839-1297-548d0f9.jpg">
-        <div class="post_text">
-          <p><b>Identyfikator: </b> {{bill.id}}</p>
-          <p><b>Stanowisko: </b> {{employee.position}}</p>
-          <p><b>Imie: </b> {{employee.forename}}</p>
-          <p><b>Nazwisko: </b> {{employee.name}}</p>
-          <p><b>Pensja: </b> {{employee.salary}}</p>
-          <p><b>Premia:</b> {{employee.bonus}}</p>
-          <p><b>Etat:</b> {{employee.regularPost}}</p>
+<div *ngIf="loading">
+    <app-loading></app-loading>
+  </div>
+<div *ngIf="!loading" class="content">
+  <div class="button_cont">.
+    <button routerLink="/newCustomer">Dodaj paragon</button>
+  </div>
+  <div class="lista" *ngFor="let customer of customerList">
+    <article class="post">
+      <header>
+        <h2 class="post_title">{{bill.id}} </h2>
+      </header>
+      <div class="block">
+      <div class="img_cont">
+      <img class="post_img" src="https://www.kasybielsko.pl/wp-content/uploads/2014/04/Paragon-Fiskalny-300x209.jpg">
+      </div>
+      <div class="post_text">
+        <p><b>Wartosc netto: </b> {{bill.netValue}}</p>
+        <p><b>Wartosc brutto: </b> {{bill.grossValue}}</p>
+        <p><b>Wysokosc VAT: </b> {{bill.vatValue}}</p>
+        <p><b>Zniżka: </b> {{bill.discount}}</p>
+      </div>
+
+      <footer class="post_date">
+        <p class="price"></p>
+      </footer>
+      <div class="images">
+          <img class="delete" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png">
+          <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
         </div>
-  
-        <footer class="post_date">
-            <p class="price"></p>
-          </footer>
-      </article>
-    </div>
+      </div>
+    </article>
+  </div>

@@ -13,6 +13,23 @@ button{
     float: right;
 }
 
+.images{
+    display: inline;
+    align-content: right;
+    clear: both;
+}
+
+.delete{
+    display: inline-block;
+    width: 3%;
+    height: 3%;
+    clear: both;
+}
+
+.block{
+    display: inline-block;
+}
+
 .post_title{
     text-align: center;
     font-variant: small-caps;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  CoffeeService } from 'src/app/statics/mCoffee';
+import {  CoffeeService } from 'src/app/services/coffee.service';
 import { Coffee } from 'src/app/statics/coffe';
 import { Router } from '@angular/router';
 
@@ -9,11 +9,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./coffe-list.component.css']
 })
 export class CoffeListComponent implements OnInit {
-  private cofServ= new CoffeeService();
-  private coffeeList:Coffee[]= this.cofServ.CoffeeList;
-  constructor(private router: Router, ) { }
+  private coffeeList:any;
+  loading:boolean= true;
+
+  constructor(private router: Router, private serv: CoffeeService ) { }
 
   ngOnInit() {
+    this.serv.getCoffeeList().subscribe(
+      elem=> this.coffeeList= elem,
+      err=> console.log(err),
+      ()=> this.loading=false
+    )
   }
   showDetails(id:number){
     this.router.navigateByUrl("/details/"+id);

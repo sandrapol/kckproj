@@ -7,6 +7,10 @@
     max-height: 50%;
     align-self: center
 }
+
+
+
+
 .main{
     text-align: center;
     align-content: center;
@@ -27,4 +31,15 @@
 .name{
     padding-top:3%;
     font-size: 300%;
+}
+
+.block img{
+    float: right;
+  width: 3%;
+  height: 3%;
+}
+.block h2{
+position: relative;
+  top: 18px;
+  left: 10px;
 }

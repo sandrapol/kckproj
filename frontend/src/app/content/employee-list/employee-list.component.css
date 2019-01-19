@@ -41,6 +41,25 @@ button{
     display:inherit;
     margin-top: 35px;
 }
+.images{
+    float: right;
+    display: inline;
+    width: fit-content;
+    align-content: right;
+    clear: both;
+}
+
+.delete{
+    display: inline-block;
+    float: right;
+    width: 3%;
+    height: 3%;
+    clear: both;
+}
+
+.block{
+    display: inline-block;
+}
 .img_cont{
     display: inline-block;
     min-width: 100px;
