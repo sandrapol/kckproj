@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/projekt</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.pool_size">10</property>
+        <property name="show_sql">false</property>
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">create</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <mapping class="main.java.Models.Plantation"/>
+        <mapping class="main.java.Models.Harvest"/>
+        <mapping class="main.java.Models.Time"/>
+        <mapping class="main.java.Models.Sale"/>
+        <mapping class="main.java.Models.RegularPost"/>
+        <mapping class="main.java.Models.Payment"/>
+        <mapping class="main.java.Models.Magazine"/>
+        <mapping class="main.java.Models.Employee"/>
+        <mapping class="main.java.Models.Delivery"/>
+        <mapping class="main.java.Models.Customer"/>
+        <mapping class="main.java.Models.Coffee"/>
+        <mapping class="main.java.Models.Coffee"/>
+        <mapping class="main.java.Models.City"/>
+        <mapping class="main.java.Models.Bill"/>
+    </session-factory>
+</hibernate-configuration>
