@@ -46,5 +46,5 @@ public class MagazineController {
             ResponseFactory.ResponseError("Failed", "Cannot add magazine");
         }
         return ResponseEntity.ok().header("Success").build();
-    }
+    }@
 }

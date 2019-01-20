@@ -34,4 +34,20 @@ public class CityController{
         }
         return ResponseEntity.ok(cityList);
     }
+    @RequestMapping(value = "/addCity")
+    public ResponseEntity<String> addPlantation(String mName,
+                                                String mVovoideship,
+                                                int mZipCde) {
+        City city= new City();
+        city.setName(mName);
+        city.setVoivodeship(mVovoideship);
+        city.setZIPcode(mZipCde);
+
+        try {
+            repo.create(city);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot add city");
+        }
+        return ResponseEntity.ok().header("Success").build();
+    }
 }

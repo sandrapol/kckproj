@@ -27,16 +27,26 @@ public class RegularPostController {
     @RequestMapping(value = "/regularPostList")
     public ResponseEntity<List<RegularPost>> upload() {
         List regularPostList;
-        /*coffee.setType("ziarnista");
-        coffee.setSpecies("arabica");
-        coffee.setPrice(101);
-        coffee.setName("kawka");
-        repo.create(coffee);*/
         try {
             regularPostList = repo.getAll(regularPost);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }
         return ResponseEntity.ok(regularPostList);
+    }
+    @RequestMapping(value = "/addRegularPost")
+    public ResponseEntity<String> addRegularPost(int mDaysnumber,
+                                                double mEndTime,
+                                                double mStartTime) {
+        RegularPost regularPost= new RegularPost();
+        regularPost.setDaysNumber(mDaysnumber);
+        regularPost.setEndTime(mEndTime);
+        regularPost.setStartTime(mStartTime);
+        try {
+            repo.create(regularPost);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot add regular post");
+        }
+        return ResponseEntity.ok().header("Success").build();
     }
 }

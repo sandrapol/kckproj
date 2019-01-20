@@ -6,6 +6,7 @@ import main.java.DAO.DBGeneric;
 import main.java.Models.Bill;
 import main.java.Models.Coffee;
 import main.java.Models.Harvest;
+import main.java.Models.Magazine;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -33,5 +34,19 @@ public class HarvestController {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }
         return ResponseEntity.ok(harvestList);
+    }
+    @RequestMapping(value = "/addHarvest")
+    public ResponseEntity<String> addHarvest(String mQuality,
+                                             double mQuantity) {
+
+       Harvest harvest= new Harvest();
+        harvest.setGuality(mQuality);
+        harvest.setQuantity(mQuantity);
+        try {
+            repo.create(harvest);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot add harvest");
+        }
+        return ResponseEntity.ok().header("Success").build();
     }
 }

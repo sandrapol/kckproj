@@ -6,6 +6,7 @@ import main.java.DAO.DBGeneric;
 import main.java.Models.Bill;
 import main.java.Models.Coffee;
 import main.java.Models.Delivery;
+import main.java.Models.Plantation;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -33,5 +34,16 @@ public class DeliveryController {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }
         return ResponseEntity.ok(deliveryList);
+    }
+    @RequestMapping(value = "/addDelivery")
+    public ResponseEntity<String> addDelivery(String mConveyance) {
+        Delivery delivery= new Delivery();
+        delivery.setConveyance(mConveyance);
+        try {
+            repo.create(delivery);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot add delivery");
+        }
+        return ResponseEntity.ok().header("Success").build();
     }
 }

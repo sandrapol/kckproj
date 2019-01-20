@@ -36,21 +36,17 @@ public class PlantationController {
     }
     @RequestMapping(value = "/addPlantation")
     public ResponseEntity<String> addPlantation(String mName,
-                                              String mForename,
-                                              String mPosition,
-                                              double mSalary,
-                                              double mBonus) {
-        Plantation employee= new Plantation();
-        employee.setName(mName);
-        employee.setSalary(mSalary);
-        employee.setPosition(mPosition);
-        employee.setBonus(mBonus);
-        employee.setForename(mForename);
+                                              String mCountry,
+                                              String mRegion) {
+       Plantation plantation= new Plantation();
+        plantation.setName(mName);
+        plantation.setCountry(mCountry);
+        plantation.setRegion(mRegion);
 
         try {
-            repo.create(employee);
+            repo.create(plantation);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot add employee");
+            ResponseFactory.ResponseError("Failed", "Cannot add plantation");
         }
         return ResponseEntity.ok().header("Success").build();
     }

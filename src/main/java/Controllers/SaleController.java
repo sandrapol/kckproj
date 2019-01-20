@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import main.java.DAO.DBGeneric;
 import main.java.Models.Bill;
 import main.java.Models.Coffee;
+import main.java.Models.Plantation;
 import main.java.Models.Sale;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,17 @@ public class SaleController {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }
         return ResponseEntity.ok(saleList);
+    }
+    @RequestMapping(value = "/addSale")
+    public ResponseEntity<String> addSale(double mQuantity,double mHowMuch){
+
+        Sale sale= new Sale();
+        sale.setQuantityInKg(mQuantity);
+        try {
+            repo.create(sale);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot add sale");
+        }
+        return ResponseEntity.ok().header("Success").build();
     }
 }

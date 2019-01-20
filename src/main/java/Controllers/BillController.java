@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RestController
@@ -33,5 +34,20 @@ public class BillController {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }
         return ResponseEntity.ok(billList);
+    }
+
+    @RequestMapping(value = "/addBill")
+    public ResponseEntity<String> addBill(double mDiscount, double mGrossValue) {
+        Bill bill = new Bill();
+        bill.setDiscount(mDiscount);
+        bill.setGrossValue(mGrossValue);
+        bill.setNetValue(mGrossValue * (0.77));
+        bill.setVatValue(mGrossValue * (0.23));
+        try {
+            repo.create(bill);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot add bill");
+        }
+        return ResponseEntity.ok().header("Success").build();
     }
 }
