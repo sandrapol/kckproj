@@ -1,6 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MagazineService } from 'src/app/statics/mMagazine';
+import { MagazineService } from 'src/app/services/magazine.service';
 import { Magazine } from 'src/app/statics/magazine';
 
 @Component({
@@ -10,10 +11,9 @@ import { Magazine } from 'src/app/statics/magazine';
 })
 export class MagazineAddComponent implements OnInit {
 
-  magazineServ = new MagazineService();
   magazine: Magazine = new Magazine();
   error: boolean;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private serv: MagazineService) { }
 
   ngOnInit() {
   }
@@ -37,9 +37,13 @@ export class MagazineAddComponent implements OnInit {
         this.magazine.coffeeAvailability = false;
       else
         this.magazine.coffeeAvailability = true;
-      this.magazineServ.addMagazine(this.magazine);
+        this.serv.addMagazine(this.magazine).subscribe(
+        elem=> console.log(elem),
+        err=> console.log(err),
+          ()=> this.router.navigateByUrl("/magazines")
+      );
       console.log(this.magazine);
-      this.router.navigateByUrl("/magazines");
+     
     }
   }
 

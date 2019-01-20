@@ -1,6 +1,5 @@
 import { Customer } from './../../statics/customer';
 import { Component, OnInit } from '@angular/core';
-import { CoffeeService } from 'src/app/statics/mCoffee';
 import { Coffee } from 'src/app/statics/coffe';
 import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/statics/mCustomer';

@@ -25,7 +25,7 @@ public class MagazineController {
     private Magazine magazine = new Magazine();
 
     @RequestMapping(value = "/magazineList")
-    public ResponseEntity<List<Magazine>> upload() {
+    public ResponseEntity<List<Magazine>> getMagazines() {
         List magazineList;
         try {
             magazineList = repo.getAll(magazine);
@@ -34,17 +34,17 @@ public class MagazineController {
         }
         return ResponseEntity.ok(magazineList);
     }
-    @RequestMapping(value = "/create")
-    public String make() {
+    @RequestMapping(value = "/addMagazine")
+    public ResponseEntity<String> addMagazine(String mName, double mSupply, boolean mAvailability) {
         Magazine magazine= new Magazine();
-        magazine.setCoffeeAvailability(true);
-        magazine.setSupply(100);
-        magazine.setName("Magazyn");
+        magazine.setCoffeeAvailability(mAvailability);
+        magazine.setSupply(mSupply);
+        magazine.setName(mName);
         try {
             repo.create(magazine);
         } catch (Exception ex) {
-            return "nie ok";
+            ResponseFactory.ResponseError("Failed", "Cannot add magazine");
         }
-        return "ok";
+        return ResponseEntity.ok().header("Successful upload files to S3").build();
     }
 }
