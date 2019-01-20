@@ -1,24 +1,30 @@
-<div class="content">
+<div *ngIf="loading">
+    <app-loading></app-loading>
+  </div>
+<div *ngIf="!loading" class="content">
   <div class="button_cont">.
     <button routerLink="/newCoffee">Dodaj kawę</button>
   </div>
   <div class="lista" *ngFor="let coffee of coffeeList">
-    <article class="post" (click)="showDetails(coffee.id)">
+    <article class="post">
       <header>
         <h2 class="post_title">{{coffee.name}}</h2>
       </header>
+      <div class="block">
       <div class="img_cont">
-        <img class="post_img" src="assets/images/logo.jpg">
+        <img class="post_img" src="https://globalassets.starbucks.com/assets/0595caa8dc55485fab9de5dc5f9800ac.jpg">
       </div>
       <div class="post_text">
-        <p><b>Kraj pochodzenia: </b> {{coffee.origin}}</p>
+        <p class="origin"><b>Gatunek:</b> {{coffee.species}}</p>
         <p><b>Typ: </b> {{coffee.type}}</p>
-        <p><b>Opis:</b></p>
-        <p>{{coffee.description}}</p>
+        <p class="price"><b>Cena:</b>{{coffee.price}} zl/kg</p>
+      </div>
+          
+        <div class="images">
+          <img class="delete" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png">
+          <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
+        </div>
       </div>
 
-      <footer class="post_date">
-        <p class="price"><b>Cena:</b>{{coffee.price}} zl/kg</p>
-      </footer>
     </article>
   </div>

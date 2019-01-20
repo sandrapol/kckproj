@@ -15,7 +15,7 @@
     <resource url="http://www.hibernate.org/dtd/hibernate-configuration" location="$USER_HOME$/.IntelliJIdea2018.2/system/extResources/9af1d8d0_hibernate-configuration.html" />
     <resource url="http://www.hibernate.org/dtd/hibernate-configuration.dtd" location="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
