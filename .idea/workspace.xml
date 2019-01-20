@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="887abad0-4adb-44f2-9c9f-3073766e178e" name="Default Changelist" comment="">
-<<<<<<< Updated upstream
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/CoffeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/CoffeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/MagazineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/MagazineController.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/content/employee-add/employee-add.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/content/employee-add/employee-add.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/content/employee-add/employee-add.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/content/employee-add/employee-add.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/employee.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/employee.service.ts" afterDir="false" />
->>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/PlantationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/PlantationController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -111,26 +100,26 @@
     <session id="-506828085">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="73" />
+          <entry key="java" value="74" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Enforced Plain Text" value="1" />
-          <entry key="JAVA" value="73" />
+          <entry key="JAVA" value="74" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="767" />
+          <entry key="java" value="793" />
           <entry key="xml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="767" />
+          <entry key="JAVA" value="793" />
           <entry key="XML" value="6" />
         </counts>
       </usages-collector>
@@ -202,34 +191,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/PlantationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CustomerController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
               <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
-=======
-            <state relative-caret-position="197">
-              <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
->>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Projekt.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CoffeeController.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-            <state relative-caret-position="181">
-              <caret line="39" column="2" selection-start-line="39" selection-start-column="2" selection-end-line="55" selection-end-column="5" />
+            <state relative-caret-position="198">
+              <caret line="40" column="51" lean-forward="true" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -334,7 +321,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Controllers/DeliveryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/HarvestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/PaymentController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Controllers/PlantationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/RegularPostController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/SaleController.java" />
         <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
@@ -344,6 +330,7 @@
         <option value="$PROJECT_DIR$/src/main/java/Controllers/MagazineController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/EmployeeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/CustomerController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Controllers/PlantationController.java" />
       </list>
     </option>
   </component>
@@ -521,7 +508,6 @@
   <component name="ToolWindowManager">
 <<<<<<< Updated upstream
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25945538" />
 =======
@@ -696,13 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/PlantationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/PaymentController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -863,22 +842,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CoffeeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="39" column="2" selection-start-line="39" selection-start-column="2" selection-end-line="55" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/java/Models/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/EmployeeController.java">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< Updated upstream
@@ -897,11 +860,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Models/Plantation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/PlantationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
->>>>>>> Stashed changes
+        <state relative-caret-position="119">
+          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CoffeeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="40" column="51" lean-forward="true" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

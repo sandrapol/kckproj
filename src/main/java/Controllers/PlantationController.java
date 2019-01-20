@@ -34,4 +34,24 @@ public class PlantationController {
         }
         return ResponseEntity.ok(plantationList);
     }
+    @RequestMapping(value = "/addPlantation")
+    public ResponseEntity<String> addPlantation(String mName,
+                                              String mForename,
+                                              String mPosition,
+                                              double mSalary,
+                                              double mBonus) {
+        Plantation employee= new Plantation();
+        employee.setName(mName);
+        employee.setSalary(mSalary);
+        employee.setPosition(mPosition);
+        employee.setBonus(mBonus);
+        employee.setForename(mForename);
+
+        try {
+            repo.create(employee);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot add employee");
+        }
+        return ResponseEntity.ok().header("Success").build();
+    }
 }
