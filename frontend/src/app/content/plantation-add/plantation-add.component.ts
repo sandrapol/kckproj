@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Coffee } from 'src/app/statics/coffe';
 import { Router } from '@angular/router';
-import { PlantationService } from 'src/app/statics/mPlantations';
+import { PlantationService } from 'src/app/services/plantation.service';
 import { Plantation } from 'src/app/statics/plantation';
 
 @Component({
@@ -11,10 +10,9 @@ import { Plantation } from 'src/app/statics/plantation';
 })
 export class PlantationAddComponent implements OnInit {
 
-  plantServ=new PlantationService();
   plantation:Plantation= new Plantation();
   error:boolean;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private serv: PlantationService) { }
 
   ngOnInit() {
   }
@@ -37,10 +35,13 @@ export class PlantationAddComponent implements OnInit {
   }
   
   submit(){
-    if(!this.error){
-      this.plantServ.addCoffee(this.plantation);
-      console.log(this.plantation);
-      this.router.navigateByUrl("/plantations");
+    if (!this.error) {
+      this.serv.addPlantation(this.plantation).subscribe(
+        elem=>console.log(elem),
+        err=>console.log(err),
+        ()=> this.router.navigateByUrl("/plantations")
+      );
+     
     }
   }
 }

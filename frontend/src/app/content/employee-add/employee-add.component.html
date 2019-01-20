@@ -6,40 +6,34 @@
   <div class="cont">
     <div class="one">
       <p class="one"><b>Imie: </b> &nbsp; </p>
-      <input class="one" placeholder="____________" type="text" required #fbox (keyup)="setForename(fbox.value)"><br>
+      <input class="one" placeholder="Imie" type="text" required #fbox (keyup)="setForename(fbox.value)"><br>
     </div>
   </div>
   <div class="cont">
     <div class="one">
       <p class="one"><b>Nazwisko: </b> &nbsp; </p>
-      <input class="one" placeholder="____________" type="text" required #nbox (keyup)="setName(nbox.value)"><br>
+      <input class="one" placeholder="Nazwisko" type="text" required #nbox (keyup)="setName(nbox.value)"><br>
     </div>
   </div>
   <div class="cont">
     <div class="one">
       <p class="one"><b>Stanowisko: </b> &nbsp; </p>
-      <input class="one" placeholder="____________" type="text" required #pbox (keyup)="setPosition(pbox.value)"><br>
+      <input class="one" placeholder="Stanowisko" type="text" required #pbox (keyup)="setPosition(pbox.value)"><br>
     </div>
   </div>
   <div class="cont">
     <div class="one">
       <p class="one"><b>Zarobki: </b> &nbsp; </p>
-      <input class="one" placeholder="____________" type="number" required #sabox (mouseup)="setSalary(sabox.value)"
+      <input class="one" placeholder="Zarobki" type="number" required #sabox (mouseup)="setSalary(sabox.value)"
         (keyup)="setParam(sabox.value)"><br>
     </div>
   </div>
   <div class="cont">
     <div class="one">
       <p class="one"><b>Bonus: </b> &nbsp; </p>
-      <input class="one" placeholder="____________" type="number" required #bbox (mouseup)="setBonus(bbox.value)"
+      <input class="one" placeholder="Bonus" type="number" required #bbox (mouseup)="setBonus(bbox.value)"
         (keyup)="setParam(bbox.value)"><br>
-    </div>
-  </div>
-  <div class="cont">
-    <div class="one">
-      <p class="one"><b>Etat: </b> &nbsp; </p>
-      <input class="one" placeholder="____________" type="text" required #box (keyup)="setPost(box.value)"><br>
-      <button (click)="submit()">Zatwierdź</button>
+        <button (click)="submit()">Zatwierdź</button>
     </div>
   </div>
 </div>

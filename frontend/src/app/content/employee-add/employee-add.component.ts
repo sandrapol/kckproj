@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Coffee } from 'src/app/statics/coffe';
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/statics/employee';
-import { EmployeeService } from 'src/app/statics/mEployee';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-employee-add',
@@ -10,11 +10,9 @@ import { EmployeeService } from 'src/app/statics/mEployee';
   styleUrls: ['./employee-add.component.css']
 })
 export class EmployeeAddComponent implements OnInit {
-
-  employeeServ=new EmployeeService();
   employee:Employee= new Employee();
   error:boolean;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private serv: EmployeeService) { }
 
   ngOnInit() {
   }
@@ -36,12 +34,6 @@ export class EmployeeAddComponent implements OnInit {
     if(this.employee.position.length<1)
     this.error=true;
   }
-  setPost(value){
-    this.employee.regularPost=value;
-    this.error=false;
-    if(this.employee.regularPost.length<1)
-    this.error=true;
-  }
 
   setSalary(value){
     if(Number(value)>0){
@@ -60,10 +52,13 @@ export class EmployeeAddComponent implements OnInit {
     this.error=true;
   }
   submit(){
-    if(!this.error){
-      this.employeeServ.addEmployee(this.employee);
-      console.log(this.employee);
-      this.router.navigateByUrl("/employees");
+    if (!this.error) {
+      this.serv.addEmployee(this.employee).subscribe(
+        elem=>console.log(elem),
+        err=>console.log(err),
+        ()=> this.router.navigateByUrl("/employees")
+      );
+     
     }
   }
 
