@@ -50,4 +50,14 @@ public class CityController{
         }
         return ResponseEntity.ok().header("Success").build();
     }
+    @RequestMapping(value = "/detailsCity")
+    public ResponseEntity<City> getCityById(Long id) {
+        City details= null;
+        try {
+            details=repo.getById(id,city);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot find coffee");
+        }
+        return ResponseEntity.ok(details);
+    }
 }

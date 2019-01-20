@@ -50,4 +50,14 @@ public class BillController {
         }
         return ResponseEntity.ok().header("Success").build();
     }
+    @RequestMapping(value = "/detailsBill")
+    public ResponseEntity<Bill> getBillById(Long id) {
+        Bill details= null;
+        try {
+            details=repo.getById(id,bill);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot find bill");
+        }
+        return ResponseEntity.ok(details);
+    }
 }
