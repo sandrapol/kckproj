@@ -54,4 +54,14 @@ public class CoffeeController {
         }
         return ResponseEntity.ok().header("Success").build();
     }
+    @RequestMapping(value = "/detailsCoffee")
+    public ResponseEntity<Coffee> getCoffeeById(Long id) {
+        Coffee details= null;
+        try {
+            details=repo.getById(id,coffee);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot find coffee");
+        }
+        return ResponseEntity.ok(details);
+    }
 }

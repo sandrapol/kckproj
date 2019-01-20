@@ -50,4 +50,14 @@ public class PlantationController {
         }
         return ResponseEntity.ok().header("Success").build();
     }
+    @RequestMapping(value = "/detailsPlantation")
+    public ResponseEntity<Plantation> getSaleById(Long id) {
+        Plantation plantationDetails= null;
+        try {
+            plantationDetails=repo.getById(id,plantation);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot find magazine");
+        }
+        return ResponseEntity.ok(plantationDetails);
+    }
 }

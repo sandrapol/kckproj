@@ -49,4 +49,14 @@ public class PaymentController {
         }
         return ResponseEntity.ok().header("Success").build();
     }
+    @RequestMapping(value = "/detailsPayment")
+    public ResponseEntity<Payment> getPaymentById(Long id) {
+        Payment details= null;
+        try {
+            details=repo.getById(id,payment);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot find payment");
+        }
+        return ResponseEntity.ok(details);
+    }
 }

@@ -46,4 +46,14 @@ public class DeliveryController {
         }
         return ResponseEntity.ok().header("Success").build();
     }
+    @RequestMapping(value = "/detailsDelivery")
+    public ResponseEntity<Delivery> getDeliveryById(Long id) {
+        Delivery details= null;
+        try {
+            details=repo.getById(id,delivery);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot find delivery");
+        }
+        return ResponseEntity.ok(details);
+    }
 }

@@ -54,4 +54,14 @@ public class CustomerController {
         }
         return ResponseEntity.ok().header("Success").build();
     }
+    @RequestMapping(value = "/detailsCustomer")
+    public ResponseEntity<Customer> getCustomerById(Long id) {
+        Customer details= null;
+        try {
+            details=repo.getById(id,customer);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot find customer");
+        }
+        return ResponseEntity.ok(details);
+    }
 }

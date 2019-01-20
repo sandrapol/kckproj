@@ -3,10 +3,7 @@ package main.java.Controllers;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import main.java.DAO.DBGeneric;
-import main.java.Models.Bill;
-import main.java.Models.Coffee;
-import main.java.Models.Harvest;
-import main.java.Models.Magazine;
+import main.java.Models.*;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -48,5 +45,15 @@ public class HarvestController {
             ResponseFactory.ResponseError("Failed", "Cannot add harvest");
         }
         return ResponseEntity.ok().header("Success").build();
+    }
+    @RequestMapping(value = "/detailsHarvest")
+    public ResponseEntity<Harvest> getHarvestById(Long id) {
+        Harvest details= null;
+        try {
+            details=repo.getById(id,harvest);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot find harvest");
+        }
+        return ResponseEntity.ok(details);
     }
 }

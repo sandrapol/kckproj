@@ -49,4 +49,14 @@ public class RegularPostController {
         }
         return ResponseEntity.ok().header("Success").build();
     }
+    @RequestMapping(value = "/detailsRegularPost")
+    public ResponseEntity<RegularPost> getRegularById(Long id) {
+        RegularPost postDetails= null;
+        try {
+            postDetails=repo.getById(id,regularPost);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot find regular Post");
+        }
+        return ResponseEntity.ok(postDetails);
+    }
 }

@@ -54,4 +54,14 @@ public class EmployeeController {
         }
         return ResponseEntity.ok().header("Success").build();
     }
+    @RequestMapping(value = "/detailsEmployee")
+    public ResponseEntity<Employee> getEmployeeById(Long id) {
+        Employee details= null;
+        try {
+            details=repo.getById(id,employee);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot find employee");
+        }
+        return ResponseEntity.ok(details);
+    }
 }

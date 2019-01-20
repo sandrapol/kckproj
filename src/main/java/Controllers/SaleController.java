@@ -53,7 +53,7 @@ public class SaleController {
         try {
             saleDetails=repo.getById(id,sale);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot find magazine");
+            ResponseFactory.ResponseError("Failed", "Cannot find sale");
         }
         return ResponseEntity.ok(saleDetails);
     }
