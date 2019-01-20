@@ -6,7 +6,7 @@
         <button routerLink="/newCoffee">Dodaj magazyn</button>
       </div>
     <div class="lista" *ngFor="let magazine of magazineList">
-      <article class="post">
+      <article class="post" (click)="showDetails(magazine.id)">
         <header>
           <h2 class="post_title">{{magazine.name}}</h2>
         </header>

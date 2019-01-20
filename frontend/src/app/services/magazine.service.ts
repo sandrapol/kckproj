@@ -19,5 +19,9 @@ export class MagazineService {
 
         return this.http.get('api/addMagazine', { params });
     }
+    findMagazine(id: number) {
+        const params = new HttpParams().append('id', String(id));
+        return this.http.get('api/detailsMagazine', { params });
+    }
 
 }

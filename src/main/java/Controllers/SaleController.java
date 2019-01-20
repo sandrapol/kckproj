@@ -47,4 +47,14 @@ public class SaleController {
         }
         return ResponseEntity.ok().header("Success").build();
     }
+    @RequestMapping(value = "/detailsSale")
+    public ResponseEntity<Sale> getSaleById(Long id) {
+        Sale saleDetails= null;
+        try {
+            saleDetails=repo.getById(id,sale);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot find magazine");
+        }
+        return ResponseEntity.ok(saleDetails);
+    }
 }
