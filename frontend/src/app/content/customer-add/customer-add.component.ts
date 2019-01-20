@@ -2,7 +2,7 @@ import { Customer } from './../../statics/customer';
 import { Component, OnInit } from '@angular/core';
 import { Coffee } from 'src/app/statics/coffe';
 import { Router } from '@angular/router';
-import { CustomerService } from 'src/app/statics/mCustomer';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-customer-add',
@@ -10,19 +10,18 @@ import { CustomerService } from 'src/app/statics/mCustomer';
   styleUrls: ['./customer-add.component.css']
 })
 export class CustomerAddComponent implements OnInit {
-  custServ=new CustomerService();
   cust:Customer= new Customer();
   error:boolean;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private serv: CustomerService) { }
 
   ngOnInit() {
   }
 
   setName(value){
-    this.cust.name=value;
-    this.error=false;
-    if(this.cust.name.length<1)
-    this.error=true;
+    this.cust.name = value;
+    this.error = false;
+    if (this.cust.name.length < 1)
+      this.error = true;
   }
 
   setForename(value){
@@ -63,10 +62,13 @@ export class CustomerAddComponent implements OnInit {
     this.error=true;
   }
   submit(){
-    if(!this.error){
-      this.custServ.addCustomer(this.cust);
-      console.log(this.cust);
-      this.router.navigateByUrl("/customers");
+    if (!this.error) {
+      this.serv.addCustomer(this.cust).subscribe(
+        elem=>console.log(elem),
+        err=>console.log(err),
+        ()=> this.router.navigateByUrl("/customers")
+      );
+     
     }
   }
 

@@ -6,26 +6,26 @@
   <div class="cont">
     <div class="one">
       <p class="one"><b>Nazwa: </b> &nbsp; </p>
-      <input class="one" placeholder="____________" type="text" required  #modelbox (keyup)="setName(modelbox.value)"><br>
+      <input class="one" placeholder="Nazwa" type="text" required  #modelbox (keyup)="setName(modelbox.value)"><br>
     </div>
   </div>
   <div class="cont">
     <div class="one">
       <p class="one"><b>Gatunek: </b> &nbsp; </p>
-      <input class="one" placeholder="____________" type="text" required #typebox (keyup)="setType(typebox.value)"><br>
+      <input class="one" placeholder="Gatunek" type="text" required #typebox (keyup)="setType(typebox.value)"><br>
     </div>
   </div>
   <div class="cont">
     <div class="one">
       <p class="one"><b>Typ: </b> &nbsp; </p>
-      <input class="one" placeholder="____________" type="text" required #orbox (keyup)="setOrigin(orbox.value)"><br>
+      <input class="one" placeholder="Typ" type="text" required #orbox (keyup)="setOrigin(orbox.value)"><br>
     </div>
   </div>
 
   <div class="cont">
     <div class="one">
       <p class="one"><b>Cena: </b> (zl/kg) &nbsp; </p>
-      <input class="one" placeholder="____________" type="number" required #box (mouseup)="setPrice(box.value)" (keyup)="setPrice(box.value)"><br>
+      <input class="one" placeholder="Cena" type="number" required #box (mouseup)="setPrice(box.value)" (keyup)="setPrice(box.value)"><br>
       <button (click)="submit()">Zatwierdź</button>
     </div>
   </div>
