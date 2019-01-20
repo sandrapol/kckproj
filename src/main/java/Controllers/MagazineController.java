@@ -10,7 +10,8 @@ import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 @Slf4j
@@ -24,7 +25,7 @@ public class MagazineController {
     private Magazine magazine = new Magazine();
 
     @RequestMapping(value = "/magazineList")
-    public ResponseEntity<List<Magazine>> listMagazines() {
+    public ResponseEntity<List<Magazine>> upload() {
         List magazineList;
         try {
             magazineList = repo.getAll(magazine);
@@ -33,18 +34,17 @@ public class MagazineController {
         }
         return ResponseEntity.ok(magazineList);
     }
-    @RequestMapping(value = "/addMagazine")
-    public ResponseEntity<String> addMagazine( String mName, double mSupply,
-                                              boolean mAvailability) {
+    @RequestMapping(value = "/create")
+    public String make() {
         Magazine magazine= new Magazine();
-        magazine.setName(mName);
-        magazine.setSupply(mSupply);
-        magazine.setCoffeeAvailability(mAvailability);
+        magazine.setCoffeeAvailability(true);
+        magazine.setSupply(100);
+        magazine.setName("Magazyn");
         try {
             repo.create(magazine);
         } catch (Exception ex) {
-            return ResponseFactory.ResponseError("Error", "Nie można dodać magazynu");
+            return "nie ok";
         }
-        return ResponseEntity.ok().header("Success").build();
+        return "ok";
     }
 }
