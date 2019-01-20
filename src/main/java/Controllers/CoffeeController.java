@@ -30,11 +30,6 @@ public class CoffeeController {
     @RequestMapping(value = "/coffeeList")
     public ResponseEntity<List<Coffee>> upload() {
         List coffeeList = new ArrayList<Coffee>();
-        /*coffee.setType("ziarnista");
-        coffee.setSpecies("arabica");
-        coffee.setPrice(101);
-        coffee.setName("kawka");
-        repo.create(coffee);*/
         try {
             coffeeList = repo.getAll(coffee);
         } catch (Exception ex) {

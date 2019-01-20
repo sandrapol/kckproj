@@ -17,7 +17,7 @@ export class MagazineListComponent implements OnInit {
 
   ngOnInit() {
     this.serv.getMagazineList().subscribe(
-      elem=> this.magazineList= elem,
+      elem=> {this.magazineList= elem; console.log(elem)},
       err=> console.log(err),
       ()=> this.loading=false
     )
