@@ -25,14 +25,14 @@
     <div class="one">
       <p class="one"><b>Zarobki: </b> &nbsp; </p>
       <input class="one" placeholder="Zarobki" type="number" required #sabox (mouseup)="setSalary(sabox.value)"
-        (keyup)="setParam(sabox.value)"><br>
+        (keyup)="setSalary(sabox.value)"><br>
     </div>
   </div>
   <div class="cont">
     <div class="one">
       <p class="one"><b>Bonus: </b> &nbsp; </p>
       <input class="one" placeholder="Bonus" type="number" required #bbox (mouseup)="setBonus(bbox.value)"
-        (keyup)="setParam(bbox.value)"><br>
+        (keyup)="setBonus(bbox.value)"><br>
         <button (click)="submit()">Zatwierdź</button>
     </div>
   </div>
