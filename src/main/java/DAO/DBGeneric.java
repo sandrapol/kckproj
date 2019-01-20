@@ -24,7 +24,7 @@ public class DBGeneric<T> {
         tr.commit();
     }
 
-    public void delete(int id, T cl) {
+    public void delete(Long id, T cl) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tr = session.beginTransaction();
         T el = (T) session.get(cl.getClass(), id);
@@ -32,7 +32,7 @@ public class DBGeneric<T> {
         tr.commit();
     }
 
-    public T getById(int id, T cl) {
+    public T getById(Long id, T cl) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tr = session.beginTransaction();
         T el = (T) session.get(cl.getClass(), id);

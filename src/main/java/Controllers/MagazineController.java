@@ -34,6 +34,7 @@ public class MagazineController {
         }
         return ResponseEntity.ok(magazineList);
     }
+
     @RequestMapping(value = "/addMagazine")
     public ResponseEntity<String> addMagazine(String mName, double mSupply, boolean mAvailability) {
         Magazine magazine= new Magazine();
@@ -46,5 +47,16 @@ public class MagazineController {
             ResponseFactory.ResponseError("Failed", "Cannot add magazine");
         }
         return ResponseEntity.ok().header("Success").build();
+    }
+
+    @RequestMapping(value = "/detailsMagazine")
+    public ResponseEntity<Magazine> getMagazineById(Long id) {
+        Magazine magazineDetails= null;
+        try {
+            magazineDetails=repo.getById(id,magazine);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot find magazine");
+        }
+        return ResponseEntity.ok(magazineDetails);
     }
 }

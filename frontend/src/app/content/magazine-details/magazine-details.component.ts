@@ -1,6 +1,6 @@
 import { Magazine } from './../../statics/magazine';
 import { Component, OnInit } from '@angular/core';
-import { MagazineService } from 'src/app/statics/mMagazine';
+import { MagazineService } from 'src/app/services/magazine.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,18 +9,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./magazine-details.component.css']
 })
 export class MagazineDetailsComponent implements OnInit {
-  private magServ= new MagazineService();
-  private magazineList:Magazine[]= this.magServ.MagazineList;
   currentId: number;
-  magazine:Magazine;
+  magazine:any;
   loading=true;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private serv: MagazineService) { }
 
   ngOnInit() {
-    this.magazine=null;
     this.currentId=Number(this.route.snapshot.params['id']);
-    this.magazine=this.magServ.findMagazine(this.currentId);
+    this.serv.findMagazine(this.currentId).subscribe(
+      elem=>this.magazine=elem,
+      err=>console.log(err)
+    );
   }
 
 }
