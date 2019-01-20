@@ -6,16 +6,15 @@
     <button routerLink="/newCustomer">Dodaj klienta</button>
   </div>
   <div class="lista" *ngFor="let employee of employeeList">
-    <article class="post">
-      <header>
-        <h2 class="post_title">{{employee.forename}} {{employee.name}}</h2>
-      </header>
-      <div class="cont">
-          <div class="block">
-        <div class="img_cont">
-          <img class="post_img" src="https://i.wpimg.pl/730x0/m.gadzetomania.pl/enhanced-buzz-16839-1297-548d0f9.jpg">
-        </div>
-        <div class="post_text">
+    <div class="post">
+        <div class="img">
+            <img src="https://i.wpimg.pl/730x0/m.gadzetomania.pl/enhanced-buzz-16839-1297-548d0f9.jpg">
+          </div>
+          <div class="info">
+            <div class="nav">
+        {{employee.forename}} {{employee.name}}
+      </div>
+     <div class="details">
           <p><b>Identyfikator: </b> {{employee.id}}</p>
           <p><b>Stanowisko: </b> {{employee.position}}</p>
           <p><b>Imie: </b> {{employee.forename}}</p>
@@ -25,11 +24,10 @@
           <p><b>Etat:</b> {{employee.regularPost}}</p>
         </div>
       </div>
-      </div>
-      <div class="images">
-          <img class="delete" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png">
-          <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
+      <div class="actions">
+         <div> <img class="delete" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png"></div>
+        <div><img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png"></div>
         </div>
-    </article>
-  </div>
+    </div>
+</div>
 </div>

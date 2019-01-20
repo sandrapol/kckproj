@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import main.java.DAO.DBGeneric;
 import main.java.Models.Bill;
 import main.java.Models.Coffee;
+import main.java.Models.Magazine;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -33,5 +34,20 @@ public class BillController {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }
         return ResponseEntity.ok(billList);
+    }
+
+    @RequestMapping(value = "/addBill")
+    public ResponseEntity<String> addMagazine( String mName, double mSupply,
+                                               boolean mAvailability) {
+        Magazine magazine= new Magazine();
+        magazine.setName(mName);
+        magazine.setSupply(mSupply);
+        magazine.setCoffeeAvailability(mAvailability);
+        try {
+            repo.create(magazine);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Error", "Nie można dodać magazynu");
+        }
+        return ResponseEntity.ok().header("Success").build();
     }
 }
