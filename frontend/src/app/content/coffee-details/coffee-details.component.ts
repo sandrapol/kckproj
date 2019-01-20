@@ -1,3 +1,4 @@
+import { CoffeeService } from 'src/app/services/coffee.service';
 import { Coffee } from './../../statics/coffe';
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -10,18 +11,18 @@ import { find } from 'rxjs/operators';
   styleUrls: ['./coffee-details.component.css']
 })
 export class CoffeeDetailsComponent implements OnInit {
-  coffee:Coffee;
-  /*private cofServ= new CoffeeService();
-  private coffeeList:Coffee[]= this.cofServ.CoffeeList;
   currentId: number;
-  coffee:Coffee;
-  loading=true;
-  constructor(private route: ActivatedRoute) { }
-*/
+  coffee:any;
+  loading:true;
+  
+  constructor(private route: ActivatedRoute, private serv: CoffeeService) { }
+
   ngOnInit() {
-    this.coffee=null;/* 
     this.currentId=Number(this.route.snapshot.params['id']);
-    this.coffee=this.cofServ.findCoffee(this.currentId) */
+    this.serv.findCoffee(this.currentId).subscribe(
+      elem=>this.coffee=elem,
+      err=>console.log(err)
+    );
   }
  
 }

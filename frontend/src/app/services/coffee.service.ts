@@ -20,4 +20,9 @@ export class CoffeeService {
 
         return this.http.get('api/addCoffee', {params});
 }
+
+findCoffee(id: number) {
+    const params = new HttpParams().append('id', String(id));
+    return this.http.get('api/detailsCoffee', { params });
+}
 }
