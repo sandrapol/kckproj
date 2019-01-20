@@ -11,13 +11,13 @@
   </div>
   <div class="cont">
     <div class="one">
-      <p class="one"><b>Typ: </b> &nbsp; </p>
+      <p class="one"><b>Gatunek: </b> &nbsp; </p>
       <input class="one" placeholder="____________" type="text" required #typebox (keyup)="setType(typebox.value)"><br>
     </div>
   </div>
   <div class="cont">
     <div class="one">
-      <p class="one"><b>Kraj pochodzenia: </b> &nbsp; </p>
+      <p class="one"><b>Typ: </b> &nbsp; </p>
       <input class="one" placeholder="____________" type="text" required #orbox (keyup)="setOrigin(orbox.value)"><br>
     </div>
   </div>
@@ -25,13 +25,7 @@
   <div class="cont">
     <div class="one">
       <p class="one"><b>Cena: </b> (zl/kg) &nbsp; </p>
-      <input class="one" placeholder="____________" type="number" required #box (mouseup)="setParam(box.value)" (keyup)="setParam(box.value)"><br>
-    </div>
-  </div>
-  <div class="cont">
-    <div class="one">
-      <p class="one"><b>Opis: </b> &nbsp; </p>
-      <input class="one" placeholder="____________" type="text" required #debox (keyup)="setDesc(debox.value)"><br>
+      <input class="one" placeholder="____________" type="number" required #box (mouseup)="setPrice(box.value)" (keyup)="setPrice(box.value)"><br>
       <button (click)="submit()">Zatwierdź</button>
     </div>
   </div>

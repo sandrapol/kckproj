@@ -1,8 +1,7 @@
 export class Coffee {
     id: number;
     name: string;
-    origin:string;
-    description:string;
+    species:string;
     type: string;
     price: number;
     constructor(){}
