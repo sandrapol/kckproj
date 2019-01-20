@@ -45,6 +45,6 @@ public class MagazineController {
         } catch (Exception ex) {
             ResponseFactory.ResponseError("Failed", "Cannot add magazine");
         }
-        return ResponseEntity.ok().header("Successful upload files to S3").build();
+        return ResponseEntity.ok().header("Success").build();
     }
 }

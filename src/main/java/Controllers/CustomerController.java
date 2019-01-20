@@ -34,4 +34,24 @@ public class CustomerController {
         }
         return ResponseEntity.ok(customerList);
     }
+    @RequestMapping(value = "/addCustomer")
+    public ResponseEntity<String> addCustomer(String mName,
+                                              String mForename,
+                                              String mStreet,
+                                              int mHouseNumber,
+                                              long mPhoneNumber) {
+        Customer customer= new Customer();
+        customer.setName(mName);
+        customer.setForename(mForename);
+        customer.setHouseNumber(mHouseNumber);
+        customer.setStreet(mStreet);
+        customer.setTelephoneNumber(mPhoneNumber);
+
+        try {
+            repo.create(customer);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot add customer");
+        }
+        return ResponseEntity.ok().header("Success").build();
+    }
 }

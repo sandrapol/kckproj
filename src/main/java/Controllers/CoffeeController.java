@@ -28,18 +28,30 @@ public class CoffeeController {
     private Coffee coffee = new Coffee();
 
     @RequestMapping(value = "/coffeeList")
-    public ResponseEntity<List<Coffee>> upload() {
+    public ResponseEntity<List<Coffee>> addCoffee() {
         List coffeeList = new ArrayList<Coffee>();
-        /*coffee.setType("ziarnista");
-        coffee.setSpecies("arabica");
-        coffee.setPrice(101);
-        coffee.setName("kawka");
-        repo.create(coffee);*/
         try {
             coffeeList = repo.getAll(coffee);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }
         return ResponseEntity.ok(coffeeList);
+    }
+    @RequestMapping(value = "/addCoffee")
+    public ResponseEntity<String> addCoffee(String mName,
+                                            double mPrice,
+                                            String mSpecies,
+                                            String mType) {
+        Coffee coffee= new Coffee();
+        coffee.setName(mName);
+        coffee.setPrice(mPrice);
+        coffee.setSpecies(mSpecies);
+        coffee.setType(mType);
+        try {
+            repo.create(coffee);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot add coffee");
+        }
+        return ResponseEntity.ok().header("Success").build();
     }
 }

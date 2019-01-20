@@ -34,4 +34,24 @@ public class EmployeeController {
         }
         return ResponseEntity.ok(employeeList);
     }
+    @RequestMapping(value = "/addEmployee")
+    public ResponseEntity<String> addEmployee(String mName,
+                                            String mForename,
+                                            String mPosition,
+                                            double mSalary,
+                                            double mBonus) {
+        Employee employee= new Employee();
+        employee.setName(mName);
+        employee.setSalary(mSalary);
+        employee.setPosition(mPosition);
+        employee.setBonus(mBonus);
+        employee.setForename(mForename);
+
+        try {
+            repo.create(employee);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot add employee");
+        }
+        return ResponseEntity.ok().header("Success").build();
+    }
 }
