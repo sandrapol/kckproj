@@ -5,12 +5,12 @@
   <div class="button_cont">.
     <button routerLink="/newEmployee">Dodaj pracownika</button>
   </div>
-    <div class="post" (click)="showDetails(employee.id)" *ngFor="let employee of employeeList">
-        <div class="img">
+    <div class="post"  *ngFor="let employee of employeeList">
+        <div class="img" (click)="showDetails(employee.id)">
             <img style="min-height : 15%; min-width:15%;" height="100%" width="100%" src="https://i.wpimg.pl/730x0/m.gadzetomania.pl/enhanced-buzz-16839-1297-548d0f9.jpg">
           </div>
           <div class="info">
-            <div class="nav">
+            <div class="nav" (click)="showDetails(employee.id)">
         {{employee.forename}}&nbsp;{{employee.name}}
       </div>
      <div class="details">

@@ -1,97 +1,45 @@
-h1,h2{
-    margin: 0;
-    padding:1.5%;
-}
-.content{
-    margin-top:3%;
-    margin-left: 3%;
+.post{
     margin-right: 3%;
+    margin-left:3%;
+}
+.img{
+    max-width: 50%;
+    max-height: 50%;
+    align-self: center
 }
 
-button{
-    margin-right: 2%;
-    float: right;
-}
 
-.post_title{
+
+
+.main{
     text-align: center;
-    font-variant: small-caps;
-    margin-top: 2px;
-    margin-bottom: 0;
-}
-
-.post_text{
-    text-indent: 2%;
-   width: fit-content;
-   padding: 1%;
-   display: inline-block;
-   font-size: 16px;
-   margin-left: 5%;
-}
-
-.images{
-    float: right;
-    display: inline;
-    width: fit-content;
-    align-content: right;
-    clear: both;
-}
-
-.delete{
-    display: inline-block;
-    float: right;
-    width: 3%;
-    height: 3%;
-    clear: both;
-}
-
-.block{
-    display: inline-block;
-}
-
-p.origin{
-    width: 200px;
-}
-.post_text p{
-    margin: 0%;
-}
-
-.button_cont{
-    height: fit-content;
+    align-content: center;
     width: 100%;
-    display: initial;
-    position: relative
 }
-.lista{
-    position: relative;
-    height: auto;
-    width:100%;
-    display:inherit;
-    margin-top: 35px;
+.details{
+    border: 1px solid black;
+    margin:5%;
+    padding: 3%;
+        margin-top: 0px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        font-family: inherit;
+        line-height: 1.35;
+        font-weight: 500;
+        color: inherit;
 }
-.img_cont{
-    display: inline-block;
-    min-width: 100px;
-   max-width: 13%;
-   height: 100%;
-}
-.post_img{
-    min-width: 5%;
-   max-width: 100%;
-   max-height: 100%;
-   min-height: 5%;
-   margin-left: 10%;
-   float: left;
+.name{
+    padding-top:3%;
+    font-size: 300%;
 }
 
-.post_date{
-    text-align: right;
-   clear: both;
+.block img{
+    float: right;
+  width: 3%;
+  height: 3%;
 }
-.price{
-    padding-bottom:1%;
-     padding-right:1%
-}
-header{
-    width: 100%;
+.block h2{
+position: relative;
+  top: 18px;
+  left: 10px;
 }

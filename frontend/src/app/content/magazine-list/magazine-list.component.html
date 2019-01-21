@@ -5,29 +5,24 @@
     <div class="button_cont">.
         <button routerLink="/newMagazine">Dodaj magazyn</button>
       </div>
-    <div class="lista" *ngFor="let magazine of magazineList">
-      <article class="post">
-        <header (click)="showDetails(magazine.id)">
-          <h2 class="post_title">{{magazine.name}}</h2>
-        </header>
-        <div class="block">
-        <div class="img_cont">
-        <img class="post_img" src="https://static.seattletimes.com/wp-content/uploads/2017/03/bdce5802-fed2-11e6-a186-82a2c6d1afcd-780x439.jpg">
+    <div class="post" *ngFor="let magazine of magazineList">
+        <div class="img" (click)="showDetails(magazine.id)">
+            <img style="min-height : 15%; min-width:15%;" height="100%" width="100%" src="https://pixel.nymag.com/imgs/daily/grub/2017/06/26/26-amazon-warehouse.w330.h330.jpg">
+          </div>
+          <div class="info">
+            <div class="nav" (click)="showDetails(magazine.id)">
+                {{magazine.name}}
+      </div>
+     <div class="details">
+        <p><b>Identyfikator: </b> {{magazine.id}}</p>
+        <p><b>Nazwa: </b> {{magazine.name}}</p>
+        <div class="kawka"><b>Dostępność: </b><p *ngIf="magazine.coffeeAvailability"> dostępna</p><p *ngIf="!(magazine.coffeeAvailability)">niedostępna</p></div>
+        <p><b>Dostawa: </b> {{magazine.supply}}</p>
         </div>
-        <div class="post_text">
-          <p><b>Identyfikator: </b> {{magazine.id}}</p>
-          <p><b>Nazwa: </b> {{magazine.name}}</p>
-          <div class="kawka"><b>Dostępność: </b><p *ngIf="magazine.coffeeAvailability"> dostępna</p><p *ngIf="!(magazine.coffeeAvailability)">niedostępna</p></div>
-          <p><b>Dostawa: </b> {{magazine.supply}}</p>
+      </div>
+      <div class="actions">
+         <div> <img width="5%" height="5%" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png">
+        <img height="5%" img width="5%"  src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png"></div>
         </div>
-  
-        <footer class="post_date">
-            <p class="price"></p>
-          </footer>
-          <div class="images">
-              <img (click)="delete(magazine.id)" class="delete" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png">
-              <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
-            </div>
-        </div>
-      </article>
+    </div>
     </div>

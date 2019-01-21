@@ -5,31 +5,26 @@
   <div class="button_cont">.
     <button routerLink="/newCustomer">Dodaj klienta</button>
   </div>
-  <div class="lista" *ngFor="let customer of customerList">
-    <article class="post"  (click)="showDetails(customer.id)">
-      <header>
-        <h2 class="post_title">{{customer.forename}} {{customer.name}}</h2>
-      </header>
-      <div class="block">
-      <div class="img_cont">
-      <img class="post_img" src="http://www.opiniotools.pl/wp-content/uploads/zadowolony-klient.jpg">
-      </div>
-      <div class="post_text">
-        <p><b>Identyfikator: </b> {{customer.id}}</p>
-        <p><b>Imie: </b> {{customer.forename}}</p>
-        <p><b>Numer Telefonu: </b> {{customer.telephoneNumber}}</p>
-        <p><b>Ulica: </b> {{customer.street}}</p>
-        <p><b>Numer Domu:</b> {{customer.houseNumber}}</p>
-        <p><b>Miasto:</b> {{customer.city}}</p>
-      </div>
-
-      <footer class="post_date">
-        <p class="price"></p>
-      </footer>
-      <div class="images">
-          <img class="delete" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png">
-          <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
+  <div class="post" *ngFor="let customer of customerList">
+      <div class="img" (click)="showDetails(customer.id)">
+          <img style="min-height : 15%; min-width:15%;" height="100%" width="100%" src="http://www.remembergroup.com/wp-content/uploads/2013/12/happy.jpg">
         </div>
+        <div class="info">
+          <div class="nav" (click)="showDetails(customer.id)">
+      {{customer.forename}}&nbsp;{{customer.name}}
+    </div>
+   <div class="details">
+      <p><b>Identyfikator: </b> {{customer.id}}</p>
+      <p><b>Imie: </b> {{customer.forename}}</p>
+      <p><b>Numer Telefonu: </b> {{customer.telephoneNumber}}</p>
+      <p><b>Ulica: </b> {{customer.street}}</p>
+      <p><b>Numer Domu:</b> {{customer.houseNumber}}</p>
+      <p><b>Miasto:</b> {{customer.city}}</p>
       </div>
-    </article>
+    </div>
+    <div class="actions">
+       <div> <img width="5%" height="5%" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png">
+      <img height="5%" img width="5%"  src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png"></div>
+      </div>
+  </div>
   </div>

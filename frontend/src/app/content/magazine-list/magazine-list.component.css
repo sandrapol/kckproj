@@ -2,87 +2,78 @@ h1,h2{
     margin: 0;
     padding:1.5%;
 }
-.content{
-    margin-top:3%;
-    margin-left: 3%;
-    margin-right: 3%;
-}
+.post {
+    width:90%;
+    height:200px;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(29, 29, 29, 0.082);
+    filter: alpha(opacity=50);
+    padding: 10px;
+  }
+
+  .img {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .info {
+    flex-grow: 3;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+  }
+
+  .nav{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .details p {
+    margin: 0px;
+    
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
 
 button{
     margin-right: 2%;
     float: right;
 }
 
-.images{
-    float: right;
-    display: inline;
-    width: fit-content;
-    align-content: right;
-    clear: both;
-}
 
-.delete{
-    display: inline-block;
-    float: right;
-    width: 3%;
-    height: 3%;
-    clear: both;
-}
-
-.block{
-    display: inline-block;
-}
-
-.post_title{
-    text-align: center;
-    font-variant: small-caps;
-}
-
-.post_text{
-    text-indent: 2%;
-   width: auto;
-   padding: 1%;
-   display: inline-block;
-
-}
-.post_text p{
-    margin: 0%;
-}
 .button_cont{
     height: fit-content;
     width: 100%;
     display: initial;
     position: relative
 }
-.lista{
-    position: relative;
-    height: auto;
-    width:100%;
-    display:inherit;
-    margin-top: 35px;
-}
-.img_cont{
-    display: inline-block;
-    min-width: 100px;
-   max-width: 14%;
-   height: 100%;
-}
-.post_img{
-    min-width: 13%;
-   max-width: 100%;
-   max-height: 100%;
-   min-height: 13%;
-   float: left;
-}
 
-.post_date{
-    text-align: right;
-   clear: both;
-}
-.price{
-    padding-bottom:1%;
-     padding-right:1%
-}
-header{
-    width: 100%;
-}
+
+.actions {
+    flex-grow: 1;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  
+  .actions div {
+    margin-left:10px;
+  }
+
+  
+
