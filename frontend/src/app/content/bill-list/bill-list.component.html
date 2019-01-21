@@ -6,7 +6,7 @@
     <button routerLink="/newBill">Dodaj paragon</button>
   </div>
   <div class="lista" *ngFor="let bill of billList">
-    <article class="post">
+    <article class="post"  (click)="showDetails(bill.id)">
       <header>
         <h2 class="post_title">{{bill.id}} </h2>
       </header>

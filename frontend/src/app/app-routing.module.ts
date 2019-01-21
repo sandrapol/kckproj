@@ -1,4 +1,5 @@
 import { BillAddComponent } from './content/bill-add/bill-add.component';
+import { BillDetailsComponent } from './content/bill-details/bill-details.component';
 import { EmployeeAddComponent } from './content/employee-add/employee-add.component';
 import { MagazineAddComponent } from './content/magazine-add/magazine-add.component';
 import { PlantationAddComponent } from './content/plantation-add/plantation-add.component';

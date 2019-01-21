@@ -16,9 +16,9 @@ export class BillAddComponent implements OnInit {
 
   ngOnInit() {
   }
-  setNetValue(value){
+  setGrossValue(value){
     if(Number(value)>0){
-    this.bill.netValue=Number(value);
+    this.bill.grossValue=Number(value);
     this.error=false;
     }
     else
@@ -32,6 +32,17 @@ export class BillAddComponent implements OnInit {
     }
     else
     this.error=true;
+  }
+
+  submit(){
+    if (!this.error) {
+      this.serv.addBill(this.bill).subscribe(
+        elem=>console.log(elem),
+        err=>console.log(err),
+        ()=> this.router.navigateByUrl("/bills")
+      );
+     
+    }
   }
 
 }
