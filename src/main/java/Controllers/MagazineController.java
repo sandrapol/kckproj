@@ -75,6 +75,7 @@ public class MagazineController {
     @RequestMapping(value = "/updateMagazine", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<Magazine> updateMagazine(@RequestBody Magazine magazineUp) {
+        System.out.println(magazineUp.toString());
         try {
             repo.update(magazineUp);
             magazineUp=repo.getById(magazineUp.getId(), magazine);

@@ -48,7 +48,7 @@ export class BillDetailsComponent implements OnInit {
       this.serv.updateBill(this.bill).subscribe(
         elem => this.bill = elem,
         err => console.log(err),
-        () => this.bill = false
+        () => this.edit = false
       );
       console.log(this.bill);
     }
