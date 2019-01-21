@@ -6,7 +6,7 @@
     <button routerLink="/newCustomer">Dodaj klienta</button>
   </div>
   <div class="lista" *ngFor="let customer of customerList">
-    <article class="post">
+    <article class="post"  (click)="showDetails(customer.id)">
       <header>
         <h2 class="post_title">{{customer.forename}} {{customer.name}}</h2>
       </header>

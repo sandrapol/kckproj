@@ -1,6 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/statics/employee';
-import { EmployeeService } from 'src/app/statics/mEployee';
+import { EmployeeService } from 'src/app/services/employee.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,18 +10,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent implements OnInit {
-  private empServ= new EmployeeService();
-  private employeeList:Employee[]= this.empServ.EmployeeList;
   currentId: number;
-  employee:Employee;
-  loading=true;
+  employee:any;
+  loading:true;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private serv: EmployeeService) { }
 
   ngOnInit() {
-    this.employee=null;
     this.currentId=Number(this.route.snapshot.params['id']);
-    this.employee=this.empServ.findEmployee(this.currentId);
+    this.serv.findEmployee(this.currentId).subscribe(
+      elem=>this.employee=elem,
+      err=>console.log(err)
+    );
   }
 
 }

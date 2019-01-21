@@ -16,9 +16,14 @@ export class CustomerService {
 
     addCustomer(cust: Customer){   
         const params = new HttpParams().append('mName', cust.name).append('mForename', String(cust.forename)).
-        append('mTelephoneNumber', String(cust.telephoneNumber)).append('mStreet',String(cust.street))
+        append('mPhoneNumber', String(cust.telephoneNumber)).append('mStreet',String(cust.street))
         .append('mHouseNumber',String(cust.houseNumber));
 
         return this.http.get('api/addCustomer', {params});
+}
+
+findCustomer(id: number) {
+    const params = new HttpParams().append('id', String(id));
+    return this.http.get('api/detailsCustomer', { params });
 }
 }
