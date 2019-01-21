@@ -25,7 +25,8 @@
       <div class="cont">
         <div class="one">
           <p class="one"><b>Wartosc brutto: </b> &nbsp; </p>
-          <input class="one" placeholder="{{bill.grossValue}}" type="text" required #nbox (keyup)="setGrossValue(nbox.value)"><br>
+          <input class="one" placeholder="{{bill.grossValue}}" type="number" required #nbox (keyup)="setGrossValue(nbox.value)"
+          (mouseup)="setGrossValue(nbox.value)"><br>
         </div>
       </div>
       <div class="cont">

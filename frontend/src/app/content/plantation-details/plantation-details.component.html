@@ -1,17 +1,45 @@
-<div  class="post">
+<div class="post">
     <div class="main">
       <header>
-          <h2 class="name">{{plantation.name}}</h2>
-        </header>
-        <img class="img" src="https://collegecandy.files.wordpress.com/2017/04/shutterstock_559781563.jpg?quality=88&w=750">
-        
-        </div>
-        <div class="details">
+        <h2 class="name">{{plantation.name}}</h2>
+      </header>
+      <img class="img" src="https://collegecandy.files.wordpress.com/2017/04/shutterstock_559781563.jpg?quality=88&w=750">
+    </div>
+    <div *ngIf="!edit">
+      <div class="edit" (click)="editIt()">
+        Edytuj: &nbsp;
+        <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
+      </div>
+      <div class="details">
           <p><b>Identyfikator: </b> {{plantation.id}}</p>
           <p><b>Nazwa: </b> {{plantation.name}}</p>
           <p><b>Kraj:</b>{{plantation.country}} </p>
           <p><b>Region:</b>{{plantation.region}} </p>
         </div>
-       
+      </div>
+    <div *ngIf="edit">
+      <header >
+        <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
+        <h2>Wprowadź dane plantacji</h2>
+      </header>
+      <div class="cont">
+        <div class="one">
+          <p class="one"><b>Nazwa: </b> &nbsp; </p>
+          <input class="one" placeholder="{{plantation.name}}" type="text" required #nbox (keyup)="setName(nbox.value)"><br>
+        </div>
+      </div>
+      <div class="cont">
+        <div class="one">
+          <p class="one"><b>Kraj: </b> &nbsp; </p>
+          <input class="one" placeholder="{{plantation.country}}" type="text" required #cbox (keyup)="setCountry(cbox.value)"><br>
+        </div>
+      </div>
+      <div class="cont">
+          <div class="one">
+            <p class="one"><b>Region: </b> &nbsp; </p>
+            <input class="one" placeholder="{{plantation.region}}" type="text" required #rbox (keyup)="setRegion(rbox.value)"><br>
+            <button (click)="submit()">Zatwierdź</button>
+          </div>
+        </div>
+    </div>
   </div>
-  
