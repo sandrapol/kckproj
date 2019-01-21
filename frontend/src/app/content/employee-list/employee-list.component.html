@@ -3,6 +3,21 @@
   </div>
 <div *ngIf="!loading" class="content">
   <div class="button_cont">.
+      <select id="dropdown" (change)='setSelected()'>
+          <option hidden="true">Sortuj</option>
+          <option value="login">wg Id (rosnąco)</option>
+          <option value="registration">wg Id(malejąco)</option>
+          <option value="">wg Imienia (A-Z)</option>
+          <option value="">wg Imienia (Z-A)</option>
+          <option value="">wg Nazwiska (A-Z)</option>
+          <option value="">wg Nazwiska (Z-A)</option>
+          <option value="">wg Stanowiska (A-Z)</option>
+          <option value="">wg Stanowiska(Z-A)</option>
+          <option value="">wg Pensji (rosnąco)</option>
+          <option value="">wg Pensji(malejąco)</option>
+          <option value="">wg Premii (rosnąco)</option>
+          <option value="">wg Premii(malejąco)</option>
+        </select>
     <button routerLink="/newEmployee">Dodaj pracownika</button>
   </div>
     <div class="post"  *ngFor="let employee of employeeList">

@@ -3,6 +3,15 @@
 </div>
 <div *ngIf="!loading" class="content">
     <div class="button_cont">.
+        <select id="dropdown" (change)='setSelected()'>
+            <option hidden="true">Sortuj</option>
+            <option value="login">wg Id (rosnąco)</option>
+            <option value="registration">wg Id(malejąco)</option>
+            <option value="">wg Nazwy (A-Z)</option>
+            <option value="">wg Nazwy (Z-A)</option>
+            <option value="">wg Zapasu (rosnąco)</option>
+            <option value="">wg Zapasu (malejąco)</option>
+          </select>
         <button routerLink="/newMagazine">Dodaj magazyn</button>
       </div>
     <div class="post" *ngFor="let magazine of magazineList">

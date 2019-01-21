@@ -3,6 +3,19 @@
   </div>
 <div *ngIf="!loading" class="content">
   <div class="button_cont">.
+      <select id="dropdown" (change)='setSelected()'>
+          <option hidden="true">Sortuj</option>
+          <option value="login">wg Id (rosnąco)</option>
+          <option value="registration">wg Id(malejąco)</option>
+          <option value="">wg Nazwy (A-Z)</option>
+          <option value="">wg Nazwy (Z-A)</option>
+          <option value="">wg Gatunku (A-Z)</option>
+          <option value="">wg Gatunku(Z-A)</option>
+          <option value="">wg Typu (A-Z)</option>
+          <option value="">wg Typu(Z-A)</option>
+          <option value="">wg Ceny (rosnąco)</option>
+          <option value="">wg Ceny(malejąco)</option>
+        </select>
     <button routerLink="/newCoffee">Dodaj kawę</button>
   </div>
 <div class="post" *ngFor="let coffee of coffeeList">

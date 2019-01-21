@@ -3,6 +3,17 @@
   </div>
 <div  *ngIf="!loading" class="content">
     <div class="button_cont">.
+        <select id="dropdown" (change)='setSelected()'>
+            <option hidden="true">Sortuj</option>
+            <option value="login">wg Id (rosnąco)</option>
+            <option value="registration">wg Id(malejąco)</option>
+            <option value="">wg Nazwy (A-Z)</option>
+            <option value="">wg Nazwy (Z-A)</option>
+            <option value="">wg Kraju (A-Z)</option>
+            <option value="">wg Kraju (Z-A)</option>
+            <option value="">wg Regionu (A-Z)</option>
+            <option value="">wg Regionu (Z-A)</option>
+          </select>
         <button routerLink="/newPlantation">Dodaj plantację</button>
       </div>
       <div class="post"  *ngFor="let plantation of plantationList">
