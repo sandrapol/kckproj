@@ -24,4 +24,8 @@ findBill(id: number) {
     const params = new HttpParams().append('id', String(id));
     return this.http.get('api/detailsBill', { params });
 }
+delete(id: number) {
+    const params = new HttpParams().append('id', String(id));
+    return this.http.get('api/deleteBill', { params });
+}
 }

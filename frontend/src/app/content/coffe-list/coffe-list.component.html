@@ -5,26 +5,24 @@
   <div class="button_cont">.
     <button routerLink="/newCoffee">Dodaj kawę</button>
   </div>
-  <div class="lista" *ngFor="let coffee of coffeeList">
-    <article class="post" (click)="showDetails(coffee.id)">
-      <header>
-        <h2 class="post_title">{{coffee.name}}</h2>
-      </header>
-      <div class="block">
-      <div class="img_cont">
-        <img class="post_img" src="https://globalassets.starbucks.com/assets/0595caa8dc55485fab9de5dc5f9800ac.jpg">
+<div class="post" *ngFor="let coffee of coffeeList">
+    <div class="img" (click)="showDetails(coffee.id)">
+        <img style="min-height : 13%; min-width:13%;" height="100%" width="100%" src="https://files.dutchbros.com/website/menu/drink-images/Latte.png">
       </div>
-      <div class="post_text">
-        <p class="origin"><b>Gatunek:</b> {{coffee.species}}</p>
-        <p><b>Typ: </b> {{coffee.type}}</p>
-        <p class="price"><b>Cena:</b>{{coffee.price}} zl/kg</p>
-      </div>
-          
-        <div class="images">
-          <img class="delete" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png">
-          <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
-        </div>
-      </div>
-
-    </article>
+      <div class="info">
+        <div class="nav" (click)="showDetails(coffee.id)">
+            {{coffee.name}}
   </div>
+ <div class="details">
+    <p class="origin"><b>Gatunek:</b> {{coffee.species}}</p>
+    <p><b>Typ: </b> {{coffee.type}}</p>
+    <p class="price"><b>Cena:</b>{{coffee.price}} zl/kg</p>
+    </div>
+  </div>
+  <div class="actions">
+     <div> <img width="5%" height="5%" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png" (click)="delete(coffee.id)" style="cursor: pointer;">
+    <img height="5%" img width="5%"  src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png" style="cursor: pointer;">
+  </div>
+    </div>
+</div>
+</div>

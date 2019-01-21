@@ -24,4 +24,13 @@ export class CustomerListComponent implements OnInit {
   showDetails(id:number){
     this.router.navigateByUrl("/customer/"+id);
   }
+
+  delete(id:number){
+    this.loading=true;
+    this.serv.delete(id).subscribe(
+      elem=> this.customerList=elem,
+      err=> console.log(err),
+      ()=> {this.loading=false; }
+    )
+  }
 }

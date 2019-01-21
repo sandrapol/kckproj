@@ -28,4 +28,13 @@ export class PlantationListComponent implements OnInit {
     this.router.navigateByUrl("/plantation/"+id);
   }
 
+  delete(id:number){
+    this.loading=true;
+    this.serv.delete(id).subscribe(
+      elem=> this.plantationList=elem,
+      err=> console.log(err),
+      ()=> {this.loading=false; }
+    )
+  }
+
 }

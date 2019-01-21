@@ -5,29 +5,25 @@
     <div class="button_cont">.
         <button routerLink="/newPlantation">Dodaj plantację</button>
       </div>
-      <div class="lista" *ngFor="let plantation of plantationList">
-      <article class="post" (click)="showDetails(plantation.id)">
-        <header>
-          <h2 class="post_title">{{plantation.name}}</h2>
-        </header>
-        <div class="block">
-        <div class="img_cont">
-        <img class="post_img" src="https://comps.canstockphoto.pl/pole-marihuana-obraz_csp46886517.jpg">
+      <div class="post"  *ngFor="let plantation of plantationList">
+          <div class="img" (click)="showDetails(plantation.id)">
+              <img style="min-height : 15%; min-width:15%;" height="100%" width="100%" src="https://comps.canstockphoto.pl/pole-marihuana-obraz_csp46886517.jpg">
+            </div>
+            <div class="info">
+              <div class="nav" (click)="showDetails(plantation.id)">
+                  {{plantation.name}}
         </div>
-        <div class="post_text">
+       <div class="details">
           <p><b>Identyfikator: </b> {{plantation.id}}</p>
           <p><b>Nazwa: </b> {{plantation.name}}</p>
           <p><b>Kraj: </b> {{plantation.country}}</p>
           <p><b>Region: </b> {{plantation.region}}</p>
-        </div>
-  
-        <footer class="post_date">
-            <p class="price"></p>
-          </footer>
-        </div>
-        <div class="images">
-            <img class="delete" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png">
-            <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
           </div>
-      </article>
+        </div>
+        <div class="actions">
+           <div> <img width="5%" height="5%" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png" (click)="delete(plantation.id)" style="cursor: pointer;">
+          <img height="5%" img width="5%"  src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png" style="cursor: pointer;">
+        </div>
+          </div>
+      </div>
     </div>
