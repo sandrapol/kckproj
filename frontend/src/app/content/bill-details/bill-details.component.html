@@ -32,7 +32,7 @@
         <div class="one">
           <p class="one"><b>Zniżka: </b> &nbsp; </p>
           <input class="one" placeholder="{{bill.discount}}" type="number" required #box (mouseup)="setDiscount(box.value)"
-            (keyup)="setParam(box.value)"><br>
+            (keyup)="setDiscount(box.value)"><br>
           <button (click)="submit()">Zatwierdź</button>
         </div>
       </div>
