@@ -1,6 +1,6 @@
 import { Coffee } from './../statics/coffe';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpRequest, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 @Injectable({
     providedIn: 'root'
@@ -29,4 +29,19 @@ delete(id: number) {
     const params = new HttpParams().append('id', String(id));
     return this.http.get('api/deleteCoffee', { params });
 }
+
+updateCoffee(coffee: Coffee) {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    let data={
+        "id":coffee.id,
+        "name":coffee.name,
+        "species":coffee.species,
+        "type":coffee.type,
+        "price":coffee.price
+    }
+
+    return this.http.post('api/updateCoffee', data, {headers});
+}
+
+
 }

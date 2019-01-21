@@ -1,19 +1,53 @@
-<div  class="post">
+<div class="post">
   <div class="main">
     <header>
-      <div class="block">
-        <h2 class="name">{{coffee.name}}</h2>
-        <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
+      <h2 class="name">{{coffee.name}}</h2>
+    </header>
+    <img class="img" src="https://cdn.shopify.com/s/files/1/1588/2635/files/morningcannabis.jpg?v=1478554223">
+  </div>
+  <div *ngIf="!edit">
+    <div class="edit" (click)="editIt()">
+      Edytuj: &nbsp;
+      <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
+    </div>
+    <div class="priceBox">
+      <p class="price"><b>Cena:</b>{{coffee.price}} zl/kg</p>
+    </div>
+    <div class="details">
+      <p><b>Gatunek: </b> {{coffee.species}}</p>
+      <p><b>Typ: </b> {{coffee.type}}</p>
+    </div>
+  </div>
+  <div *ngIf="edit">
+    <header>
+      <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
+      <h2>Wprowadź dane kawy</h2>
+    </header>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Nazwa: </b> &nbsp; </p>
+        <input class="one" placeholder="{{coffee.name}}" type="text" required #nbox (keyup)="setName(nbox.value)"><br>
       </div>
-      </header>
-      <img class="img" src="https://cdn.shopify.com/s/files/1/1588/2635/files/morningcannabis.jpg?v=1478554223">
-      <div class="priceBox">
-          <p class="price"><b>Cena:</b>{{coffee.price}} zl/kg</p>
-        </div>
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Gatunek: </b> &nbsp; </p>
+        <input class="one" placeholder="{{coffee.species}}" type="text" required #nbox (keyup)="setSpecies(nbox.value)"><br>
       </div>
-      <div class="details">
-        <p><b>Gatunek: </b> {{coffee.species}}</p>
-        <p><b>Typ: </b> {{coffee.type}}</p>
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Typ: </b> &nbsp; </p>
+        <input class="one" placeholder="{{coffee.type}}" type="text" required #nbox (keyup)="setType(nbox.value)"><br>
       </div>
-     
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Cena: </b> (w zl/kg) &nbsp; </p>
+        <input class="one" placeholder="{{coffee.price}}" type="number" required #box (keyup)="setPrice(box.value)"
+          (keyup)="setPrice(box.value)"><br>
+        <button (click)="submit()">Zatwierdź</button>
+      </div>
+    </div>
+  </div>
 </div>

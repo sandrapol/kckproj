@@ -14,6 +14,8 @@ export class CoffeeDetailsComponent implements OnInit {
   currentId: number;
   coffee:any;
   loading:true;
+  edit: boolean = false;
+  error: boolean = false;
   
   constructor(private route: ActivatedRoute, private serv: CoffeeService) { }
 
@@ -24,5 +26,48 @@ export class CoffeeDetailsComponent implements OnInit {
       err=>console.log(err)
     );
   }
+
+  editIt() {
+    this.edit = true;
+  }
+
+  setName(value) {
+    this.coffee.name = value;
+    this.error = false;
+    if (this.coffee.name.length < 1)
+      this.error = true;
+  }
+  setSpecies(value) {
+    this.coffee.species = value;
+    this.error = false;
+    if (this.coffee.species.length < 1)
+      this.error = true;
+  }
+
+  setType(value) {
+    this.coffee.type = value;
+    this.error = false;
+    if (this.coffee.type.length < 1)
+      this.error = true;
+  }
+
+  setPrice(value) {
+    if (Number(value) > -1) {
+      this.coffee.price = Number(value);
+      this.error = false;
+    }
+    else
+      this.error = true;
+  }
+  submit() {
+      this.serv.updateCoffee(this.coffee).subscribe(
+        elem => this.coffee = elem,
+        err => console.log(err),
+        () => this.edit = false
+      );
+      console.log(this.coffee);
+
+    }
+  }
  
-}
+
