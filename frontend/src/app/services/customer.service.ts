@@ -1,6 +1,6 @@
 import { Customer } from './../statics/customer';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpRequest, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 @Injectable({
     providedIn: 'root'
@@ -29,5 +29,19 @@ findCustomer(id: number) {
 delete(id: number) {
     const params = new HttpParams().append('id', String(id));
     return this.http.get('api/deleteCustomer', { params });
+}
+
+updateCustomer(customer: Customer) {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    let data={
+        "id":customer.id,
+        "name":customer.name,
+        "forename":customer.forename,
+        "telephoneNumber":customer.telephoneNumber,
+        "street":customer.street,
+        "houseNumber":customer.houseNumber
+    }
+
+    return this.http.post('api/updateCustomer', data, {headers});
 }
 }

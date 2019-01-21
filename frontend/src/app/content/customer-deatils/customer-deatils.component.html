@@ -1,12 +1,16 @@
-<div  class="post">
+<div class="post">
     <div class="main">
       <header>
-          <h2 class="name">{{customer.name}} {{customer.forename}}</h2>
-        </header>
-        <img class="img" src="https://st.depositphotos.com/1760420/4036/i/950/depositphotos_40369015-stock-photo-man-writing-happy-client-on.jpg">
-        
-        </div>
-        <div class="details">
+        <h2 class="name">{{customer.name}} {{customer.forename}}</h2>
+      </header>
+      <img class="img" src="https://st.depositphotos.com/1760420/4036/i/950/depositphotos_40369015-stock-photo-man-writing-happy-client-on.jpg">
+    </div>
+    <div *ngIf="!edit">
+      <div class="edit" (click)="editIt()">
+        Edytuj: &nbsp;
+        <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
+      </div>
+      <div class="details">
           <p><b>Imie: </b> {{customer.forename}}</p>
           <p><b>Nazwisko: </b> {{customer.name}}</p>
           <p><b>Numer Telefonu:</b>{{customer.telephoneNumber}} </p>
@@ -14,6 +18,44 @@
           <p><b>Numer Domu:</b>{{customer.houseNumber}} </p>
           <p><b>Miasto:</b></p>
         </div>
-       
+      </div>
+    <div *ngIf="edit">
+      <header >
+        <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
+        <h2>Wprowadź dane klienta</h2>
+      </header>
+      <div class="cont">
+        <div class="one">
+          <p class="one"><b>Imie: </b> &nbsp; </p>
+          <input class="one" placeholder="{{customer.name}}" type="text" required #nbox (keyup)="setName(nbox.value)"><br>
+        </div>
+      </div>
+      <div class="cont">
+          <div class="one">
+            <p class="one"><b>Nazwisko: </b> &nbsp; </p>
+            <input class="one" placeholder="{{customer.forename}}" type="text" required #fbox (keyup)="setForename(fbox.value)"><br>
+          </div>
+        </div>
+      <div class="cont">
+        <div class="one">
+          <p class="one"><b>Numer telefonu: </b> &nbsp; </p>
+          <input class="one" placeholder="{{customer.telephoneNumber}}" type="number" required #tbox (mouseup)="setPhoneNumber(tbox.value)"
+            (keyup)="setPhoneNumber(tbox.value)"><br>
+        </div>
+      </div>
+      <div class="cont">
+          <div class="one">
+            <p class="one"><b>Ulica: </b> &nbsp; </p>
+            <input class="one" placeholder="{{customer.street}}" type="text" required #sbox (keyup)="setStreet(sbox.value)"><br>
+          </div>
+        </div>
+        <div class="cont">
+            <div class="one">
+              <p class="one"><b>Numer domu: </b> &nbsp; </p>
+              <input class="one" placeholder="{{customer.houseNumber}}" type="number" required #hbox (mouseup)="setHouseNumber(hbox.value)"
+                (keyup)="setHouseNumber(hbox.value)"><br>
+              <button (click)="submit()">Zatwierdź</button>
+            </div>
+          </div>
+    </div>
   </div>
-  

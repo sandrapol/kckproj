@@ -1,11 +1,25 @@
 .post{
-    margin-right: 3%;
-    margin-left:3%;
+    margin-right: 4%;
+    margin-left:4%;
+}
+.edit{
+    width: auto;
+    text-align: end;
+    padding: 3% 5%;
+}
+.delete{
+    width: 3%;
+    height: 3%;
 }
 .img{
     max-width: 50%;
     max-height: 50%;
     align-self: center
+}
+header{
+    text-align: center;
+    padding: 4%;
+    padding-bottom: 1%;
 }
 .main{
     text-align: center;
@@ -25,6 +39,23 @@
         color: inherit;
 }
 .name{
-    padding-top:3%;
     font-size: 300%;
+}
+
+.kawka{
+    display: inline;
+}
+.kawka p{
+    display: inline;
+}
+.one{
+    display: inline;
+}
+button{
+    margin-left:65%
+}
+.cont{
+    width: 100%;
+    padding:2%;
+    padding-left: 10%
 }

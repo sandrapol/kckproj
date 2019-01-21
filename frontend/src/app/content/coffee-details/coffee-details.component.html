@@ -32,20 +32,20 @@
     <div class="cont">
       <div class="one">
         <p class="one"><b>Gatunek: </b> &nbsp; </p>
-        <input class="one" placeholder="{{coffee.species}}" type="text" required #nbox (keyup)="setSpecies(nbox.value)"><br>
+        <input class="one" placeholder="{{coffee.species}}" type="text" required #sbox (keyup)="setSpecies(sbox.value)"><br>
       </div>
     </div>
     <div class="cont">
       <div class="one">
         <p class="one"><b>Typ: </b> &nbsp; </p>
-        <input class="one" placeholder="{{coffee.type}}" type="text" required #nbox (keyup)="setType(nbox.value)"><br>
+        <input class="one" placeholder="{{coffee.type}}" type="text" required #tbox (keyup)="setType(tbox.value)"><br>
       </div>
     </div>
     <div class="cont">
       <div class="one">
         <p class="one"><b>Cena: </b> (w zl/kg) &nbsp; </p>
-        <input class="one" placeholder="{{coffee.price}}" type="number" required #box (keyup)="setPrice(box.value)"
-          (keyup)="setPrice(box.value)"><br>
+        <input class="one" placeholder="{{coffee.price}}" type="number" required #pbox (mouseup)="setPrice(pbox.value)"
+          (keyup)="setPrice(pbox.value)"><br>
         <button (click)="submit()">Zatwierdź</button>
       </div>
     </div>
