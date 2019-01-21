@@ -46,7 +46,7 @@ public class BillController {
         try {
             repo.create(bill);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot add bill");
+            return ResponseFactory.ResponseError("Failed", "Cannot add bill");
         }
         return ResponseEntity.ok().header("Success").build();
     }
@@ -56,7 +56,7 @@ public class BillController {
         try {
             details=repo.getById(id,bill);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot find bill");
+            return  ResponseFactory.ResponseError("Failed", "Cannot find bill");
         }
         return ResponseEntity.ok(details);
     }

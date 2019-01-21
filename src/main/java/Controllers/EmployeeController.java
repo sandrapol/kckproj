@@ -50,7 +50,7 @@ public class EmployeeController {
         try {
             repo.create(employee);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot add employee");
+            return ResponseFactory.ResponseError("Failed", "Cannot add employee");
         }
         return ResponseEntity.ok().header("Success").build();
     }
@@ -60,7 +60,7 @@ public class EmployeeController {
         try {
             details=repo.getById(id,employee);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot find employee");
+            return ResponseFactory.ResponseError("Failed", "Cannot find employee");
         }
         return ResponseEntity.ok(details);
     }

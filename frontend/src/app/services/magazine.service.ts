@@ -23,5 +23,9 @@ export class MagazineService {
         const params = new HttpParams().append('id', String(id));
         return this.http.get('api/detailsMagazine', { params });
     }
+    delete(id: number) {
+        const params = new HttpParams().append('id', String(id));
+        return this.http.get('api/deleteMagazine', { params });
+    }
 
 }

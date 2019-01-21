@@ -50,7 +50,7 @@ public class CustomerController {
         try {
             repo.create(customer);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot add customer");
+            return ResponseFactory.ResponseError("Failed", "Cannot add customer");
         }
         return ResponseEntity.ok().header("Success").build();
     }
@@ -60,7 +60,7 @@ public class CustomerController {
         try {
             details=repo.getById(id,customer);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot find customer");
+            return ResponseFactory.ResponseError("Failed", "Cannot find customer");
         }
         return ResponseEntity.ok(details);
     }

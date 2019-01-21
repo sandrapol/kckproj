@@ -45,7 +45,7 @@ public class RegularPostController {
         try {
             repo.create(regularPost);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot add regular post");
+            return  ResponseFactory.ResponseError("Failed", "Cannot add regular post");
         }
         return ResponseEntity.ok().header("Success").build();
     }
@@ -55,7 +55,7 @@ public class RegularPostController {
         try {
             postDetails=repo.getById(id,regularPost);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot find regular Post");
+            return ResponseFactory.ResponseError("Failed", "Cannot find regular Post");
         }
         return ResponseEntity.ok(postDetails);
     }

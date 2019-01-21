@@ -45,7 +45,7 @@ public class PaymentController {
         try {
             repo.create(payment);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot add payment");
+            return  ResponseFactory.ResponseError("Failed", "Cannot add payment");
         }
         return ResponseEntity.ok().header("Success").build();
     }
@@ -55,7 +55,7 @@ public class PaymentController {
         try {
             details=repo.getById(id,payment);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot find payment");
+            return   ResponseFactory.ResponseError("Failed", "Cannot find payment");
         }
         return ResponseEntity.ok(details);
     }

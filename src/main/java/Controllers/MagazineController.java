@@ -51,12 +51,24 @@ public class MagazineController {
 
     @RequestMapping(value = "/detailsMagazine")
     public ResponseEntity<Magazine> getMagazineById(Long id) {
-        Magazine magazineDetails= null;
+        Magazine magazineDetails;
         try {
             magazineDetails=repo.getById(id,magazine);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot find magazine");
+           return ResponseFactory.ResponseError("Failed", "Cannot find magazine");
         }
         return ResponseEntity.ok(magazineDetails);
+    }
+
+    @RequestMapping(value = "/deleteMagazine")
+    public ResponseEntity<List<Magazine>> deleteMagazine(Long id) {
+        List magazineList;
+        try {
+            repo.delete(id,magazine);
+            magazineList = repo.getAll(magazine);
+        } catch (Exception ex) {
+           return ResponseFactory.ResponseError("Failed", "Cannot delete magazine");
+        }
+        return ResponseEntity.ok(magazineList);
     }
 }
