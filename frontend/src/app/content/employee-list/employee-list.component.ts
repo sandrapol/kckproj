@@ -23,6 +23,15 @@ export class EmployeeListComponent implements OnInit {
     showDetails(id:number){
       this.router.navigateByUrl("/employee/"+id);
     }
+
+    delete(id:number){
+      this.loading=true;
+      this.serv.delete(id).subscribe(
+        elem=> this.employeeList=elem,
+        err=> console.log(err),
+        ()=> {this.loading=false; }
+      )
+    }
   
 
 }

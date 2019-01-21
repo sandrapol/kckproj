@@ -25,4 +25,8 @@ findCoffee(id: number) {
     const params = new HttpParams().append('id', String(id));
     return this.http.get('api/detailsCoffee', { params });
 }
+delete(id: number) {
+    const params = new HttpParams().append('id', String(id));
+    return this.http.get('api/deleteCoffee', { params });
+}
 }

@@ -25,4 +25,13 @@ export class CoffeListComponent implements OnInit {
     this.router.navigateByUrl("/details/"+id);
   }
 
+  delete(id:number){
+    this.loading=true;
+    this.serv.delete(id).subscribe(
+      elem=> this.coffeeList=elem,
+      err=> console.log(err),
+      ()=> {this.loading=false; }
+    )
+  }
+
 }

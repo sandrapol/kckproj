@@ -26,4 +26,8 @@ findCustomer(id: number) {
     const params = new HttpParams().append('id', String(id));
     return this.http.get('api/detailsCustomer', { params });
 }
+delete(id: number) {
+    const params = new HttpParams().append('id', String(id));
+    return this.http.get('api/deleteCustomer', { params });
+}
 }
