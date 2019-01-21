@@ -1,22 +1,40 @@
-<div  class="post">
+<div class="post">
     <div class="main">
       <header>
-        <div class="block">
-          <h2 class="name">{{bill.id}}</h2>
-          <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
-        </div>
-        </header>
-        <img class="img" src="https://s2.dziennik.pl/pliki/9383000/9383353-paragony-900-555.jpg">
-        <div class="priceBox">
-            <p class="price"><b>Identyfikator:</b>{{bill.id}}</p>
-          </div>
-        </div>
-        <div class="details">
+        <h2 class="name">{{bill.id}}</h2>
+      </header>
+      <img class="img" src="https://s2.dziennik.pl/pliki/9383000/9383353-paragony-900-555.jpg">
+    </div>
+    <div *ngIf="!edit">
+      <div class="edit" (click)="editIt()">
+        Edytuj: &nbsp;
+        <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
+      </div>
+      <div class="details">
           <p><b>Wartosc netto: </b> {{bill.netValue}}</p>
           <p><b>Wartosc brutto: </b> {{bill.grossValue}}</p>
           <p><b>Wysokosc VAT:</b> {{bill.vatValue}}</p>
           <p><b>Zniżka:</b> {{bill.discount}}</p>
         </div>
-       
+      </div>
+    <div *ngIf="edit">
+      <header >
+        <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
+        <h2>Wprowadź dane paragonu</h2>
+      </header>
+      <div class="cont">
+        <div class="one">
+          <p class="one"><b>Wartosc brutto: </b> &nbsp; </p>
+          <input class="one" placeholder="{{bill.grossValue}}" type="text" required #nbox (keyup)="setGrossValue(nbox.value)"><br>
+        </div>
+      </div>
+      <div class="cont">
+        <div class="one">
+          <p class="one"><b>Zniżka: </b> &nbsp; </p>
+          <input class="one" placeholder="{{bill.discount}}" type="number" required #box (mouseup)="setDiscount(box.value)"
+            (keyup)="setParam(box.value)"><br>
+          <button (click)="submit()">Zatwierdź</button>
+        </div>
+      </div>
+    </div>
   </div>
-  

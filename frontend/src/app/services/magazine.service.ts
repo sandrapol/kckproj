@@ -36,7 +36,7 @@ export class MagazineService {
             "supply":magazine.supply
         }
 
-        return this.http.post('api/updateMagazine', data, {headers});
+        return this.http.post('api/updateBill', data, {headers});
     }
 
 }

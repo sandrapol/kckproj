@@ -11,6 +11,8 @@ export class BillDetailsComponent implements OnInit {
   currentId: number;
   bill:any;
   loading:true;
+  edit: boolean = false;
+  error: boolean = false;
 
   constructor(private route: ActivatedRoute, private serv: BillService) { }
 
@@ -20,6 +22,36 @@ export class BillDetailsComponent implements OnInit {
       elem=>this.bill=elem,
       err=>console.log(err)
     );
+  }
+
+  editIt() {
+    this.edit = true;
+  }
+  setGrossValue(value) {
+    if (Number(value) > -1) {
+      this.bill.grossValue = Number(value);
+      this.error = false;
+    }
+    else
+      this.error = true;
+  }
+  setDiscount(value) {
+    if (Number(value) > -1) {
+      this.bill.discount = Number(value);
+      this.error = false;
+    }
+    else
+      this.error = true;
+  }
+  submit() {
+    if (!this.error) {
+      this.serv.updateBill(this.bill).subscribe(
+        elem => this.bill = elem,
+        err => console.log(err),
+        () => this.bill = false
+      );
+      console.log(this.bill);
+    }
   }
 
 }

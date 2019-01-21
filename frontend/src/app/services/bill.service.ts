@@ -1,6 +1,6 @@
 import { Bill } from './../statics/bill';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpRequest, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 @Injectable({
     providedIn: 'root'
@@ -28,4 +28,18 @@ delete(id: number) {
     const params = new HttpParams().append('id', String(id));
     return this.http.get('api/deleteBill', { params });
 }
+
+updateBill(bill: Bill) {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    let data={
+        "id":bill.id,
+        "grossValue":bill.grossValue,
+        "netValue":bill.netValue,
+        "vatValue":bill.vatValue,
+        "discount":bill.discount
+    }
+
+    return this.http.post('api/updateBill', data, {headers});
+}
+
 }

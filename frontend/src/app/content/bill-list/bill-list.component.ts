@@ -21,7 +21,7 @@ export class BillListComponent implements OnInit {
     )
   }
   showDetails(id:number){
-    this.router.navigateByUrl("/bill/"+id);
+    this.router.navigateByUrl("/bills/"+id);
   }
 
   delete(id:number){
