@@ -1,0 +1,19 @@
+<div class="post">
+    <header>
+      <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
+      <h2>Wprowadź dane nowego paragonu</h2>
+    </header>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Wartosc netto: </b> &nbsp; </p>
+        <input class="one" placeholder="netValue" type="text" required #fbox (keyup)="setNetValue(fbox.value)"><br>
+      </div>
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Zniżka: </b> &nbsp; </p>
+        <input class="one" placeholder="discount" type="text" required #nbox (keyup)="setDiscount(nbox.value)"><br>
+        <button (click)="submit()">Zatwierdź</button>
+      </div>
+    </div>
+  </div>

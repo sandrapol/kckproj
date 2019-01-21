@@ -19,5 +19,10 @@ export class PlantationService {
         append('mRegion', String(plantation.region));
 
         return this.http.get('api/addPlantation', {params});
-}
+    }
+
+    findPlantation(id: number) {
+        const params = new HttpParams().append('id', String(id));
+        return this.http.get('api/detailsPlantation', { params });
+    }
 }

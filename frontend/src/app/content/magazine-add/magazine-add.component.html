@@ -6,13 +6,13 @@
     <div class="cont">
       <div class="one">
         <p class="one"><b>Nazwa: </b> &nbsp; </p>
-        <input class="one" placeholder="____________" type="text" required #nbox (keyup)="setName(nbox.value)"><br>
+        <input class="one" placeholder="Nazwa magazynu" type="text" required #nbox (keyup)="setName(nbox.value)"><br>
       </div>
     </div>
     <div class="cont">
       <div class="one">
         <p class="one"><b>Zapas: </b> (w kg) &nbsp; </p>
-        <input class="one" placeholder="____________" type="number" required #box (mouseup)="setParam(box.value)" (keyup)="setParam(box.value)"><br>
+        <input class="one" placeholder="Zapas kawy" type="number" required #box (mouseup)="setParam(box.value)" (keyup)="setParam(box.value)"><br>
         <button (click)="submit()">Zatwierdź</button>
       </div>
     </div>

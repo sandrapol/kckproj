@@ -6,7 +6,7 @@
         <button routerLink="/newPlantation">Dodaj plantację</button>
       </div>
       <div class="lista" *ngFor="let plantation of plantationList">
-      <article class="post" >
+      <article class="post" (click)="showDetails(plantation.id)">
         <header>
           <h2 class="post_title">{{plantation.name}}</h2>
         </header>

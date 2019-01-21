@@ -1,3 +1,4 @@
+import { BillAddComponent } from './content/bill-add/bill-add.component';
 import { EmployeeAddComponent } from './content/employee-add/employee-add.component';
 import { MagazineAddComponent } from './content/magazine-add/magazine-add.component';
 import { PlantationAddComponent } from './content/plantation-add/plantation-add.component';
@@ -43,7 +44,8 @@ const routes: Routes = [
   {path:"newCustomer",component: CustomerAddComponent},
   {path:"newPlantation",component: PlantationAddComponent},
   {path:"newMagazine",component: MagazineAddComponent},
-  {path:"newEmployee",component:EmployeeAddComponent}
+  {path:"newEmployee",component:EmployeeAddComponent},
+  {path:"newBill",component:BillAddComponent}
 ];
 
 @NgModule({

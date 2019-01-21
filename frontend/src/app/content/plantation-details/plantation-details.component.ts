@@ -1,6 +1,6 @@
 import { Plantation } from './../../statics/plantation';
 import { Component, OnInit } from '@angular/core';
-import { PlantationService } from 'src/app/statics/mPlantations';
+import { PlantationService } from 'src/app/services/plantation.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,18 +9,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./plantation-details.component.css']
 })
 export class PlantationDetailsComponent implements OnInit {
-  private planServ= new PlantationService();
-  private plantationList:Plantation[]= this.planServ.PlantationList;
   currentId: number;
-  plantation:Plantation;
-  loading=true;
+  plantation:any;
+  loading:true;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private serv: PlantationService) { }
 
   ngOnInit() {
-    this.plantation=null;
     this.currentId=Number(this.route.snapshot.params['id']);
-    this.plantation=this.planServ.findPlantation(this.currentId);
+    this.serv.findPlantation(this.currentId).subscribe(
+      elem=>this.plantation=elem,
+      err=>console.log(err)
+    );
   }
 
 }

@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +30,7 @@ import { PlantationDetailsComponent } from './content/plantation-details/plantat
 import { LoadingComponent } from './content/loading/loading.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BillDetailsComponent } from './content/bill-details/bill-details.component';
+import { BillAddComponent } from './content/bill-add/bill-add.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { BillDetailsComponent } from './content/bill-details/bill-details.compon
     MagazineDetailsComponent,
     PlantationDetailsComponent,
     LoadingComponent,
-    BillDetailsComponent
+    BillDetailsComponent,
+    BillAddComponent
   ],
   imports: [
     BrowserModule,

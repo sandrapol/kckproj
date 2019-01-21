@@ -3,7 +3,7 @@
 </div>
 <div *ngIf="!loading" class="content">
     <div class="button_cont">
-        <button routerLink="/newCoffee">Dodaj magazyn</button>
+        <button routerLink="/newMagazine">Dodaj magazyn</button>
       </div>
     <div class="lista" *ngFor="let magazine of magazineList">
       <article class="post" (click)="showDetails(magazine.id)">
