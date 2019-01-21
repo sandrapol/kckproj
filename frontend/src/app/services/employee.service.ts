@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpRequest, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Employee } from '../statics/employee';
 @Injectable({
@@ -29,6 +29,20 @@ findEmployee(id: number) {
 delete(id: number) {
     const params = new HttpParams().append('id', String(id));
     return this.http.get('api/deleteEmployee', { params });
+}
+
+updateEmployee(employee: Employee) {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    let data={
+        "id":employee.id,
+        "name":employee.name,
+        "forename":employee.forename,
+        "position":employee.position,
+        "salary":employee.salary,
+        "bonus":employee.bonus
+    }
+
+    return this.http.post('api/updateEmployee', data, {headers});
 }
 
 }

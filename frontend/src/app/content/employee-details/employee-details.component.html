@@ -1,19 +1,62 @@
-<div  class="post">
+<div class="post">
     <div class="main">
       <header>
-          <h2 class="name">{{employee.name}} {{employee.forename}}</h2>
-        </header>
-        <img class="img" src="https://previews.123rf.com/images/wavebreakmediamicro/wavebreakmediamicro1507/wavebreakmediamicro150710663/42328316-happy-barista-looking-at-camera-and-gesturing-thumbs-up-in-the-bakery.jpg">
-        
-        </div>
-        <div class="details">
-          <p><b>Imie: </b> {{employee.forename}}</p>
-          <p><b>Nazwisko: </b> {{employee.name}}</p>
+        <h2 class="name">{{employee.forename}} {{employee.name}}</h2>
+      </header>
+      <img class="img" src="https://previews.123rf.com/images/wavebreakmediamicro/wavebreakmediamicro1507/wavebreakmediamicro150710663/42328316-happy-barista-looking-at-camera-and-gesturing-thumbs-up-in-the-bakery.jpg">
+    </div>
+    <div *ngIf="!edit">
+      <div class="edit" (click)="editIt()">
+        Edytuj: &nbsp;
+        <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
+      </div>
+      <div class="details">
+          <p><b>Imie: </b> {{employee.name}}</p>
+          <p><b>Nazwisko: </b> {{employee.forename}}</p>
           <p><b>Stanowisko:</b>{{employee.position}} </p>
           <p><b>Pensja:</b>{{employee.salary}} </p>
           <p><b>Premia:</b>{{employee.bonus}} </p>
-          <p><b>Etat:</b>{{employee.regularPost}} </p>
+          <p><b>Etat:</b></p>
         </div>
-       
+      </div>
+    <div *ngIf="edit">
+      <header >
+        <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
+        <h2>Wprowadź dane pracownika</h2>
+      </header>
+      <div class="cont">
+        <div class="one">
+          <p class="one"><b>Imie: </b> &nbsp; </p>
+          <input class="one" placeholder="{{employee.name}}" type="text" required #nbox (keyup)="setName(nbox.value)"><br>
+        </div>
+      </div>
+      <div class="cont">
+          <div class="one">
+            <p class="one"><b>Nazwisko: </b> &nbsp; </p>
+            <input class="one" placeholder="{{employee.forename}}" type="text" required #fbox (keyup)="setForename(fbox.value)"><br>
+          </div>
+        </div>
+        <div class="cont">
+            <div class="one">
+              <p class="one"><b>Stanowisko: </b> &nbsp; </p>
+              <input class="one" placeholder="{{employee.position}}" type="text" required #pbox (keyup)="setPosition(pbox.value)"><br>
+            </div>
+          </div>
+      <div class="cont">
+        <div class="one">
+          <p class="one"><b>Pensja: </b> &nbsp; </p>
+          <input class="one" placeholder="{{employee.salary}}" type="number" required #sbox (mouseup)="setSalary(sbox.value)"
+            (keyup)="setSalary(sbox.value)"><br>
+        </div>
+      </div>
+      
+        <div class="cont">
+            <div class="one">
+              <p class="one"><b>Premia: </b> &nbsp; </p>
+              <input class="one" placeholder="{{employee.bonus}}" type="number" required #bbox (mouseup)="setBonus(bbox.value)"
+                (keyup)="setBonus(bbox.value)"><br>
+              <button (click)="submit()">Zatwierdź</button>
+            </div>
+          </div>
+    </div>
   </div>
-  
