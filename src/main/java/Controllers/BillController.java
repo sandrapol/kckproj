@@ -9,8 +9,7 @@ import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,5 +58,28 @@ public class BillController {
             return  ResponseFactory.ResponseError("Failed", "Cannot find bill");
         }
         return ResponseEntity.ok(details);
+    }
+    @RequestMapping(value = "/deleteBill")
+    public ResponseEntity<List<Bill>> deleteBill(Long id) {
+        List list;
+        try {
+            repo.delete(id,bill);
+            list = repo.getAll(bill);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot delete bill");
+        }
+        return ResponseEntity.ok(list);
+    }
+
+    @RequestMapping(value = "/updateBill", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<Bill> updateBill(@RequestBody Bill billUp) {
+        try {
+            repo.update(billUp);
+            billUp=repo.getById(billUp.getId(), billUp);
+        } catch (Exception ex) {
+           return ResponseFactory.ResponseError("Failed", "Cannot update bill");
+        }
+        return ResponseEntity.ok(billUp);
     }
 }

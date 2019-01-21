@@ -10,8 +10,7 @@ import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @Slf4j
@@ -58,5 +57,28 @@ public class RegularPostController {
             return ResponseFactory.ResponseError("Failed", "Cannot find regular Post");
         }
         return ResponseEntity.ok(postDetails);
+    }
+    @RequestMapping(value = "/deleteRegularPost")
+    public ResponseEntity<List<RegularPost>> deleteRegularPost(Long id) {
+        List list;
+        try {
+            repo.delete(id,regularPost);
+            list = repo.getAll(regularPost);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot delete RegularPost");
+        }
+        return ResponseEntity.ok(list);
+    }
+
+    @RequestMapping(value = "/updateRegularPost", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<RegularPost> updateRegularPost(@RequestBody RegularPost regularPost1) {
+        try {
+            repo.update(regularPost1);
+            regularPost1=repo.getById(regularPost1.getId(), regularPost1);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot update RegularPost");
+        }
+        return ResponseEntity.ok(regularPost1);
     }
 }

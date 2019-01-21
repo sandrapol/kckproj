@@ -10,8 +10,7 @@ import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @Slf4j
@@ -59,5 +58,28 @@ public class PlantationController {
             return ResponseFactory.ResponseError("Failed", "Cannot find magazine");
         }
         return ResponseEntity.ok(plantationDetails);
+    }
+    @RequestMapping(value = "/deletePlantation")
+    public ResponseEntity<List<Plantation>> deleteDelivery(Long id) {
+        List list;
+        try {
+            repo.delete(id,plantation);
+            list = repo.getAll(plantation);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot delete Plantation");
+        }
+        return ResponseEntity.ok(list);
+    }
+
+    @RequestMapping(value = "/updatePlantation", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<Plantation> updatePlantation(@RequestBody Plantation plantation1) {
+        try {
+            repo.update(plantation1);
+            plantation1=repo.getById(plantation1.getId(), plantation1);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot update Plantation");
+        }
+        return ResponseEntity.ok(plantation1);
     }
 }
