@@ -35,6 +35,7 @@ const routes: Routes = [
   {path:"about", component:AboutComponent},
   {path:"customers", component: CustomerListComponent},
   {path:"customer/:id", component:CustomerDeatilsComponent},
+  {path:"bill/:id", component:BillDetailsComponent},
   {path:"employee/:id",component: EmployeeDetailsComponent},
   {path:"magazine/:id",component: MagazineDetailsComponent},
   {path:"plantation/:id",component: PlantationDetailsComponent},
