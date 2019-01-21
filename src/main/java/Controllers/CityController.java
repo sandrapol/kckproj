@@ -46,7 +46,7 @@ public class CityController{
         try {
             repo.create(city);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot add city");
+            return   ResponseFactory.ResponseError("Failed", "Cannot add city");
         }
         return ResponseEntity.ok().header("Success").build();
     }
@@ -56,7 +56,7 @@ public class CityController{
         try {
             details=repo.getById(id,city);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot find coffee");
+            return  ResponseFactory.ResponseError("Failed", "Cannot find coffee");
         }
         return ResponseEntity.ok(details);
     }

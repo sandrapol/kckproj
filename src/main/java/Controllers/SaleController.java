@@ -43,7 +43,7 @@ public class SaleController {
         try {
             repo.create(sale);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot add sale");
+            return  ResponseFactory.ResponseError("Failed", "Cannot add sale");
         }
         return ResponseEntity.ok().header("Success").build();
     }
@@ -53,7 +53,7 @@ public class SaleController {
         try {
             saleDetails=repo.getById(id,sale);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot find sale");
+            return ResponseFactory.ResponseError("Failed", "Cannot find sale");
         }
         return ResponseEntity.ok(saleDetails);
     }

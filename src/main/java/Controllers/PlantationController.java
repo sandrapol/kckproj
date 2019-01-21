@@ -46,7 +46,7 @@ public class PlantationController {
         try {
             repo.create(plantation);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot add plantation");
+            return  ResponseFactory.ResponseError("Failed", "Cannot add plantation");
         }
         return ResponseEntity.ok().header("Success").build();
     }
@@ -56,7 +56,7 @@ public class PlantationController {
         try {
             plantationDetails=repo.getById(id,plantation);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot find magazine");
+            return ResponseFactory.ResponseError("Failed", "Cannot find magazine");
         }
         return ResponseEntity.ok(plantationDetails);
     }

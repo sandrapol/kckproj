@@ -42,7 +42,7 @@ public class HarvestController {
         try {
             repo.create(harvest);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot add harvest");
+            return  ResponseFactory.ResponseError("Failed", "Cannot add harvest");
         }
         return ResponseEntity.ok().header("Success").build();
     }
@@ -52,7 +52,7 @@ public class HarvestController {
         try {
             details=repo.getById(id,harvest);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot find harvest");
+            return  ResponseFactory.ResponseError("Failed", "Cannot find harvest");
         }
         return ResponseEntity.ok(details);
     }

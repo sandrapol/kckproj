@@ -50,7 +50,7 @@ public class CoffeeController {
         try {
             repo.create(coffee);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot add coffee");
+            return ResponseFactory.ResponseError("Failed", "Cannot add coffee");
         }
         return ResponseEntity.ok().header("Success").build();
     }
@@ -60,7 +60,7 @@ public class CoffeeController {
         try {
             details=repo.getById(id,coffee);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot find coffee");
+            return  ResponseFactory.ResponseError("Failed", "Cannot find coffee");
         }
         return ResponseEntity.ok(details);
     }

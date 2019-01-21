@@ -2,12 +2,12 @@
   <app-loading></app-loading>
 </div>
 <div *ngIf="!loading" class="content">
-    <div class="button_cont">
+    <div class="button_cont">.
         <button routerLink="/newMagazine">Dodaj magazyn</button>
       </div>
     <div class="lista" *ngFor="let magazine of magazineList">
-      <article class="post" (click)="showDetails(magazine.id)">
-        <header>
+      <article class="post">
+        <header (click)="showDetails(magazine.id)">
           <h2 class="post_title">{{magazine.name}}</h2>
         </header>
         <div class="block">
@@ -25,7 +25,7 @@
             <p class="price"></p>
           </footer>
           <div class="images">
-              <img class="delete" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png">
+              <img (click)="delete(magazine.id)" class="delete" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png">
               <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
             </div>
         </div>

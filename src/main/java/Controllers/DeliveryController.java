@@ -42,7 +42,7 @@ public class DeliveryController {
         try {
             repo.create(delivery);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot add delivery");
+            return ResponseFactory.ResponseError("Failed", "Cannot add delivery");
         }
         return ResponseEntity.ok().header("Success").build();
     }
@@ -52,7 +52,7 @@ public class DeliveryController {
         try {
             details=repo.getById(id,delivery);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot find delivery");
+            return ResponseFactory.ResponseError("Failed", "Cannot find delivery");
         }
         return ResponseEntity.ok(details);
     }

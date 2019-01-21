@@ -26,5 +26,13 @@ export class MagazineListComponent implements OnInit {
   showDetails(id:number){
     this.router.navigateByUrl("/magazine/"+id);
   }
+  delete(id:number){
+    this.serv.delete(id).subscribe(
+      elem=> console.log(elem),
+      err=> console.log(err),
+      ()=> {this.router.navigateByUrl('', {skipLocationChange: true}).then(()=>
+      this.router.navigateByUrl('/magazines')); }
+    )
+  }
 
 }
