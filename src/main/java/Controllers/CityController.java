@@ -10,8 +10,7 @@ import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @Slf4j
@@ -59,5 +58,28 @@ public class CityController{
             return  ResponseFactory.ResponseError("Failed", "Cannot find coffee");
         }
         return ResponseEntity.ok(details);
+    }
+    @RequestMapping(value = "/deleteCity")
+    public ResponseEntity<List<City>> deleteCity(Long id) {
+        List list;
+        try {
+            repo.delete(id,city);
+            list = repo.getAll(city);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot delete city");
+        }
+        return ResponseEntity.ok(list);
+    }
+
+    @RequestMapping(value = "/updateCity", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<City> updateCity(@RequestBody City cityUp) {
+        try {
+            repo.update(cityUp);
+            cityUp=repo.getById(cityUp.getId(), cityUp);
+        } catch (Exception ex) {
+           return ResponseFactory.ResponseError("Failed", "Cannot update city");
+        }
+        return ResponseEntity.ok(cityUp);
     }
 }

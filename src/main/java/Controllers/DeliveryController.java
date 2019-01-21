@@ -11,8 +11,7 @@ import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @Slf4j
@@ -55,5 +54,28 @@ public class DeliveryController {
             return ResponseFactory.ResponseError("Failed", "Cannot find delivery");
         }
         return ResponseEntity.ok(details);
+    }
+    @RequestMapping(value = "/deleteDelivery")
+    public ResponseEntity<List<Delivery>> deleteDelivery(Long id) {
+        List list;
+        try {
+            repo.delete(id,delivery);
+            list = repo.getAll(delivery);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot delete Delivery");
+        }
+        return ResponseEntity.ok(list);
+    }
+
+    @RequestMapping(value = "/updateDelivery", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<Delivery> updateDelivery(@RequestBody Delivery delivery1) {
+        try {
+            repo.update(delivery1);
+            delivery1=repo.getById(delivery1.getId(), delivery1);
+        } catch (Exception ex) {
+             return ResponseFactory.ResponseError("Failed", "Cannot update Delivery");
+        }
+        return ResponseEntity.ok(delivery1);
     }
 }

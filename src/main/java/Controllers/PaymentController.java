@@ -11,8 +11,7 @@ import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @Slf4j
@@ -58,5 +57,28 @@ public class PaymentController {
             return   ResponseFactory.ResponseError("Failed", "Cannot find payment");
         }
         return ResponseEntity.ok(details);
+    }
+    @RequestMapping(value = "/deletePayment")
+    public ResponseEntity<List<Payment>> deletePayment(Long id) {
+        List list;
+        try {
+            repo.delete(id,payment);
+            list = repo.getAll(payment);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot delete Payment");
+        }
+        return ResponseEntity.ok(list);
+    }
+
+    @RequestMapping(value = "/updatePayment", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<Payment> updatePayment(@RequestBody Payment payment1) {
+        try {
+            repo.update(payment1);
+            payment1=repo.getById(payment1.getId(), payment1);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot update Delivery");
+        }
+        return ResponseEntity.ok(payment1);
     }
 }

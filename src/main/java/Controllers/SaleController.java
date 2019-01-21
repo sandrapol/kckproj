@@ -11,8 +11,7 @@ import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @Slf4j
@@ -56,5 +55,28 @@ public class SaleController {
             return ResponseFactory.ResponseError("Failed", "Cannot find sale");
         }
         return ResponseEntity.ok(saleDetails);
+    }
+    @RequestMapping(value = "/deleteSale")
+    public ResponseEntity<List<Sale>> deleteSale(Long id) {
+        List list;
+        try {
+            repo.delete(id,sale);
+            list = repo.getAll(sale);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot delete Sale");
+        }
+        return ResponseEntity.ok(list);
+    }
+
+    @RequestMapping(value = "/updateSale", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<Sale> updateSale(@RequestBody Sale sale1) {
+        try {
+            repo.update(sale1);
+            sale1=repo.getById(sale1.getId(), sale1);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot update Sale");
+        }
+        return ResponseEntity.ok(sale1);
     }
 }

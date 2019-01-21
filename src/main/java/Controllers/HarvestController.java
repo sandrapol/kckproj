@@ -8,8 +8,7 @@ import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @Slf4j
@@ -55,5 +54,28 @@ public class HarvestController {
             return  ResponseFactory.ResponseError("Failed", "Cannot find harvest");
         }
         return ResponseEntity.ok(details);
+    }
+    @RequestMapping(value = "/deleteHarvest")
+    public ResponseEntity<List<Harvest>> deleteHarvest(Long id) {
+        List list;
+        try {
+            repo.delete(id,harvest);
+            list = repo.getAll(harvest);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot delete Harvest");
+        }
+        return ResponseEntity.ok(list);
+    }
+
+    @RequestMapping(value = "/updateHarvest", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<Harvest> updateHarvest(@RequestBody Harvest harvest1) {
+        try {
+            repo.update(harvest1);
+            harvest1=repo.getById(harvest1.getId(), harvest1);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot update Harvest");
+        }
+        return ResponseEntity.ok(harvest1);
     }
 }

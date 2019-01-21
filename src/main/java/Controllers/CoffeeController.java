@@ -8,10 +8,7 @@ import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
@@ -63,5 +60,28 @@ public class CoffeeController {
             return  ResponseFactory.ResponseError("Failed", "Cannot find coffee");
         }
         return ResponseEntity.ok(details);
+    }
+    @RequestMapping(value = "/deleteCoffee")
+    public ResponseEntity<List<Coffee>> deleteCoffee(Long id) {
+        List list;
+        try {
+            repo.delete(id,coffee);
+            list = repo.getAll(coffee);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot delete coffee");
+        }
+        return ResponseEntity.ok(list);
+    }
+
+    @RequestMapping(value = "/updateCoffee", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<Coffee> updateCoffee(@RequestBody Coffee coffee1) {
+        try {
+            repo.update(coffee1);
+            coffee1=repo.getById(coffee1.getId(), coffee1);
+        } catch (Exception ex) {
+           return ResponseFactory.ResponseError("Failed", "Cannot update coffee");
+        }
+        return ResponseEntity.ok(coffee1);
     }
 }

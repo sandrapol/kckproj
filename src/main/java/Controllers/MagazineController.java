@@ -43,7 +43,7 @@ public class MagazineController {
         try {
             repo.create(magazine);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot add magazine");
+         return    ResponseFactory.ResponseError("Failed", "Cannot add magazine");
         }
         return ResponseEntity.ok().header("Success").build();
     }
@@ -79,7 +79,7 @@ public class MagazineController {
             repo.update(magazineUp);
             magazineUp=repo.getById(magazineUp.getId(), magazine);
         } catch (Exception ex) {
-            ResponseFactory.ResponseError("Failed", "Cannot update magazine");
+         return    ResponseFactory.ResponseError("Failed", "Cannot update magazine");
         }
         return ResponseEntity.ok(magazineUp);
     }
