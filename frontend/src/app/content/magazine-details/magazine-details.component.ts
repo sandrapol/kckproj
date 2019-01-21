@@ -10,17 +10,51 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MagazineDetailsComponent implements OnInit {
   currentId: number;
-  magazine:any;
-  loading=true;
+  magazine: any;
+  loading: boolean = true;
+  edit: boolean = false;
+  error: boolean = false;
 
   constructor(private route: ActivatedRoute, private serv: MagazineService) { }
 
   ngOnInit() {
-    this.currentId=Number(this.route.snapshot.params['id']);
+    this.currentId = Number(this.route.snapshot.params['id']);
     this.serv.findMagazine(this.currentId).subscribe(
-      elem=>this.magazine=elem,
-      err=>console.log(err)
+      elem => this.magazine = elem,
+      err => console.log(err)
     );
+  }
+  editIt() {
+    this.edit = true;
+  }
+  setName(value) {
+    this.magazine.name = value;
+    this.error = false;
+    if (this.magazine.name.length < 1)
+      this.error = true;
+  }
+  setParam(value) {
+    if (Number(value) > -1) {
+      this.magazine.supply = Number(value);
+      this.error = false;
+    }
+    else
+      this.error = true;
+  }
+  submit() {
+    if (!this.error) {
+      if (this.magazine.supply == 0)
+        this.magazine.coffeeAvailability = false;
+      else
+        this.magazine.coffeeAvailability = true;
+      this.serv.updateMagazine(this.magazine).subscribe(
+        elem => this.magazine = elem,
+        err => console.log(err),
+        () => this.edit = false
+      );
+      console.log(this.magazine);
+
+    }
   }
 
 }

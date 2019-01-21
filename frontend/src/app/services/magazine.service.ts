@@ -1,6 +1,6 @@
 import { Magazine } from 'src/app/statics/magazine';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpRequest, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 @Injectable({
     providedIn: 'root'
@@ -26,6 +26,17 @@ export class MagazineService {
     delete(id: number) {
         const params = new HttpParams().append('id', String(id));
         return this.http.get('api/deleteMagazine', { params });
+    }
+    updateMagazine(magazine: Magazine) {
+        let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        let data={
+            "id":magazine.id,
+            "name":magazine.name,
+            "coffeeAvailability":magazine.coffeeAvailability,
+            "supply":magazine.supply
+        }
+
+        return this.http.post('api/updateMagazine', data, {headers});
     }
 
 }

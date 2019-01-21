@@ -1,17 +1,43 @@
-<div  class="post">
-    <div class="main">
-      <header>
-          <h2 class="name">{{magazine.name}}</h2>
-        </header>
-        <img class="img" src="https://www.wonolo.com/wp-content/uploads/2017/07/Warehouse-worker.jpg">
-        
-        </div>
-        <div class="details">
-          <p><b>Identyfikator: </b> {{magazine.id}}</p>
-          <p><b>Nazwa: </b> {{magazine.name}}</p>
-          <div class="kawka"><b>Dostępność: </b><p *ngIf="magazine.coffeeAvailability"> dostępna</p><p *ngIf="!(magazine.coffeeAvailability)">niedostępna</p></div>
-          <p><b>Dostawa:</b>{{magazine.supply}} </p>
-        </div>
-       
+<div class="post">
+  <div class="main">
+    <header>
+      <h2 class="name">{{magazine.name}}</h2>
+    </header>
+    <img class="img" src="https://www.wonolo.com/wp-content/uploads/2017/07/Warehouse-worker.jpg">
   </div>
-  
+  <div *ngIf="!edit">
+    <div class="edit" (click)="editIt()">
+      Edytuj: &nbsp;
+      <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
+    </div>
+    <div class="details">
+      <p><b>Identyfikator: </b> {{magazine.id}}</p>
+      <p><b>Nazwa: </b> {{magazine.name}}</p>
+      <div class="kawka"><b>Dostępność: </b>
+        <p *ngIf="magazine.coffeeAvailability"> dostępna</p>
+        <p *ngIf="!(magazine.coffeeAvailability)">niedostępna</p>
+      </div>
+      <p><b>Zapas:</b>{{magazine.supply}} kg </p>
+    </div>
+  </div>
+  <div *ngIf="edit">
+    <header >
+      <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
+      <h2>Wprowadź dane magazynu</h2>
+    </header>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Nazwa: </b> &nbsp; </p>
+        <input class="one" placeholder="{{magazine.name}}" type="text" required #nbox (keyup)="setName(nbox.value)"><br>
+      </div>
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Zapas: </b> (w kg) &nbsp; </p>
+        <input class="one" placeholder="{{magazine.supply}}" type="number" required #box (mouseup)="setParam(box.value)"
+          (keyup)="setParam(box.value)"><br>
+        <button (click)="submit()">Zatwierdź</button>
+      </div>
+    </div>
+  </div>
+</div>

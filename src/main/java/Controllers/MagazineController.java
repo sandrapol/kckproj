@@ -10,8 +10,7 @@ import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @Slf4j
@@ -54,6 +53,7 @@ public class MagazineController {
         Magazine magazineDetails;
         try {
             magazineDetails=repo.getById(id,magazine);
+            System.out.println(magazineDetails.toString());
         } catch (Exception ex) {
            return ResponseFactory.ResponseError("Failed", "Cannot find magazine");
         }
@@ -70,5 +70,17 @@ public class MagazineController {
            return ResponseFactory.ResponseError("Failed", "Cannot delete magazine");
         }
         return ResponseEntity.ok(magazineList);
+    }
+
+    @RequestMapping(value = "/updateMagazine", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<Magazine> updateMagazine(@RequestBody Magazine magazineUp) {
+        try {
+            repo.update(magazineUp);
+            magazineUp=repo.getById(magazineUp.getId(), magazine);
+        } catch (Exception ex) {
+            ResponseFactory.ResponseError("Failed", "Cannot update magazine");
+        }
+        return ResponseEntity.ok(magazineUp);
     }
 }
