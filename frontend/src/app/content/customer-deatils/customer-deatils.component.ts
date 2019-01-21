@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CustomerDeatilsComponent implements OnInit {
   currentId: number;
-  cust:any;
+  customer:any;
   loading:true;
 
   constructor(private route: ActivatedRoute, private serv: CustomerService ) { }
@@ -18,7 +18,7 @@ export class CustomerDeatilsComponent implements OnInit {
   ngOnInit() {
     this.currentId=Number(this.route.snapshot.params['id']);
     this.serv.findCustomer(this.currentId).subscribe(
-      elem=>this.cust=elem,
+      elem=>this.customer=elem,
       err=>console.log(err)
     );
   }
