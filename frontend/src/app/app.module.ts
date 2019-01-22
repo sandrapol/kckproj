@@ -31,11 +31,13 @@ import { LoadingComponent } from './content/loading/loading.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BillDetailsComponent } from './content/bill-details/bill-details.component';
 import { BillAddComponent } from './content/bill-add/bill-add.component';
+import { Ng5SliderModule } from 'ng5-slider';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    Ng5SliderModule,
     MenuComponent,
     HomeComponent,
     CoffeListComponent,

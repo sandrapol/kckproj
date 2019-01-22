@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  CoffeeService } from 'src/app/services/coffee.service';
 import { Coffee } from 'src/app/statics/coffe';
 import { Router } from '@angular/router';
+import { Options, LabelType } from 'ng5-slider';
 
 @Component({
   selector: 'app-coffe-list',
@@ -11,6 +12,24 @@ import { Router } from '@angular/router';
 export class CoffeListComponent implements OnInit {
   private coffeeList:any;
   loading:boolean= true;
+
+  minValue: number = 100;
+  maxValue: number = 400;
+  options: Options = {
+    floor: 0,
+    ceil: 500,
+    translate: (value: number, label: LabelType): string => {
+      switch (label) {
+        case LabelType.Low:
+          return '<b>Min price:</b> $' + value;
+        case LabelType.High:
+          return '<b>Max price:</b> $' + value;
+        default:
+          return '$' + value;
+      }
+    }
+  };
+
 
   constructor(private router: Router, private serv: CoffeeService ) { }
 
