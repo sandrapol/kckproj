@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RestController
@@ -33,11 +34,17 @@ public class MagazineController {
         }
         return ResponseEntity.ok(magazineList);
     }
+
     @RequestMapping(value = "/magazineSortBy")
     public ResponseEntity<List<Magazine>> sortBy(String field) {
         List magazineList;
         try {
-            magazineList = repo.sortBy(field,magazine);
+            if (field.contains("Other")) {
+                field=field.replace("Other","");
+                magazineList= repo.descSortBy(field,magazine);
+            } else {
+                magazineList = repo.sortBy(field, magazine);
+            }
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }
@@ -46,14 +53,14 @@ public class MagazineController {
 
     @RequestMapping(value = "/addMagazine")
     public ResponseEntity<String> addMagazine(String mName, double mSupply, boolean mAvailability) {
-        Magazine magazine= new Magazine();
+        Magazine magazine = new Magazine();
         magazine.setCoffeeAvailability(mAvailability);
         magazine.setSupply(mSupply);
         magazine.setName(mName);
         try {
             repo.create(magazine);
         } catch (Exception ex) {
-         return    ResponseFactory.ResponseError("Failed", "Cannot add magazine");
+            return ResponseFactory.ResponseError("Failed", "Cannot add magazine");
         }
         return ResponseEntity.ok().header("Success").build();
     }
@@ -62,10 +69,10 @@ public class MagazineController {
     public ResponseEntity<Magazine> getMagazineById(Long id) {
         Magazine magazineDetails;
         try {
-            magazineDetails=repo.getById(id,magazine);
+            magazineDetails = repo.getById(id, magazine);
             System.out.println(magazineDetails.toString());
         } catch (Exception ex) {
-           return ResponseFactory.ResponseError("Failed", "Cannot find magazine");
+            return ResponseFactory.ResponseError("Failed", "Cannot find magazine");
         }
         return ResponseEntity.ok(magazineDetails);
     }
@@ -74,10 +81,10 @@ public class MagazineController {
     public ResponseEntity<List<Magazine>> deleteMagazine(Long id) {
         List magazineList;
         try {
-            repo.delete(id,magazine);
+            repo.delete(id, magazine);
             magazineList = repo.getAll(magazine);
         } catch (Exception ex) {
-           return ResponseFactory.ResponseError("Failed", "Cannot delete magazine");
+            return ResponseFactory.ResponseError("Failed", "Cannot delete magazine");
         }
         return ResponseEntity.ok(magazineList);
     }
@@ -88,9 +95,9 @@ public class MagazineController {
         System.out.println(magazineUp.toString());
         try {
             repo.update(magazineUp);
-            magazineUp=repo.getById(magazineUp.getId(), magazine);
+            magazineUp = repo.getById(magazineUp.getId(), magazine);
         } catch (Exception ex) {
-         return    ResponseFactory.ResponseError("Failed", "Cannot update magazine");
+            return ResponseFactory.ResponseError("Failed", "Cannot update magazine");
         }
         return ResponseEntity.ok(magazineUp);
     }
