@@ -24,5 +24,19 @@ button{
 button:hover {
     background-color: #111111;
   }
-  
-  
+
+  .suwak .ng5-slider .ng5-slider-selection {
+    background: #444444 !important;
+  }
+
+  .suwak .ng5-slider .ng5-slider-pointer {
+    background: #666666 !important;
+  }
+
+  .suwak .ng5-slider .ng5-slider-model-high{
+      margin-right: 30px;
+  }
+
+  .suwak .ng5-slider .ng5-slider-tick .ng5-slider-active ::after {
+    background-color: yellow !important;
+  }
