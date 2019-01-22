@@ -69,6 +69,8 @@ export class CustomerAddComponent implements OnInit {
         ()=> this.router.navigateByUrl("/customers")
       );
      
+    }else{
+      this.error=true;
     }
   }
 
