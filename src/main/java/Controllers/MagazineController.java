@@ -33,6 +33,16 @@ public class MagazineController {
         }
         return ResponseEntity.ok(magazineList);
     }
+    @RequestMapping(value = "/magazineSortBy")
+    public ResponseEntity<List<Magazine>> sortBy(String field) {
+        List magazineList;
+        try {
+            magazineList = repo.sortBy(field,magazine);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(magazineList);
+    }
 
     @RequestMapping(value = "/addMagazine")
     public ResponseEntity<String> addMagazine(String mName, double mSupply, boolean mAvailability) {

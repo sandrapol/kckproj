@@ -38,5 +38,9 @@ export class MagazineService {
 
         return this.http.post('api/updateMagazine', data, {headers});
     }
+    sort(field:string){
+        const params = new HttpParams().append('field', field);
+        return this.http.get('api/magazineSortBy', { params });
+    }
 
 }
