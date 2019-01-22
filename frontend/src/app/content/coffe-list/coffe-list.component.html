@@ -12,15 +12,15 @@
       <select id="sortDrop" (change)='setSelected()'>
           <option hidden="true">Sortuj</option>
           <option value="id">Id (rosnąco)</option>
-          <option value="">Id(malejąco)</option>
+          <option value="idOther">Id(malejąco)</option>
           <option value="name">Nazwy (A-Z)</option>
-          <option value="">Nazwy (Z-A)</option>
+          <option value="nameOther">Nazwy (Z-A)</option>
           <option value="species">Gatunku (A-Z)</option>
-          <option value="">Gatunku(Z-A)</option>
+          <option value="speciesOther">Gatunku(Z-A)</option>
           <option value="type">Typu (A-Z)</option>
-          <option value="">Typu(Z-A)</option>
+          <option value="typeOther">Typu(Z-A)</option>
           <option value="price">Ceny (rosnąco)</option>
-          <option value="">Ceny(malejąco)</option>
+          <option value="priceOther">Ceny(malejąco)</option>
         </select>
     <button routerLink="/newCoffee">Dodaj kawę</button>
   </div>

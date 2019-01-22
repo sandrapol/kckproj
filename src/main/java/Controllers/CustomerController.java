@@ -39,7 +39,12 @@ public class CustomerController {
     public ResponseEntity<List<Customer>> sortBy(String field) {
         List customerList;
         try {
-            customerList = repo.sortBy(field,customer);
+            if (field.contains("Other")) {
+                field=field.replace("Other","");
+                customerList= repo.descSortBy(field,customer);
+            } else {
+                customerList = repo.sortBy(field, customer);
+            }
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }

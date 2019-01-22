@@ -78,14 +78,5 @@ public class DBGeneric<T> {
         return el;
     }
 
-    public List sortByDesc(String field, T cl){
-        String className=  cl.getClass().getName();
-        String hql = "FROM "+className+" c ORDER BY c."+field+"DESC";
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        Transaction tr = session.beginTransaction();
-        List<T> el = session.createQuery(hql).list();
-        tr.commit();
-        return el;
-    }
 
 }

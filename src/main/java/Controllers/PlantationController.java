@@ -39,7 +39,12 @@ public class PlantationController {
     public ResponseEntity<List<Plantation>> sortBy(String field) {
         List plantationList;
         try {
-            plantationList = repo.sortBy(field,plantation);
+            if (field.contains("Other")) {
+                field=field.replace("Other","");
+                plantationList= repo.descSortBy(field,plantation);
+            } else {
+                plantationList = repo.sortBy(field, plantation);
+            }
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }

@@ -40,23 +40,19 @@ public class CoffeeController {
     public ResponseEntity<List<Coffee>> sortBy(String field) {
         List coffeeList;
         try {
-            coffeeList = repo.sortBy(field,coffee);
+            if (field.contains("Other")) {
+                field=field.replace("Other","");
+                coffeeList= repo.descSortBy(field,coffee);
+            } else {
+                coffeeList = repo.sortBy(field, coffee);
+            }
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }
         return ResponseEntity.ok(coffeeList);
     }
 
-    @RequestMapping(value = "/coffeeSortByDesc")
-    public ResponseEntity<List<Coffee>> sortByDesc(String field) {
-        List coffeeList;
-        try {
-            coffeeList = repo.sortByDesc(field,coffee);
-        } catch (Exception ex) {
-            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
-        }
-        return ResponseEntity.ok(coffeeList);
-    }
+
     @RequestMapping(value = "/addCoffee")
     public ResponseEntity<String> addCoffee(String mName,
                                             double mPrice,

@@ -38,7 +38,12 @@ public class EmployeeController {
     public ResponseEntity<List<Employee>> sortBy(String field) {
         List employeeList;
         try {
-            employeeList = repo.sortBy(field,employee);
+            if (field.contains("Other")) {
+                field=field.replace("Other","");
+                employeeList= repo.descSortBy(field,employee);
+            } else {
+                employeeList = repo.sortBy(field, employee);
+            }
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }

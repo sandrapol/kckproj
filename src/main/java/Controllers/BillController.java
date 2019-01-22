@@ -40,23 +40,19 @@ public class BillController {
     public ResponseEntity<List<Bill>> sortBy(String field) {
         List billList;
         try {
-            billList = repo.sortBy(field,bill);
+            if (field.contains("Other")) {
+                field=field.replace("Other","");
+                billList= repo.descSortBy(field,bill);
+            } else {
+                billList = repo.sortBy(field, bill);
+            }
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }
         return ResponseEntity.ok(billList);
     }
 
-    @RequestMapping(value = "/billSortByDesc")
-    public ResponseEntity<List<Bill>> sortByDesc(String field) {
-        List billList;
-        try {
-            billList = repo.sortByDesc(field,bill);
-        } catch (Exception ex) {
-            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
-        }
-        return ResponseEntity.ok(billList);
-    }
+
 
     @RequestMapping(value = "/addBill")
     public ResponseEntity<String> addBill(double mDiscount, double mGrossValue) {
