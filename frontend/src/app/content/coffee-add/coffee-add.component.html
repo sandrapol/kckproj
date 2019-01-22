@@ -6,7 +6,7 @@
   <div class="cont">
     <div class="one">
       <p class="one"><b>Nazwa: </b> &nbsp; </p>
-      <input class="one" placeholder="Nazwa" type="text" required  #modelbox (keyup)="setName(modelbox.value)"><br>
+      <input class="one" placeholder="Nazwa" type="text" required #modelbox (keyup)="setName(modelbox.value)"><br>
     </div>
   </div>
   <div class="cont">
@@ -21,7 +21,15 @@
       <input class="one" placeholder="Typ" type="text" required #orbox (keyup)="setType(orbox.value)"><br>
     </div>
   </div>
-
+  <div class="cont">
+    <div class="one">
+      <p class="one"><b>Magazyn: </b> &nbsp; </p>
+      <select class="one" id="sortDrop" (change)='setSelected()'>
+        <option hidden="true">Magazine</option>
+        <option *ngFor="let magazine of magazineList" value="{{magazine.id}}">{{magazine.id}} - {{magazine.name}}</option>
+      </select>
+    </div>
+  </div>
   <div class="cont">
     <div class="one">
       <p class="one"><b>Cena: </b> (zl/kg) &nbsp; </p>

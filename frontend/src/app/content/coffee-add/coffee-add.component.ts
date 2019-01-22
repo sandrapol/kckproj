@@ -1,7 +1,9 @@
+
 import { CoffeeService } from 'src/app/services/coffee.service';
 import { Component, OnInit } from '@angular/core';
 import { Coffee } from 'src/app/statics/coffe';
 import { Router } from '@angular/router';
+import { MagazineService } from 'src/app/services/magazine.service';
 
 @Component({
   selector: 'app-coffee-add',
@@ -11,10 +13,24 @@ import { Router } from '@angular/router';
 export class CoffeeAddComponent implements OnInit {
   coffee:Coffee= new Coffee();
   error:boolean;
-  constructor(private router: Router, private serv:CoffeeService) { }
+  magazineList:any;
+  magazineId:number;
+  constructor(private router: Router, private serv:CoffeeService, private magServ: MagazineService) { }
 
   ngOnInit() {
+    this.magServ.getMagazineList().subscribe(
+      elem=> this.magazineList= elem,
+      err=> console.log(err))
   }
+  setSelected() {
+    let e = (document.getElementById("sortDrop")) as HTMLSelectElement;
+    let sel = e.selectedIndex;
+    var opt = e.options[sel];
+    this.magazineId=Number(opt.value);
+    console.log(this.magazineId);
+  }
+  
+  
   setName(value) {
     this.coffee.name = value;
     this.error = false;
@@ -52,7 +68,7 @@ export class CoffeeAddComponent implements OnInit {
   }
   submit(){
     if (!this.error) {
-      this.serv.addCoffee(this.coffee).subscribe(
+      this.serv.addCoffee(this.coffee,this.magazineId).subscribe(
         elem=>console.log(elem),
         err=>console.log(err),
         ()=> this.router.navigateByUrl("/coffee")
