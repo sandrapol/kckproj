@@ -22,8 +22,9 @@ import java.util.List;
 @EnableAutoConfiguration
 public class CoffeeController {
     DBGeneric<Coffee> repo = new DBGeneric<>();
-
+    DBGeneric<Magazine> repoMagazine = new DBGeneric<>();
     private Coffee coffee = new Coffee();
+    private Magazine magazine = new Magazine();
 
     @RequestMapping(value = "/coffeeList")
     public ResponseEntity<List<Coffee>> addCoffee() {
@@ -57,13 +58,16 @@ public class CoffeeController {
     public ResponseEntity<String> addCoffee(String mName,
                                             double mPrice,
                                             String mSpecies,
-                                            String mType) {
+                                            String mType,
+                                            Long magazineId) {
         Coffee coffee= new Coffee();
         coffee.setName(mName);
         coffee.setPrice(mPrice);
         coffee.setSpecies(mSpecies);
         coffee.setType(mType);
         try {
+            Magazine magazineAdd= repoMagazine.getById(magazineId,magazine);
+            coffee.setMagazine(magazineAdd);
             repo.create(coffee);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Failed", "Cannot add coffee");

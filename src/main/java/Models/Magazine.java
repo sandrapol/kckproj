@@ -1,6 +1,7 @@
 package main.java.Models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,11 +21,27 @@ public class Magazine {
     @OneToMany(mappedBy="magazine")
     private List<Coffee> coffies;
     public Magazine() {
+        deliveries= new ArrayList<>();
+        coffies= new ArrayList<>();
     }
 
     public Magazine(boolean coffeeAvailability, double supply) {
         this.coffeeAvailability = coffeeAvailability;
         this.supply = supply;
+        deliveries= new ArrayList<>();
+        coffies= new ArrayList<>();
+    }
+    public void addCoffee(Coffee coffee){
+        this.coffies.add(coffee);
+    }
+    public void removeCoffee(Coffee coffee){
+        this.coffies.remove(coffee);
+    }
+    public void addDelivery(Delivery delivery){
+        this.deliveries.add(delivery);
+    }
+    public void removeDelivery(Delivery delivery){
+        this.deliveries.remove(delivery);
     }
 
     public String getName() {

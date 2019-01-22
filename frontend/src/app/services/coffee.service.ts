@@ -14,9 +14,9 @@ export class CoffeeService {
         return this.http.get('api/coffeeList');
     }
 
-    addCoffee(coffee: Coffee){   
+    addCoffee(coffee: Coffee, id:number){   
         const params = new HttpParams().append('mName', coffee.name).append('mSpecies', String(coffee.species)).
-        append('mType', String(coffee.type)).append('mPrice',String(coffee.price));
+        append('mType', String(coffee.type)).append('mPrice',String(coffee.price)).append('magazineId', String(id));
 
         return this.http.get('api/addCoffee', {params});
 }
