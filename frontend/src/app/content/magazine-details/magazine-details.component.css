@@ -20,6 +20,7 @@ header{
     text-align: center;
     padding: 4%;
     padding-bottom: 1%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .main{
     text-align: center;
@@ -44,9 +45,13 @@ header{
 
 .kawka{
     display: inline;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
 }
 .kawka p{
     display: inline;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
 }
 .one{
     display: inline;
@@ -58,4 +63,9 @@ button{
     width: 100%;
     padding:2%;
     padding-left: 10%
+}
+
+p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
 }
