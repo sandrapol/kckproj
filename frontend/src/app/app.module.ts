@@ -37,7 +37,6 @@ import { Ng5SliderModule } from 'ng5-slider';
   declarations: [
     AppComponent,
     HeaderComponent,
-    Ng5SliderModule,
     MenuComponent,
     HomeComponent,
     CoffeListComponent,
@@ -68,7 +67,8 @@ import { Ng5SliderModule } from 'ng5-slider';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng5SliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
