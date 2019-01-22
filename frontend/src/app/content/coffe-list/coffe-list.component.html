@@ -9,17 +9,17 @@
             <button type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>
-      <select id="dropdown" (change)='setSelected()'>
+      <select id="sortDrop" (change)='setSelected()'>
           <option hidden="true">Sortuj</option>
-          <option value="login">Id (rosnąco)</option>
-          <option value="registration">Id(malejąco)</option>
-          <option value="">Nazwy (A-Z)</option>
+          <option value="id">Id (rosnąco)</option>
+          <option value="">Id(malejąco)</option>
+          <option value="name">Nazwy (A-Z)</option>
           <option value="">Nazwy (Z-A)</option>
-          <option value="">Gatunku (A-Z)</option>
+          <option value="species">Gatunku (A-Z)</option>
           <option value="">Gatunku(Z-A)</option>
-          <option value="">Typu (A-Z)</option>
+          <option value="type">Typu (A-Z)</option>
           <option value="">Typu(Z-A)</option>
-          <option value="">Ceny (rosnąco)</option>
+          <option value="price">Ceny (rosnąco)</option>
           <option value="">Ceny(malejąco)</option>
         </select>
     <button routerLink="/newCoffee">Dodaj kawę</button>

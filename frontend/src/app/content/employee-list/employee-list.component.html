@@ -9,19 +9,19 @@
             <button type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>
-      <select id="dropdown" (change)='setSelected()'>
+      <select id="sortDrop" (change)='setSelected()'>
           <option hidden="true">Sortuj</option>
-          <option value="login">Id (rosnąco)</option>
-          <option value="registration">Id(malejąco)</option>
-          <option value="">Imienia (A-Z)</option>
+          <option value="id">Id (rosnąco)</option>
+          <option value="">Id(malejąco)</option>
+          <option value="name">Imienia (A-Z)</option>
           <option value="">Imienia (Z-A)</option>
-          <option value="">Nazwiska (A-Z)</option>
+          <option value="forename">Nazwiska (A-Z)</option>
           <option value="">Nazwiska (Z-A)</option>
-          <option value="">Stanowiska (A-Z)</option>
+          <option value="position">Stanowiska (A-Z)</option>
           <option value="">Stanowiska(Z-A)</option>
-          <option value="">Pensji (rosnąco)</option>
+          <option value="salary">Pensji (rosnąco)</option>
           <option value="">Pensji(malejąco)</option>
-          <option value="">Premii (rosnąco)</option>
+          <option value="bonus">Premii (rosnąco)</option>
           <option value="">Premii(malejąco)</option>
         </select>
     <button routerLink="/newEmployee">Dodaj pracownika</button>

@@ -40,4 +40,9 @@ export class PlantationService {
 
         return this.http.post('api/updatePlantation', data, {headers});
     }
+
+    sort(field:string){
+        const params = new HttpParams().append('field', field);
+        return this.http.get('api/plantationSortBy', { params });
+    }
 }

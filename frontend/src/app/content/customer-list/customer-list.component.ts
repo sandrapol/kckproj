@@ -33,4 +33,16 @@ export class CustomerListComponent implements OnInit {
       ()=> {this.loading=false; }
     )
   }
+
+  setSelected() {
+    this.loading=true;
+    let e = (document.getElementById("sortDrop")) as HTMLSelectElement;
+    let sel = e.selectedIndex;
+    var opt = e.options[sel];
+    this.serv.sort(opt.value).subscribe(
+      elem=> this.customerList=elem,
+      err=> console.log(err),
+      ()=> {this.loading=false; }
+    )
+  }
 }

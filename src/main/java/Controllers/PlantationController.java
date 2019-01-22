@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import main.java.DAO.DBGeneric;
 import main.java.Models.Bill;
 import main.java.Models.Coffee;
+import main.java.Models.Magazine;
 import main.java.Models.Plantation;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,18 @@ public class PlantationController {
         }
         return ResponseEntity.ok(plantationList);
     }
+
+    @RequestMapping(value = "/plantationSortBy")
+    public ResponseEntity<List<Plantation>> sortBy(String field) {
+        List plantationList;
+        try {
+            plantationList = repo.sortBy(field,plantation);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(plantationList);
+    }
+
     @RequestMapping(value = "/addPlantation")
     public ResponseEntity<String> addPlantation(String mName,
                                               String mCountry,

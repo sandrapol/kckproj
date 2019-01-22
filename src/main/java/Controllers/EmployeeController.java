@@ -6,6 +6,7 @@ import main.java.DAO.DBGeneric;
 import main.java.Models.Bill;
 import main.java.Models.Coffee;
 import main.java.Models.Employee;
+import main.java.Models.Magazine;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -33,6 +34,17 @@ public class EmployeeController {
         }
         return ResponseEntity.ok(employeeList);
     }
+    @RequestMapping(value = "/employeeSortBy")
+    public ResponseEntity<List<Employee>> sortBy(String field) {
+        List employeeList;
+        try {
+            employeeList = repo.sortBy(field,employee);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(employeeList);
+    }
+
     @RequestMapping(value = "/addEmployee")
     public ResponseEntity<String> addEmployee(String mName,
                                             String mForename,

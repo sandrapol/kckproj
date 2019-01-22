@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import main.java.DAO.DBGeneric;
 import main.java.Models.Bill;
 import main.java.Models.Coffee;
+import main.java.Models.Magazine;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -29,6 +30,28 @@ public class BillController {
         List billList;
         try {
             billList = repo.getAll(bill);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(billList);
+    }
+
+    @RequestMapping(value = "/billSortBy")
+    public ResponseEntity<List<Bill>> sortBy(String field) {
+        List billList;
+        try {
+            billList = repo.sortBy(field,bill);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(billList);
+    }
+
+    @RequestMapping(value = "/billSortByDesc")
+    public ResponseEntity<List<Bill>> sortByDesc(String field) {
+        List billList;
+        try {
+            billList = repo.sortByDesc(field,bill);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }

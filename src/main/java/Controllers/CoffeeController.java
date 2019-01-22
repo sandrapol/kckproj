@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import main.java.DAO.DBGeneric;
 import main.java.Models.Coffee;
+import main.java.Models.Magazine;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -29,6 +30,28 @@ public class CoffeeController {
         List coffeeList = new ArrayList<Coffee>();
         try {
             coffeeList = repo.getAll(coffee);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(coffeeList);
+    }
+
+    @RequestMapping(value = "/coffeeSortBy")
+    public ResponseEntity<List<Coffee>> sortBy(String field) {
+        List coffeeList;
+        try {
+            coffeeList = repo.sortBy(field,coffee);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(coffeeList);
+    }
+
+    @RequestMapping(value = "/coffeeSortByDesc")
+    public ResponseEntity<List<Coffee>> sortByDesc(String field) {
+        List coffeeList;
+        try {
+            coffeeList = repo.sortByDesc(field,coffee);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }

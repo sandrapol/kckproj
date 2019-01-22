@@ -42,4 +42,9 @@ updateBill(bill: Bill) {
     return this.http.post('api/updateBill', data, {headers});
 }
 
+sort(field:string){
+    const params = new HttpParams().append('field', field);
+    return this.http.get('api/billSortBy', { params });
+}
+
 }

@@ -32,4 +32,16 @@ export class BillListComponent implements OnInit {
       ()=> {this.loading=false; }
     )
   }
+
+  setSelected() {
+    this.loading=true;
+    let e = (document.getElementById("sortDrop")) as HTMLSelectElement;
+    let sel = e.selectedIndex;
+    var opt = e.options[sel];
+    this.serv.sort(opt.value).subscribe(
+      elem=> this.billList=elem,
+      err=> console.log(err),
+      ()=> {this.loading=false; }
+    )
+  }
 }

@@ -9,15 +9,15 @@
               <button type="submit"><i class="fa fa-search"></i></button>
             </form>
           </div>
-        <select id="dropdown" (change)='setSelected()'>
+        <select id="sortDrop" (change)='setSelected()'>
             <option hidden="true">Sortuj</option>
-            <option value="login">Id (rosnąco)</option>
-            <option value="registration">Id(malejąco)</option>
-            <option value="">Nazwy (A-Z)</option>
+            <option value="id">Id (rosnąco)</option>
+            <option value="">Id(malejąco)</option>
+            <option value="name">Nazwy (A-Z)</option>
             <option value="">Nazwy (Z-A)</option>
-            <option value="">Kraju (A-Z)</option>
+            <option value="country">Kraju (A-Z)</option>
             <option value="">Kraju (Z-A)</option>
-            <option value="">Regionu (A-Z)</option>
+            <option value="region">Regionu (A-Z)</option>
             <option value="">Regionu (Z-A)</option>
           </select>
         <button routerLink="/newPlantation">Dodaj plantację</button>

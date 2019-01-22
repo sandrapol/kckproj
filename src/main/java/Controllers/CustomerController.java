@@ -6,6 +6,7 @@ import main.java.DAO.DBGeneric;
 import main.java.Models.Bill;
 import main.java.Models.Coffee;
 import main.java.Models.Customer;
+import main.java.Models.Magazine;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -28,6 +29,17 @@ public class CustomerController {
         List customerList;
         try {
             customerList = repo.getAll(customer);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(customerList);
+    }
+
+    @RequestMapping(value = "/customerSortBy")
+    public ResponseEntity<List<Customer>> sortBy(String field) {
+        List customerList;
+        try {
+            customerList = repo.sortBy(field,customer);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }

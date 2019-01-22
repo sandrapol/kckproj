@@ -9,15 +9,15 @@
             <button type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>
-      <select id="dropdown" (change)='setSelected()'>
+      <select id="sortDrop" (change)='setSelected()'>
           <option hidden="true">Sortuj</option>
-          <option value="login">Id (rosnąco)</option>
-          <option value="registration">Id(malejąco)</option>
-          <option value="">Imienia (A-Z)</option>
+          <option value="id">Id (rosnąco)</option>
+          <option value="">Id(malejąco)</option>
+          <option value="name">Imienia (A-Z)</option>
           <option value="">Imienia (Z-A)</option>
-          <option value="">Nazwiska (A-Z)</option>
+          <option value="forename">Nazwiska (A-Z)</option>
           <option value="">Nazwiska (Z-A)</option>
-          <option value="">Ulicy (A-Z)</option>
+          <option value="street">Ulicy (A-Z)</option>
           <option value="">Ulicy(Z-A)</option>
         </select>
     <button routerLink="/newCustomer">Dodaj klienta</button>
