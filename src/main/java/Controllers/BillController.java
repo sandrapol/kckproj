@@ -58,7 +58,7 @@ public class BillController {
     @RequestMapping(value = "/addBill")
     public ResponseEntity<String> addBill(double mDiscount,
                                           double mGrossValue,
-                                          Sale[]) {
+                                          Sale[] sales) {
         Bill bill = new Bill();
         bill.setDiscount(mDiscount);
         bill.setGrossValue(mGrossValue);
