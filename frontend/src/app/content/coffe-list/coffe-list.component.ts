@@ -15,11 +15,13 @@ export class CoffeListComponent implements OnInit {
   loading:boolean= true;
   private minimalna:number;
   private maksymalna:number;
+   min;
+   max;
   minValue: number = 100;
   maxValue: number = 300;
   options: Options = {
-    floor: 0,
-    ceil: 5000,
+    floor: this.min,
+    ceil: this.max,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:{
@@ -42,11 +44,21 @@ export class CoffeListComponent implements OnInit {
   constructor(private router: Router, private serv: CoffeeService ) { }
 
   ngOnInit() {
+    this.max=0;
+    this.min=10000;
     this.serv.getCoffeeList().subscribe(
       elem=> this.coffeeList= elem,
       err=> console.log(err),
       ()=> this.loading=false
     )
+    for( let coffee of this.coffeeList){
+      if(coffee.price>this.max){
+        this.max= coffee.price
+      }
+      if(coffee.price<this.min){
+        this.min= coffee.price
+      }
+    }
   }
 
   policz(){
