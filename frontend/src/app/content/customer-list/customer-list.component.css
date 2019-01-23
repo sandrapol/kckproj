@@ -128,3 +128,17 @@ button{
     display: inline;
   }
 
+  @media all and (max-width: 900px) {
+    .post {
+        flex-direction: column;
+        height: initial;
+        justify-content: center;
+        align-items: center;
+    }
+    .actions {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+    }
+  }

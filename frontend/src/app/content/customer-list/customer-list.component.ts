@@ -12,6 +12,7 @@ export class CustomerListComponent implements OnInit {
   private customerList:any;
   loading:boolean= true;
 
+  
   constructor(private router:Router, private serv: CustomerService) { }
 
   ngOnInit() {

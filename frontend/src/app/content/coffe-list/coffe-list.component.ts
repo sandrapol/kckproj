@@ -22,11 +22,11 @@ export class CoffeListComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
-          return '<b>Min price:</b> $' + value;
+          return '<b>Min Cena:</b> ' + value + 'zł';
         case LabelType.High:
-          return '<b>Max price:</b> $' + value;
+          return '<b>Max Cena:</b> ' + value + 'zł';
         default:
-          return '$' + value;
+          return value+'zł' ;
       }
     }
   };

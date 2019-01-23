@@ -20,9 +20,11 @@
           </select>
         <button routerLink="/newMagazine">Dodaj magazyn</button>
       </div>
+      <div class="content2">
+          <div class="posts">
     <div class="post" *ngFor="let magazine of magazineList">
         <div class="img" (click)="showDetails(magazine.id)">
-            <img style="min-height : 15%; min-width:15%;" height="100%" width="100%" src="https://pixel.nymag.com/imgs/daily/grub/2017/06/26/26-amazon-warehouse.w330.h330.jpg">
+            <img height="200px" width="200px" src="https://pixel.nymag.com/imgs/daily/grub/2017/06/26/26-amazon-warehouse.w330.h330.jpg">
           </div>
           <div class="info">
             <div class="nav" (click)="showDetails(magazine.id)">
@@ -41,4 +43,9 @@
       </div>
     </div>
   </div>
+</div>
+<div class="suwak">
+  <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+</div>
+</div>
 </div>
