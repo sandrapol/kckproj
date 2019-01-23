@@ -33,12 +33,12 @@ public class Harvest {
         this.id = id;
     }
 
-    public String getGuality() {
+    public String getQuality() {
         return quality;
     }
 
-    public void setGuality(String guality) {
-        this.quality = guality;
+    public void setQuality(String quality) {
+        this.quality = quality;
     }
 
     public double getQuantity() {
@@ -61,7 +61,7 @@ public class Harvest {
     public String toString() {
         return "Harvest{" +
                 "id=" + id +
-                ", guality='" + quality + '\'' +
+                ", quality='" + quality + '\'' +
                 ", quantity=" + quantity +
                 ", plantation=" + plantation +
                 '}';
