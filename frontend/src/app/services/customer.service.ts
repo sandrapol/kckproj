@@ -11,7 +11,7 @@ export class CustomerService {
     ) { };
 
     getCustomerList() {
-        return this.http.get('api/customerList');
+        return this.http.get<Customer[]>('api/customerList');
     }
 
     addCustomer(cust: Customer){   

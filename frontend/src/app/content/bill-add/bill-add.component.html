@@ -1,19 +1,77 @@
 <div class="post">
-    <header>
-      <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
-      <h2>Wprowadź dane nowego paragonu</h2>
-    </header>
-    <div class="cont">
-      <div class="one">
-        <p class="one"><b>Wartosc brutto: </b> &nbsp; </p>
-        <input class="one" placeholder="grossValue" type="text" required #fbox (keyup)="setGrossValue(fbox.value)"><br>
-      </div>
+  <header>
+    <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
+    <h2>Wprowadź dane nowego paragonu</h2>
+  </header>
+  <div class="cont">
+    <div class="one">
+      <p class="one"><b>Klient: </b> &nbsp; </p>
+      <select class="one" id="custDrop" (change)='setCust()'>
+        <option hidden="true">Klient</option>
+        <option *ngFor="let cust of customers" value="{{cust.id}}">{{cust.name}} - {{cust.forename}}</option>
+      </select>
     </div>
-    <div class="cont">
-      <div class="one">
-        <p class="one"><b>Zniżka: </b> &nbsp; </p>
-        <input class="one" placeholder="discount" type="text" required #nbox (keyup)="setDiscount(nbox.value)"><br>
-        <button (click)="submit()">Zatwierdź</button>
+  </div>
+  <div *ngIf="sales">
+    <div *ngFor="let sale of sales">
+      <div class="cont">
+        <div class="row">
+          <span class="cell">
+            <p class="one"><b>Kawa: </b> &nbsp; {{sale.coffee.name}}</p>
+          </span>
+          <span class="cell">
+            <p class="one"><b>Waga: </b> &nbsp; </p> {{sale.quantityInKg}} kg
+          </span>
+          <span class="cell">
+            <p class="one"><b>Wartosc: </b> &nbsp; {{sale.howMuchToPay}} </p>
+          </span>
+        </div>
       </div>
     </div>
   </div>
+  <div class="dodaj">
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Kawa: </b> &nbsp; </p>
+        <select class="one" id="coffeeDrop" (change)='setCoffee()'>
+          <option hidden="true">Kawa</option>
+          <option *ngFor="let coffee of coffeeList" value="{{coffee.id}}">{{coffee.name}} - {{coffee.type}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Waga: </b>w kg &nbsp; </p>
+        <input class="one" placeholder="waga" type="number" required #wbox (mouseup)="setWeight(wbox.value)" (keyup)="setWeight(wbox.value)"><br>
+      </div>
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Wartosc: </b> &nbsp; {{currentSale.howMuchToPay}} </p>
+      </div>
+      <button (click)="add()">Dodaj</button>
+    </div>
+  </div>
+  <div class="cont">
+    <div class="one">
+      <p class="one"><b>Wartosc brutto: </b> &nbsp; </p>{{bill.grossValue}}
+    </div>
+  </div>
+  <div class="cont">
+    <div class="one">
+      <p class="one"><b>Wartosc netto: </b> &nbsp; </p>{{bill.netValue}}
+    </div>
+  </div>
+  <div class="cont">
+    <div class="one">
+      <p class="one"><b>Wartosc vat: </b> &nbsp; </p>{{bill.vatValue}}
+    </div>
+  </div>
+  <div class="cont">
+    <div class="one">
+      <p class="one"><b>Zniżka: </b> &nbsp; </p>
+      <input class="one" placeholder="discount" type="text" required #nbox (keyup)="setDiscount(nbox.value)"><br>
+      <button (click)="submit()">Zatwierdź</button>
+    </div>
+  </div>
+</div>

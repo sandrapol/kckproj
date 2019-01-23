@@ -1,7 +1,8 @@
 .cont{
     width: 100%;
-    padding:2%;
-    padding-left: 10%
+    padding:1%;
+    padding-left: 10%;
+    padding-right:2%;
 }
 header{
     text-align: center;
@@ -17,4 +18,18 @@ header{
 }
 button{
     margin-left:65%
+}
+.dodaj{
+    margin: 5%;
+    border: 1px solid;
+}
+.dodaj button{
+    margin-left:60% 
+}
+.row{
+    display: inline;
+}
+.cell{
+    margin-right:2%;
+    margin-left:3%;
 }
