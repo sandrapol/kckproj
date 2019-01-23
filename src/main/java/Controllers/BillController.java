@@ -6,6 +6,7 @@ import main.java.DAO.DBGeneric;
 import main.java.Models.Bill;
 import main.java.Models.Coffee;
 import main.java.Models.Magazine;
+import main.java.Models.Sale;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -55,7 +56,9 @@ public class BillController {
 
 
     @RequestMapping(value = "/addBill")
-    public ResponseEntity<String> addBill(double mDiscount, double mGrossValue) {
+    public ResponseEntity<String> addBill(double mDiscount,
+                                          double mGrossValue,
+                                          Sale[] sales) {
         Bill bill = new Bill();
         bill.setDiscount(mDiscount);
         bill.setGrossValue(mGrossValue);

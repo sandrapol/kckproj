@@ -2,6 +2,7 @@ import { Bill } from './../statics/bill';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpRequest, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { Sale } from '../statics/sale';
 @Injectable({
     providedIn: 'root'
 })
@@ -14,10 +15,16 @@ export class BillService {
         return this.http.get('api/billList');
     }
 
-    addBill(bill: Bill){   
-        const params = new HttpParams().append('mGrossValue', String(bill.grossValue)).append('mDiscount', String(bill.discount));
-
-        return this.http.get('api/addBill', {params});
+    addBill(bill: Bill,sales:Sale[],idCust:number ){   
+        let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        let data={
+            "id":bill.id,
+            "grossValue":bill.grossValue,
+            "discount":bill.discount,
+            "sales":sales,
+            "custId":idCust
+        }
+        return this.http.post('api/addBill', data, {headers});
 }
 
 findBill(id: number) {
