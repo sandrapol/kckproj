@@ -169,6 +169,11 @@ button{
         align-items: center;
         padding-top: 10px;
     }
+
+    .przyciski{
+        margin: 5;
+        margin-top: 15px;
+    }
   }
 
  
