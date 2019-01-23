@@ -21,8 +21,12 @@ import java.util.List;
 @EnableAutoConfiguration
 public class SaleController {
     DBGeneric<Sale> repo = new DBGeneric<>();
+    DBGeneric<Coffee> repoCoffee = new DBGeneric<>();
+    DBGeneric<Bill> repoBill = new DBGeneric<>();
 
     private Sale sale = new Sale();
+    private Coffee coffee = new Coffee();
+    private Bill bill = new Bill();
 
     @RequestMapping(value = "/saleList")
     public ResponseEntity<List<Sale>> upload() {
@@ -35,11 +39,18 @@ public class SaleController {
         return ResponseEntity.ok(saleList);
     }
     @RequestMapping(value = "/addSale")
-    public ResponseEntity<String> addSale(double mQuantity,double mHowMuch){
+    public ResponseEntity<String> addSale(double mQuantity,
+                                          double mHowMuch,
+                                          long coffeId,
+                                          long billId){
 
         Sale sale= new Sale();
         sale.setQuantityInKg(mQuantity);
         try {
+            Coffee coffeeAdd= repoCoffee.getById(coffeId,coffee);
+            sale.setCoffee(coffeeAdd);
+            Bill billAdd= repoBill.getById(billId,bill);
+            sale.setBill(billAdd);
             repo.create(sale);
         } catch (Exception ex) {
             return  ResponseFactory.ResponseError("Failed", "Cannot add sale");

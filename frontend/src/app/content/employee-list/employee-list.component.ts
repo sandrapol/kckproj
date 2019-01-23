@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/statics/employee';
 import { Router } from '@angular/router';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { Options, LabelType } from 'ng5-slider';
 
 @Component({
   selector: 'app-employee-list',
@@ -11,6 +12,24 @@ import { EmployeeService } from 'src/app/services/employee.service';
 export class EmployeeListComponent implements OnInit {
   private employeeList:any;
   loading:boolean= true;
+
+  minValue: number = 100;
+  maxValue: number = 400;
+  options: Options = {
+    floor: 0,
+    ceil: 500,
+    translate: (value: number, label: LabelType): string => {
+      switch (label) {
+        case LabelType.Low:
+          return '<b>Min Pensja:</b> ' + value + 'zł';
+        case LabelType.High:
+          return '<b>Max Pensja:</b> $' + value + 'zł';
+        default:
+          return value+'zł' ;
+      }
+    }
+  };
+
   constructor(private router:Router, private serv:EmployeeService) { }
 
   ngOnInit() {

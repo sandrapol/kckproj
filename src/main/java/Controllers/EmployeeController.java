@@ -3,10 +3,7 @@ package main.java.Controllers;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import main.java.DAO.DBGeneric;
-import main.java.Models.Bill;
-import main.java.Models.Coffee;
-import main.java.Models.Employee;
-import main.java.Models.Magazine;
+import main.java.Models.*;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -21,8 +18,9 @@ import java.util.List;
 @EnableAutoConfiguration
 public class EmployeeController {
     DBGeneric<Employee> repo = new DBGeneric<>();
-
+    DBGeneric<RegularPost> repoRegularPost = new DBGeneric<>();
     private Employee employee = new Employee();
+    private RegularPost regularPost = new RegularPost();
 
     @RequestMapping(value = "/employeeList")
     public ResponseEntity<List<Employee>> upload() {
@@ -55,7 +53,8 @@ public class EmployeeController {
                                             String mForename,
                                             String mPosition,
                                             double mSalary,
-                                            double mBonus) {
+                                            double mBonus,
+                                              long regularPostId) {
         Employee employee= new Employee();
         employee.setName(mName);
         employee.setSalary(mSalary);
@@ -64,6 +63,8 @@ public class EmployeeController {
         employee.setForename(mForename);
 
         try {
+            RegularPost regularPostAdd= repoRegularPost.getById(regularPostId,regularPost);
+            employee.setRegularPost(regularPostAdd);
             repo.create(employee);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Failed", "Cannot add employee");

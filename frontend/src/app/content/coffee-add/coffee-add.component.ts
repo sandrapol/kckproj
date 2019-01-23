@@ -58,20 +58,17 @@ export class CoffeeAddComponent implements OnInit {
       this.error = true;
   }
 
-  setParam(value) {
-    if (Number(value) > 0) {
-      this.coffee.price = Number(value);
-      this.error = false;
-    }
-    else
-      this.error = true;
-  }
+  
   check() {
     if (this.coffee.type == undefined)
       return false;
     if (this.coffee.species== undefined)
       return false;
     if (this.coffee.name== undefined)
+      return false;
+      if (this.coffee.price== undefined)
+      return false;
+      if (this.magazineId == null)
       return false;
 
     return true;

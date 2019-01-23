@@ -1,35 +1,35 @@
 import { Customer } from './../../statics/customer';
 import { Component, OnInit } from '@angular/core';
-import { CustomerService } from 'src/app/services/customer.service';
+import { CityService } from 'src/app/services/city.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-customer-list',
-  templateUrl: './customer-list.component.html',
-  styleUrls: ['./customer-list.component.css']
+  selector: 'app-city-list',
+  templateUrl: './city-list.component.html',
+  styleUrls: ['./city-list.component.css']
 })
-export class CustomerListComponent implements OnInit {
-  private customerList:any;
+export class CityListComponent implements OnInit {
+  private cityList:any;
   loading:boolean= true;
 
   
-  constructor(private router:Router, private serv: CustomerService) { }
+  constructor(private router:Router, private serv: CityService) { }
 
   ngOnInit() {
-    this.serv.getCustomerList().subscribe(
-      elem=> this.customerList= elem,
+    this.serv.getCityList().subscribe(
+      elem=> this.cityList= elem,
       err=> console.log(err),
       ()=> this.loading=false
     )
   }
   showDetails(id:number){
-    this.router.navigateByUrl("/customer/"+id);
+    this.router.navigateByUrl("/city/"+id);
   }
 
   delete(id:number){
     this.loading=true;
     this.serv.delete(id).subscribe(
-      elem=> this.customerList=elem,
+      elem=> this.cityList=elem,
       err=> console.log(err),
       ()=> {this.loading=false; }
     )
@@ -41,9 +41,10 @@ export class CustomerListComponent implements OnInit {
     let sel = e.selectedIndex;
     var opt = e.options[sel];
     this.serv.sort(opt.value).subscribe(
-      elem=> this.customerList=elem,
+      elem=> this.cityList=elem,
       err=> console.log(err),
       ()=> {this.loading=false; }
     )
   }
 }
+

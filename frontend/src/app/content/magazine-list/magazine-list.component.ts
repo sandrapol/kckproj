@@ -3,6 +3,7 @@ import { Magazine } from './../../statics/magazine';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MagazineService } from 'src/app/services/magazine.service';
+import { Options, LabelType } from 'ng5-slider';
 
 @Component({
   selector: 'app-magazine-list',
@@ -12,6 +13,21 @@ import { MagazineService } from 'src/app/services/magazine.service';
 export class MagazineListComponent implements OnInit {
   private magazineList:any;
   loading:boolean= true;
+
+  options: Options = {
+    floor: 0,
+    ceil: 500,
+    translate: (value: number, label: LabelType): string => {
+      switch (label) {
+        case LabelType.Low:
+          return '<b>Min Zapas:</b> ' + value +'zł';
+        case LabelType.High:
+          return '<b>Max Zapas:</b> ' + value+ 'zł';
+        default:
+          return value + 'zł';
+      }
+    }
+  };
 
   constructor(private router:Router, private serv: MagazineService) { }
 

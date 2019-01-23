@@ -1,0 +1,25 @@
+<div class="post">
+    <header>
+      <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
+      <h2>Wprowadź dane nowego miasta</h2>
+    </header>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Nazwa: </b> &nbsp; </p>
+        <input class="one" placeholder="Nazwa" type="text" required #nbox (keyup)="setName(nbox.value)"><br>
+      </div>
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Województwo: </b> &nbsp; </p>
+        <input class="one" placeholder="Województwo" type="text" required #vbox (keyup)="setVoivodeship(vbox.value)"><br>
+      </div>
+    </div>
+    <div class="cont">
+        <div class="one">
+          <p class="one"><b>Kod pocztowy: </b>  &nbsp; </p>
+          <input class="one" placeholder="Kod pocztowy" type="number" required #zbox (mouseup)="setZIPcode(zbox.value)" (keyup)="setZIPcode(zbox.value)"><br>
+          <button (click)="submit()">Zatwierdź</button>
+        </div>
+      </div>
+  </div>

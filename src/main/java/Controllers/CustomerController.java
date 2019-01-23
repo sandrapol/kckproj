@@ -3,10 +3,7 @@ package main.java.Controllers;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import main.java.DAO.DBGeneric;
-import main.java.Models.Bill;
-import main.java.Models.Coffee;
-import main.java.Models.Customer;
-import main.java.Models.Magazine;
+import main.java.Models.*;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -21,8 +18,9 @@ import java.util.List;
 @EnableAutoConfiguration
 public class CustomerController {
     DBGeneric<Customer> repo = new DBGeneric<>();
-
+    DBGeneric<City> repoCity = new DBGeneric<>();
     private Customer customer = new Customer();
+    private City city = new City();
 
     @RequestMapping(value = "/customerList")
     public ResponseEntity<List<Customer>> upload() {
@@ -55,7 +53,8 @@ public class CustomerController {
                                               String mForename,
                                               String mStreet,
                                               int mHouseNumber,
-                                              long mPhoneNumber) {
+                                              long mPhoneNumber,
+                                              long cityId) {
         Customer customer= new Customer();
         customer.setName(mName);
         customer.setForename(mForename);
@@ -64,6 +63,8 @@ public class CustomerController {
         customer.setTelephoneNumber(mPhoneNumber);
 
         try {
+            City cityAdd= repoCity.getById(cityId,city);
+            customer.setCity(cityAdd);
             repo.create(customer);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Failed", "Cannot add customer");

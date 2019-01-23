@@ -3,29 +3,22 @@ h1,h2{
     padding:1.5%;
 }
 .post {
-    width:90%;
     height:200px;
     display: flex;
     flex-direction: row;
     background-color: rgba(29, 29, 29, 0.082);
     filter: alpha(opacity=50);
     padding: 10px;
+    margin: 10px;
   }
-  .suwak{
-    width:40%;
-    height:200px;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    padding: 10px;
-  }
+ 
 
   .img {
     display:flex;
     flex-direction: column;
     justify-content: center;
     cursor: pointer;
-    flex-basis: 20%;
+    /* flex-basis: 20%; */
   }
 
   .info {
@@ -136,3 +129,46 @@ button{
     display: inline;
   }
 
+  
+  .suwak {
+    widtH: 30%;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 600px;
+    padding: 10px;
+    margin: 10px;
+    margin-right: 100px;
+  }
+  .content2 {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+  } 
+  .posts {
+      display: flex;
+      flex-direction: column;
+  }
+
+  @media all and (max-width: 900px) {
+    .content2 {
+      flex-direction: column;
+    }
+    .suwak {
+        width: initial;    
+    }
+    .post {
+        flex-direction: column;
+        height: initial;
+        justify-content: center;
+        align-items: center;
+    }
+    .actions {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+    }
+  }
+
+ 

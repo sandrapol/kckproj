@@ -18,8 +18,10 @@ import java.util.List;
 @EnableAutoConfiguration
 public class HarvestController {
     DBGeneric<Harvest> repo = new DBGeneric<>();
+    DBGeneric<Plantation> repoPlantation = new DBGeneric<>();
 
     private Harvest harvest = new Harvest();
+    private Plantation plantation = new Plantation();
 
     @RequestMapping(value = "/harvestList")
     public ResponseEntity<List<Harvest>> upload() {
@@ -33,12 +35,15 @@ public class HarvestController {
     }
     @RequestMapping(value = "/addHarvest")
     public ResponseEntity<String> addHarvest(String mQuality,
-                                             double mQuantity) {
+                                             double mQuantity,
+                                             long plantationId) {
 
        Harvest harvest= new Harvest();
         harvest.setGuality(mQuality);
         harvest.setQuantity(mQuantity);
         try {
+            Plantation plantationAdd= repoPlantation.getById(plantationId,plantation);
+            harvest.setPlantation(plantationAdd);
             repo.create(harvest);
         } catch (Exception ex) {
             return  ResponseFactory.ResponseError("Failed", "Cannot add harvest");

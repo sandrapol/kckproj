@@ -35,12 +35,12 @@ public class CityController{
     }
     @RequestMapping(value = "/addCity")
     public ResponseEntity<String> addPlantation(String mName,
-                                                String mVovoideship,
-                                                int mZipCde) {
+                                                String mVoivodeship,
+                                                Integer mZipCode) {
         City city= new City();
         city.setName(mName);
-        city.setVoivodeship(mVovoideship);
-        city.setZIPcode(mZipCde);
+        city.setVoivodeship(mVoivodeship);
+        city.setZIPcode(mZipCode.intValue());
 
         try {
             repo.create(city);

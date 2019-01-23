@@ -16,6 +16,15 @@
       </div>
     </div>
     <div class="cont">
+        <div class="one">
+          <p class="one"><b>Miasto: </b> &nbsp; </p>
+          <select class="one" id="sortDrop" (change)='setSelected()'>
+            <option hidden="true">Miasto</option>
+            <option *ngFor="let city of cityList" value="{{city.id}}">{{city.id}} - {{city.name}}</option>
+          </select>
+        </div>
+      </div>
+    <div class="cont">
       <div class="one">
         <p class="one"><b>Ulica: </b> &nbsp; </p>
         <input class="one" placeholder="Ulica" type="text" required #sbox (keyup)="setStreet(sbox.value)"><br>

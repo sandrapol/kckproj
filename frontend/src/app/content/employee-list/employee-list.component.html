@@ -26,9 +26,11 @@
         </select>
     <button routerLink="/newEmployee">Dodaj pracownika</button>
   </div>
+  <div class="content2">
+      <div class="posts">
     <div class="post"  *ngFor="let employee of employeeList">
         <div class="img" (click)="showDetails(employee.id)">
-            <img style="min-height : 15%; min-width:15%;" height="100%" width="100%" src="https://i.wpimg.pl/730x0/m.gadzetomania.pl/enhanced-buzz-16839-1297-548d0f9.jpg">
+            <img height="200px" width="200px" src="https://i.wpimg.pl/730x0/m.gadzetomania.pl/enhanced-buzz-16839-1297-548d0f9.jpg">
           </div>
           <div class="info">
             <div class="nav" (click)="showDetails(employee.id)">
@@ -48,5 +50,10 @@
       </div>
         </div>
     </div>
+  </div>
+  <div class="suwak">
+    <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+  </div>
+</div>
 
 </div>

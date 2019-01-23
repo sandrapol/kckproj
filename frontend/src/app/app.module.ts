@@ -32,6 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BillDetailsComponent } from './content/bill-details/bill-details.component';
 import { BillAddComponent } from './content/bill-add/bill-add.component';
 import { Ng5SliderModule } from 'ng5-slider';
+import { CityListComponent } from './content/city-list/city-list.component';
+import { CityAddComponent } from './content/city-add/city-add.component';
+
 
 @NgModule({
   declarations: [
@@ -62,7 +65,9 @@ import { Ng5SliderModule } from 'ng5-slider';
     PlantationDetailsComponent,
     LoadingComponent,
     BillDetailsComponent,
-    BillAddComponent
+    BillAddComponent,
+    CityListComponent,
+    CityAddComponent,
   ],
   imports: [
     BrowserModule,
