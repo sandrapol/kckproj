@@ -15,7 +15,7 @@ public class RegularPost {
     private double endTime;
     @Column
     private int daysNumber;
-    @OneToMany(mappedBy="regularPost")
+    @OneToMany(mappedBy="regularPost",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Employee> employees;
     public RegularPost() {
     }

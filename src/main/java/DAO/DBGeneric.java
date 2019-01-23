@@ -97,6 +97,15 @@ public class DBGeneric<T> {
         tr.commit();
         return el;
     }
+    public List saleFindByIdBill( Long id,  T cl){
+        String className=  cl.getClass().getName();
+        String hql = "FROM "+className+" c WHERE c.id_bill="+id;
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tr = session.beginTransaction();
+        List<T> el = session.createQuery(hql).list();
+        tr.commit();
+        return el;
+    }
 
 
 }

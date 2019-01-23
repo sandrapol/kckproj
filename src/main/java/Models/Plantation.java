@@ -15,9 +15,9 @@ public class Plantation {
     private String Country;
     @Column(name="Region")
     private String Region;
-    @OneToMany(mappedBy="plantation")
+    @OneToMany(mappedBy="plantation",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Harvest> harvestes;
-    @OneToMany(mappedBy="plantation")
+    @OneToMany(mappedBy="plantation",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Delivery> deliveries;
     public Plantation() {
     }

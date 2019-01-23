@@ -58,6 +58,8 @@ export class BillAddComponent implements OnInit {
         this.currentSale.coffee = this.currentCoffee;
       }
     }
+    let x = (document.getElementById("weightIn")) as HTMLInputElement;
+    this.setWeight(x.value="");
   }
   setWeight(value) {
     if (Number(value) > 0 && this.currentCoffee != undefined) {
@@ -65,8 +67,10 @@ export class BillAddComponent implements OnInit {
       this.error = false;
       this.currentSale.howMuchToPay = Number(value * this.currentCoffee.price);
     }
-    else
+    else{
       this.error = true;
+      this.currentSale.howMuchToPay=0;
+    }
   }
   add() {
     let newSale: Sale = new Sale()
@@ -82,7 +86,7 @@ export class BillAddComponent implements OnInit {
   }
 
   setDiscount(value) {
-    if (Number(value) > 0) {
+    if (Number(value) >= 0) {
       this.bill.discount = Number(value);
       this.error = false;
     }

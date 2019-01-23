@@ -31,6 +31,8 @@
             {{bill.id}}
           </div>
           <div class="details">
+              <p><b>Data: </b> {{bill.time.time}}</p>
+              <p><b>Data: </b> {{bill.time.day}}.{{bill.time.month}}.{{bill.time.year}}</p>
             <p><b>Wartosc netto: </b> {{bill.netValue}}</p>
             <p><b>Wartosc brutto: </b> {{bill.grossValue}}</p>
             <p><b>Wysokosc VAT: </b> {{bill.vatValue}}</p>

@@ -1,6 +1,7 @@
 import { BillService } from 'src/app/services/bill.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Sale } from 'src/app/statics/sale';
 
 @Component({
   selector: 'app-bill-details',
@@ -13,13 +14,18 @@ export class BillDetailsComponent implements OnInit {
   loading:true;
   edit: boolean = false;
   error: boolean = false;
-
+  sales: Sale[];
   constructor(private route: ActivatedRoute, private serv: BillService) { }
 
   ngOnInit() {
     this.currentId=Number(this.route.snapshot.params['id']);
     this.serv.findBill(this.currentId).subscribe(
       elem=>this.bill=elem,
+      err=>console.log(err)
+    );
+    
+    this.serv.getSales(this.currentId).subscribe(
+      elem=>this.sales=elem,
       err=>console.log(err)
     );
   }

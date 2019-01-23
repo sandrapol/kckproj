@@ -17,7 +17,7 @@ public class Bill {
     private double vatValue;
     @Column(name="discount")
     private double discount;
-    @OneToMany(mappedBy="bill")
+    @OneToMany(mappedBy="bill",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Sale> sales;
     @ManyToOne
     @JoinColumn(name = "employee_id", foreignKey = @ForeignKey(name = "BILL_EMPLOYEE_ID_FK"))

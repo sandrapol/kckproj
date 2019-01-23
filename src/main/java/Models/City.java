@@ -15,7 +15,7 @@ public class City {
     private String voivodeship;
     @Column
     private int ZIPcode;
-    @OneToMany(mappedBy="city")
+    @OneToMany(mappedBy="city",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Customer> customers;
     public City() {
     }
