@@ -16,9 +16,9 @@ public class Magazine {
     private boolean coffeeAvailability;
     @Column
     private double supply;
-    @OneToMany(mappedBy="magazine")
+    @OneToMany(mappedBy="magazine",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Delivery> deliveries;
-    @OneToMany(mappedBy="magazine")
+    @OneToMany(mappedBy="magazine",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Coffee> coffies;
     public Magazine() {
         deliveries= new ArrayList<>();

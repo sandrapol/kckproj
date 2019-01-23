@@ -26,6 +26,10 @@ export class BillService {
         console.log(data);
         return this.http.post('api/addBill', data, { headers });
     }
+    getSales(id: number) {
+        const params = new HttpParams().append('billId', String(id));
+        return this.http.get<Sale[]>('api/findSales', { params });
+    }
 
     findBill(id: number) {
         const params = new HttpParams().append('id', String(id));

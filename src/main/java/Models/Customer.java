@@ -22,7 +22,7 @@ public class Customer {
     @ManyToOne
     @JoinColumn(name = "city_id", foreignKey = @ForeignKey(name = "CUSTOMER_CITY_ID_FK"))
     private City city;
-    @OneToMany(mappedBy="customer")
+    @OneToMany(mappedBy="customer",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Bill> bills;
     public Customer() {
     }

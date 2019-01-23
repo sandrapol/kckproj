@@ -19,7 +19,7 @@ public class Employee {
     private double salary;
     @Column
     private double bonus;
-    @OneToMany(mappedBy="employee")
+    @OneToMany(mappedBy="employee",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Bill> bills;
     @ManyToOne
     @JoinColumn(name = "regularPost_id", foreignKey = @ForeignKey(name = "EMPLOYEE_REGULARPOST_ID_FK"))

@@ -78,6 +78,17 @@ public class SaleController {
         }
         return ResponseEntity.ok(list);
     }
+    @RequestMapping(value = "/findSales")
+    public ResponseEntity<List<Sale>> findSale(Long billId) {
+        List list;
+        try {
+            repo.saleFindByIdBill(billId,sale);
+            list = repo.getAll(sale);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Failed", "Cannot delete Sale");
+        }
+        return ResponseEntity.ok(list);
+    }
 
     @RequestMapping(value = "/updateSale", method = RequestMethod.POST)
     @ResponseBody

@@ -20,7 +20,7 @@ public class Coffee {
     @ManyToOne
     @JoinColumn(name = "magazine_id", foreignKey = @ForeignKey(name = "COFFEE_MAGAZINE_ID_FK"))
     private Magazine magazine;
-    @OneToMany(mappedBy="coffee")
+    @OneToMany(mappedBy="coffee",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Sale> sales;
     public Coffee() {
     }

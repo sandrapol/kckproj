@@ -11,6 +11,14 @@
         <img class="delete" src="https://cdn3.iconfinder.com/data/icons/block/32/box_edit-512.png">
       </div>
       <div class="details">
+          <p><b>Data: </b> {{bill.time.time}}</p>
+          <p><b>Data: </b> {{bill.time.day}}.{{bill.time.month}}.{{bill.time.year}}</p>
+          <p><b>Klient: </b> {{bill.customer.name}} {{bill.customer.forename}}</p>
+      <div *ngFor="let sale of sales">
+          <p><b>Ilosc w kg: </b> {{sale.howMuchtoPay}</p>
+          <p><b>Ilosc w kg: </b> {{sale.quantityInKg}</p>
+          <p><b>Cena: </b> {{sale.coffee.name}</p> 
+      </div>
           <p><b>Wartosc netto: </b> {{bill.netValue}}</p>
           <p><b>Wartosc brutto: </b> {{bill.grossValue}}</p>
           <p><b>Wysokosc VAT:</b> {{bill.vatValue}}</p>

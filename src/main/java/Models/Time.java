@@ -18,7 +18,7 @@ public class Time {
     private int month;
     @Column
     private int year;
-    @OneToMany(mappedBy="time")
+    @OneToMany(mappedBy="time", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Bill> bills;
 
     public Time() {
