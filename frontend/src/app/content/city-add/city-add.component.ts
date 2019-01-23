@@ -58,7 +58,6 @@ export class CityAddComponent implements OnInit {
 
   submit() {
     if (!this.error) {
-      console.log(this.city.ZIPcode);
       this.serv.addCity(this.city).subscribe(
         elem=>console.log(elem),
         err=>console.log(err),

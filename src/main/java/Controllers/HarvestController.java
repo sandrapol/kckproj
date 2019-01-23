@@ -33,6 +33,22 @@ public class HarvestController {
         }
         return ResponseEntity.ok(harvestList);
     }
+
+    @RequestMapping(value = "/harvestSortBy")
+    public ResponseEntity<List<Harvest>> sortBy(String field) {
+        List harvestList;
+        try {
+            if (field.contains("Other")) {
+                field=field.replace("Other","");
+                harvestList= repo.descSortBy(field,harvest);
+            } else {
+                harvestList = repo.sortBy(field, harvest);
+            }
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(harvestList);
+    }
     @RequestMapping(value = "/addHarvest")
     public ResponseEntity<String> addHarvest(String mQuality,
                                              double mQuantity,

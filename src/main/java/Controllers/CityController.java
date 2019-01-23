@@ -33,6 +33,22 @@ public class CityController{
         }
         return ResponseEntity.ok(cityList);
     }
+    @RequestMapping(value = "/citySortBy")
+    public ResponseEntity<List<City>> sortBy(String field) {
+        List cityList;
+        try {
+            if (field.contains("Other")) {
+                field=field.replace("Other","");
+                cityList= repo.descSortBy(field,city);
+            } else {
+                cityList = repo.sortBy(field, city);
+            }
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(cityList);
+    }
+
     @RequestMapping(value = "/addCity")
     public ResponseEntity<String> addPlantation(String mName,
                                                 String mVoivodeship,
@@ -49,6 +65,7 @@ public class CityController{
         }
         return ResponseEntity.ok().header("Success").build();
     }
+
     @RequestMapping(value = "/detailsCity")
     public ResponseEntity<City> getCityById(Long id) {
         City details= null;

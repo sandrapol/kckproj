@@ -1,17 +1,15 @@
+import { HarvestService } from './../../services/harvest.service';
 import { Component, OnInit } from '@angular/core';
-import {  CoffeeService } from 'src/app/services/coffee.service';
-import { Coffee } from 'src/app/statics/coffe';
+import { Options, LabelType } from 'ng5-slider';
 import { Router } from '@angular/router';
-import { LabelType, Options } from 'ng5-slider';
-
 
 @Component({
-  selector: 'app-coffe-list',
-  templateUrl: './coffe-list.component.html',
-  styleUrls: ['./coffe-list.component.css']
+  selector: 'app-harvest-list',
+  templateUrl: './harvest-list.component.html',
+  styleUrls: ['./harvest-list.component.css']
 })
-export class CoffeListComponent implements OnInit {
-  private coffeeList:any;
+export class HarvestListComponent implements OnInit {
+  private harvestList:any;
   loading:boolean= true;
 
   minValue: number = 100;
@@ -21,39 +19,35 @@ export class CoffeListComponent implements OnInit {
     ceil: 500,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
-        case LabelType.Low:{
-          console.log(this.minValue);
-          return '<b>Min Cena:</b> ' + value + 'zł';
-        }
-        case LabelType.High:{
-          console.log(this.maxValue);
-          return '<b>Max Cena:</b> ' + value + 'zł';
-        }
+        case LabelType.Low:
+          return '<b>Min Ilosc:</b> ' + value;
+        case LabelType.High:
+          return '<b>Max Ilosc:</b> ' + value;
         default:
-          return 'zł' + value;
+          return ''+value;
       }
     }
   };
  
 
-
-  constructor(private router: Router, private serv: CoffeeService ) { }
+  constructor(private router: Router, private serv: HarvestService) { }
 
   ngOnInit() {
-    this.serv.getCoffeeList().subscribe(
-      elem=> this.coffeeList= elem,
+    this.serv.getHarvestList().subscribe(
+      elem=> this.harvestList= elem,
       err=> console.log(err),
       ()=> this.loading=false
     )
   }
+
   showDetails(id:number){
-    this.router.navigateByUrl("/details/"+id);
+    this.router.navigateByUrl("/harvest/"+id);
   }
 
   delete(id:number){
     this.loading=true;
     this.serv.delete(id).subscribe(
-      elem=> this.coffeeList=elem,
+      elem=> this.harvestList=elem,
       err=> console.log(err),
       ()=> {this.loading=false; }
     )
@@ -65,7 +59,7 @@ export class CoffeListComponent implements OnInit {
     let sel = e.selectedIndex;
     var opt = e.options[sel];
     this.serv.sort(opt.value).subscribe(
-      elem=> this.coffeeList=elem,
+      elem=> this.harvestList=elem,
       err=> console.log(err),
       ()=> {this.loading=false; }
     )

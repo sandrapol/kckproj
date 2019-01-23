@@ -1,6 +1,6 @@
-
+import { HarvestDetailsComponent } from './content/harvest-details/harvest-details.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -34,6 +34,10 @@ import { BillAddComponent } from './content/bill-add/bill-add.component';
 import { Ng5SliderModule } from 'ng5-slider';
 import { CityListComponent } from './content/city-list/city-list.component';
 import { CityAddComponent } from './content/city-add/city-add.component';
+import { HarvestListComponent } from './content/harvest-list/harvest-list.component';
+import { HarvestAddComponent } from './content/harvest-add/harvest-add.component';
+import { DeliveryListComponent } from './content/delivery-list/delivery-list.component';
+import { DeliveryAddComponent } from './content/delivery-add/delivery-add.component';
 
 
 @NgModule({
@@ -68,6 +72,11 @@ import { CityAddComponent } from './content/city-add/city-add.component';
     BillAddComponent,
     CityListComponent,
     CityAddComponent,
+    HarvestListComponent,
+    HarvestDetailsComponent,
+    HarvestAddComponent,
+    DeliveryListComponent,
+    DeliveryAddComponent
   ],
   imports: [
     BrowserModule,

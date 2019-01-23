@@ -1,0 +1,28 @@
+<div class="post">
+    <header>
+      <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
+      <h2>Wprowadź dane</h2>
+    </header>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Jakosc: </b> &nbsp; </p>
+        <input class="one" placeholder="Jakosc" type="text" required #qlbox (keyup)="setQuality(qlbox.value)"><br>
+      </div>
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Ilosc: </b> &nbsp; </p>
+        <input class="one" placeholder="Ilosc" type="number" required #qtbox (keyup)="setQuantity(qtbox.value)" (mouseup)="setQuantity(qtbox.value)"><br>
+      </div>
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Plantacja: </b> &nbsp; </p>
+        <select class="one" id="sortDrop" (change)='setSelected()'>
+          <option hidden="true">Plantacja</option>
+          <option *ngFor="let plantation of plantationList" value="{{plantation.id}}">{{plantation.id}} - {{plantation.name}}</option>
+        </select>
+        <button (click)="submit()">Zatwierdź</button>
+      </div>
+    </div>
+  </div>

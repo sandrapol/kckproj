@@ -34,6 +34,22 @@ public class DeliveryController {
         }
         return ResponseEntity.ok(deliveryList);
     }
+
+    @RequestMapping(value = "/deliverySortBy")
+    public ResponseEntity<List<Delivery>> sortBy(String field) {
+        List deliveryList;
+        try {
+            if (field.contains("Other")) {
+                field=field.replace("Other","");
+                deliveryList= repo.descSortBy(field,delivery);
+            } else {
+                deliveryList = repo.sortBy(field, delivery);
+            }
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(deliveryList);
+    }
     @RequestMapping(value = "/addDelivery")
     public ResponseEntity<String> addDelivery(String mConveyance,
                                               long plantationId,

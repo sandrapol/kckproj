@@ -1,0 +1,31 @@
+<div class="post">
+    <header>
+      <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
+      <h2>Wprowadź dane</h2>
+    </header>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Wprowadź rodzaj transportu: </b> &nbsp; </p>
+        <input class="one" placeholder="transport" type="text" required #tbox (keyup)="setConveyance(tbox.value)"><br>
+      </div>
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Id Plantacji: </b> &nbsp; </p>
+        <select class="one" id="sortDropPlant" (change)='setSelectedPlantation()'>
+          <option hidden="true">Plantation</option>
+          <option *ngFor="let plantation of plantationList" value="{{plantation.id}}">{{plantation.id}} - {{plantation.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="cont">
+        <div class="one">
+          <p class="one"><b>Id Magazynu: </b> &nbsp; </p>
+          <select class="one" id="sortDrop" (change)='setSelected()'>
+            <option hidden="true">Magazine</option>
+            <option *ngFor="let magazine of magazineList" value="{{magazine.id}}">{{magazine.id}} - {{magazine.name}}</option>
+          </select>
+          <button (click)="submit()">Zatwierdź</button>
+        </div>
+      </div>
+  </div>

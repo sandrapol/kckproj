@@ -9,7 +9,7 @@ public class Harvest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-    private String guality;
+    private String quality;
     @Column
     private double quantity;
     @ManyToOne
@@ -19,8 +19,8 @@ public class Harvest {
     public Harvest() {
     }
 
-    public Harvest(String guality, double quantity, Plantation plantation) {
-        this.guality = guality;
+    public Harvest(String quality, double quantity, Plantation plantation) {
+        this.quality = quality;
         this.quantity = quantity;
         this.plantation = plantation;
     }
@@ -34,11 +34,11 @@ public class Harvest {
     }
 
     public String getGuality() {
-        return guality;
+        return quality;
     }
 
     public void setGuality(String guality) {
-        this.guality = guality;
+        this.quality = guality;
     }
 
     public double getQuantity() {
@@ -61,7 +61,7 @@ public class Harvest {
     public String toString() {
         return "Harvest{" +
                 "id=" + id +
-                ", guality='" + guality + '\'' +
+                ", guality='" + quality + '\'' +
                 ", quantity=" + quantity +
                 ", plantation=" + plantation +
                 '}';
