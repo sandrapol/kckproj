@@ -13,11 +13,11 @@
       <button routerLink="/newCity">Dodaj miasto</button>
     </div>
         <div class="post" *ngFor="let city of cityList">
-          <div class="img" (click)="showDetails(city.id)">
+          <div class="img">
             <img height="200px" width="200px" src="https://stmed.net/sites/default/files/styles/1024x1024/public/grand-theft-auto%3A-vice-city-hd-wallpapers-33184-1521670.jpg?itok=JXka3TrU">
           </div>
           <div class="info">
-            <div class="nav" (click)="showDetails(city.id)">
+            <div class="nav">
               {{city.id}}
             </div>
             <div class="details">

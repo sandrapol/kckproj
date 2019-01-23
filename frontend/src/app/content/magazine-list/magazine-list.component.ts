@@ -15,10 +15,11 @@ export class MagazineListComponent implements OnInit {
   loading:boolean= true;
   private minimalna:number;
   private maksymalna:number;
-
+  minValue: number = 100;
+    maxValue: number = 300;
   options: Options = {
     floor: 0,
-    ceil: 500,
+    ceil: 5000,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:{

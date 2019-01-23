@@ -14,12 +14,12 @@
       <div class="content2">
         <div class="posts">
         <div class="post" *ngFor="let delivery of deliveryList">
-          <div class="img" (click)="showDetails(delivery.id)">
+          <div class="img" >
               <!-- <img style="min-height : 13%; min-width:13%;" height="100%" width="100%" src="https://files.dutchbros.com/website/menu/drink-images/Latte.png"> -->
               <img  height="200px" width="200px" src="https://static.turbosquid.com/Preview/2014/07/09__23_04_06/mack_02.jpg5136edca-3eb2-45cb-ac3f-e434404c38f7Original.jpg">
           </div>
           <div class="info">
-            <div class="nav" (click)="showDetails(delivery.id)">
+            <div class="nav" >
               {{delivery.id}}
             </div>
             <div class="details">

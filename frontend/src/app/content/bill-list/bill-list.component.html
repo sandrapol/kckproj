@@ -3,12 +3,6 @@
 </div>
 <div *ngIf="!loading" class="content">
   <div class="button_cont">.
-    <div class="search-container">
-      <form action="/action_page.php">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
-    </div>
     <select id="sortDrop" (change)='setSelected()'>
       <option hidden="true">Sortuj</option>
       <option value="id">Id (rosnąco)</option>

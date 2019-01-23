@@ -16,7 +16,7 @@ export class BillListComponent implements OnInit {
   maxValue: number = 400;
   options: Options = {
     floor: 0,
-    ceil: 500,
+    ceil: 5000,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
