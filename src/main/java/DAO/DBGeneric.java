@@ -5,6 +5,7 @@ import main.java.Utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class DBGeneric<T> {
@@ -15,6 +16,14 @@ public class DBGeneric<T> {
         Transaction tr = session.beginTransaction();
         session.save(el);
         tr.commit();
+    }
+    public int createAndGet(T el) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tr = session.beginTransaction();
+        Serializable save = session.save(el);
+        tr.commit();
+        int id = save.hashCode();
+        return id;
     }
 
     public void delete(T el) {

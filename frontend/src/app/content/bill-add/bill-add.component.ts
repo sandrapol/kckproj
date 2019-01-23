@@ -63,7 +63,7 @@ export class BillAddComponent implements OnInit {
     if (Number(value) > 0 && this.currentCoffee != undefined) {
       this.currentSale.quantityInKg = Number(value);
       this.error = false;
-      this.currentSale.howMuchToPay = value * this.currentCoffee.price;
+      this.currentSale.howMuchToPay = Number(value * this.currentCoffee.price);
     }
     else
       this.error = true;

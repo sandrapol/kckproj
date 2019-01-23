@@ -15,43 +15,43 @@ export class BillService {
         return this.http.get('api/billList');
     }
 
-    addBill(bill: Bill,sales:Sale[],idCust:number ){   
+    addBill(bill: Bill, sales: Sale[], idCust: number) {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        let data={
-            "id":bill.id,
-            "grossValue":bill.grossValue,
-            "discount":bill.discount,
-            "sales":sales,
-            "custId":idCust
+        let data = {
+                "mDiscount": bill.discount,
+                "mGrossValue": bill.grossValue,
+                "sales": sales,
+                "custId": idCust
         }
-        return this.http.post('api/addBill', data, {headers});
-}
-
-findBill(id: number) {
-    const params = new HttpParams().append('id', String(id));
-    return this.http.get('api/detailsBill', { params });
-}
-delete(id: number) {
-    const params = new HttpParams().append('id', String(id));
-    return this.http.get('api/deleteBill', { params });
-}
-
-updateBill(bill: Bill) {
-    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    let data={
-        "id":bill.id,
-        "grossValue":bill.grossValue,
-        "netValue":bill.netValue,
-        "vatValue":bill.vatValue,
-        "discount":bill.discount
+        console.log(data);
+        return this.http.post('api/addBill', data, { headers });
     }
 
-    return this.http.post('api/updateBill', data, {headers});
-}
+    findBill(id: number) {
+        const params = new HttpParams().append('id', String(id));
+        return this.http.get('api/detailsBill', { params });
+    }
+    delete(id: number) {
+        const params = new HttpParams().append('id', String(id));
+        return this.http.get('api/deleteBill', { params });
+    }
 
-sort(field:string){
-    const params = new HttpParams().append('field', field);
-    return this.http.get('api/billSortBy', { params });
-}
+    updateBill(bill: Bill) {
+        let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        let data = {
+            "id": bill.id,
+            "grossValue": bill.grossValue,
+            "netValue": bill.netValue,
+            "vatValue": bill.vatValue,
+            "discount": bill.discount
+        }
+
+        return this.http.post('api/updateBill', data, { headers });
+    }
+
+    sort(field: string) {
+        const params = new HttpParams().append('field', field);
+        return this.http.get('api/billSortBy', { params });
+    }
 
 }

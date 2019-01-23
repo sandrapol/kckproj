@@ -9,6 +9,8 @@ public class Delivery {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
+    private Long quantity;
+    @Column
     private String conveyance;
     @ManyToOne
     @JoinColumn(name = "plantation_id", foreignKey = @ForeignKey(name = "DELIVERY_PLANTATION_ID_FK"))
@@ -24,6 +26,14 @@ public class Delivery {
         this.conveyance = conveyance;
         this.plantation = plantation;
         this.magazine = magazine;
+    }
+
+    public Long getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
     }
 
     public long getId() {

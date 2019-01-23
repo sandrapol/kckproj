@@ -3,17 +3,18 @@ package main.java.Controllers;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import main.java.DAO.DBGeneric;
-import main.java.Models.Bill;
-import main.java.Models.Coffee;
-import main.java.Models.Magazine;
-import main.java.Models.Sale;
+import main.java.Models.*;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
@@ -22,9 +23,15 @@ import java.util.List;
 @RequestMapping("/api")
 @EnableAutoConfiguration
 public class BillController {
+    DBGeneric<Time> repoTime = new DBGeneric<>();
     DBGeneric<Bill> repo = new DBGeneric<>();
+    DBGeneric<Sale> repoSale = new DBGeneric<>();
+    DBGeneric<Customer> repoCust = new DBGeneric<>();
 
     private Bill bill = new Bill();
+    private Time timeEx= new Time();
+    private Sale saleEx= new Sale();
+    private Customer customer=new Customer();
 
     @RequestMapping(value = "/billList")
     public ResponseEntity<List<Bill>> upload() {
@@ -42,8 +49,8 @@ public class BillController {
         List billList;
         try {
             if (field.contains("Other")) {
-                field=field.replace("Other","");
-                billList= repo.descSortBy(field,bill);
+                field = field.replace("Other", "");
+                billList = repo.descSortBy(field, bill);
             } else {
                 billList = repo.sortBy(field, bill);
             }
@@ -54,38 +61,49 @@ public class BillController {
     }
 
 
-
-    @RequestMapping(value = "/addBill")
-    public ResponseEntity<String> addBill(double mDiscount,
-                                          double mGrossValue,
-                                          Sale[] sales) {
+    @RequestMapping(value = "/addBill", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<String> addBill(@RequestBody BillAdd newBill) {
         Bill bill = new Bill();
-        bill.setDiscount(mDiscount);
-        bill.setGrossValue(mGrossValue);
-        bill.setNetValue(mGrossValue * (0.77));
-        bill.setVatValue(mGrossValue * (0.23));
+        Long timeId =Long.valueOf(generateTime());
+
+        bill.setDiscount(newBill.getmDiscount());
+        bill.setGrossValue(newBill.getmGrossValue());
+        bill.setNetValue(newBill.getmGrossValue() * (0.77));
+        bill.setVatValue(newBill.getmGrossValue() * (0.23));
         try {
-            repo.create(bill);
+            Time time = repoTime.getById(timeId, timeEx);
+            bill.setTime(time);
+            Customer cust= repoCust.getById(newBill.getCustId(),customer);
+            bill.setCustomer(cust);
+            Long billId =Long.valueOf(repo.createAndGet(bill));
+            bill=repo.getById(billId, bill);
+            Sale[] sales=newBill.addBill(bill);
+            for (Sale sale : sales) {
+                repoSale.create(sale);
+            }
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Failed", "Cannot add bill");
         }
         return ResponseEntity.ok().header("Success").build();
     }
+
     @RequestMapping(value = "/detailsBill")
     public ResponseEntity<Bill> getBillById(Long id) {
-        Bill details= null;
+        Bill details = null;
         try {
-            details=repo.getById(id,bill);
+            details = repo.getById(id, bill);
         } catch (Exception ex) {
-            return  ResponseFactory.ResponseError("Failed", "Cannot find bill");
+            return ResponseFactory.ResponseError("Failed", "Cannot find bill");
         }
         return ResponseEntity.ok(details);
     }
+
     @RequestMapping(value = "/deleteBill")
     public ResponseEntity<List<Bill>> deleteBill(Long id) {
         List list;
         try {
-            repo.delete(id,bill);
+            repo.delete(id, bill);
             list = repo.getAll(bill);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Failed", "Cannot delete bill");
@@ -98,10 +116,81 @@ public class BillController {
     public ResponseEntity<Bill> updateBill(@RequestBody Bill billUp) {
         try {
             repo.update(billUp);
-            billUp=repo.getById(billUp.getId(), billUp);
+            billUp = repo.getById(billUp.getId(), billUp);
         } catch (Exception ex) {
-           return ResponseFactory.ResponseError("Failed", "Cannot update bill");
+            return ResponseFactory.ResponseError("Failed", "Cannot update bill");
         }
         return ResponseEntity.ok(billUp);
+    }
+
+    int generateTime() {
+        Time time = new Time();
+        ZoneId zone1 = ZoneId.of("Europe/Warsaw");
+        LocalTime now = LocalTime.now(zone1);
+        LocalDate today = LocalDate.now();
+        time.setTime(now);
+        time.setDay(today.getDayOfMonth());
+        time.setMonth(today.getMonth().getValue());
+        time.setYear(today.getYear());
+        int id = repoTime.createAndGet(time);
+        return id;
+    }
+}
+
+class BillAdd {
+    Double mDiscount;
+    Double mGrossValue;
+    Sale[] sales;
+    Long custId;
+
+    public BillAdd() {
+    }
+    public Sale[] addBill(Bill bill){
+        for (Sale sale : sales) {
+            sale.setBill(bill);
+        }
+        return sales;
+    }
+
+    public Double getmDiscount() {
+        return mDiscount;
+    }
+
+    public void setmDiscount(Double mDiscount) {
+        this.mDiscount = mDiscount;
+    }
+
+    public Double getmGrossValue() {
+        return mGrossValue;
+    }
+
+    public void setmGrossValue(Double mGrossValue) {
+        this.mGrossValue = mGrossValue;
+    }
+
+    public Sale[] getSales() {
+        return sales;
+    }
+
+    public void setSales(Sale[] sales) {
+        this.sales = sales;
+    }
+
+    public Long getCustId() {
+        return custId;
+    }
+
+    public void setCustId(Long custId) {
+        this.custId = custId;
+    }
+
+    @Override
+    public String toString() {
+        return "BillAdd{" +
+                "mDiscount=" + mDiscount +
+                ", mGrossValue=" + mGrossValue +
+                ", sales=" + Arrays.toString(sales) +
+                ", custId=" + custId +
+                '}';
     }
 }

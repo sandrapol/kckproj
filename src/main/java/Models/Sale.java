@@ -28,6 +28,14 @@ public class Sale {
         this.bill = bill;
     }
 
+    public double getHowMuchToPay() {
+        return howMuchToPay;
+    }
+
+    public void setHowMuchToPay(double howMuchToPay) {
+        this.howMuchToPay = howMuchToPay;
+    }
+
     public long getId() {
         return id;
     }

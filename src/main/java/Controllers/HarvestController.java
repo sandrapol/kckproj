@@ -39,7 +39,7 @@ public class HarvestController {
                                              long plantationId) {
 
        Harvest harvest= new Harvest();
-        harvest.setGuality(mQuality);
+        harvest.setQuality(mQuality);
         harvest.setQuantity(mQuantity);
         try {
             Plantation plantationAdd= repoPlantation.getById(plantationId,plantation);
