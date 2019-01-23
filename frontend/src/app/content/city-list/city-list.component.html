@@ -1,0 +1,41 @@
+<div *ngIf="loading">
+    <app-loading></app-loading>
+  </div>
+  <div *ngIf="!loading" class="content">
+    <div class="button_cont">.
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      <select id="sortDrop" (change)='setSelected()'>
+        <option hidden="true">Sortuj</option>
+        <option value="name">Nazwy (rosnąco)</option>
+        <option value="nameOther">Nazwy(malejąco)</option>
+        <option value="voivodeship">Województwa (rosnąco)</option>
+        <option value="voivodeshipOther">Województwa (malejaco)</option>
+      </select>
+      <button routerLink="/newCity">Dodaj miasto</button>
+    </div>
+        <div class="post" *ngFor="let city of cityList">
+          <div class="img" (click)="showDetails(city.id)">
+            <img height="174px" width="250px" src="https://www.kasybielsko.pl/wp-content/uploads/2014/04/Paragon-Fiskalny-300x209.jpg">
+          </div>
+          <div class="info">
+            <div class="nav" (click)="showDetails(city.id)">
+              {{city.id}}
+            </div>
+            <div class="details">
+              <p><b>Nazwa: </b> {{city.name}}</p>
+              <p><b>Województwo: </b> {{city.voivodeship}}</p>
+              <p><b>Kod pocztowy: </b> {{city.ZIPcode}}</p>
+            </div>
+          </div>
+          <div class="actions">
+            <div> <img width="5%" height="5%" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png"
+                (click)="delete(city.id)" style="cursor: pointer;">
+            </div>
+          </div>
+        </div>
+  </div>

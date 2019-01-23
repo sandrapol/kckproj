@@ -3,10 +3,7 @@ package main.java.Controllers;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import main.java.DAO.DBGeneric;
-import main.java.Models.Bill;
-import main.java.Models.Coffee;
-import main.java.Models.Delivery;
-import main.java.Models.Plantation;
+import main.java.Models.*;
 import main.java.Utils.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -21,8 +18,11 @@ import java.util.List;
 @EnableAutoConfiguration
 public class DeliveryController {
     DBGeneric<Delivery> repo = new DBGeneric<>();
-
+    DBGeneric<Plantation> repoPlantation = new DBGeneric<>();
+    DBGeneric<Magazine> repoMagazine = new DBGeneric<>();
     private Delivery delivery = new Delivery();
+    private Plantation plantation = new Plantation();
+    private Magazine magazine = new Magazine();
 
     @RequestMapping(value = "/deliveryList")
     public ResponseEntity<List<Delivery>> upload() {
@@ -35,10 +35,16 @@ public class DeliveryController {
         return ResponseEntity.ok(deliveryList);
     }
     @RequestMapping(value = "/addDelivery")
-    public ResponseEntity<String> addDelivery(String mConveyance) {
+    public ResponseEntity<String> addDelivery(String mConveyance,
+                                              long plantationId,
+                                              long magazineId) {
         Delivery delivery= new Delivery();
         delivery.setConveyance(mConveyance);
         try {
+            Plantation plantationAdd= repoPlantation.getById(plantationId,plantation);
+            delivery.setPlantation(plantationAdd);
+            Magazine magazineAdd= repoMagazine.getById(magazineId,magazine);
+            delivery.setMagazine(magazineAdd);
             repo.create(delivery);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Failed", "Cannot add delivery");

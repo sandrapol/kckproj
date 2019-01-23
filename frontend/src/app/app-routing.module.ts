@@ -1,3 +1,5 @@
+import { CityListComponent } from './content/city-list/city-list.component';
+import { CityAddComponent } from './content/city-add/city-add.component';
 import { BillAddComponent } from './content/bill-add/bill-add.component';
 import { BillDetailsComponent } from './content/bill-details/bill-details.component';
 import { EmployeeAddComponent } from './content/employee-add/employee-add.component';
@@ -44,10 +46,12 @@ const routes: Routes = [
   {path:"login", component: LoginComponent},
   {path:"forgot",component:ForgotComponent},
   {path:"newCustomer",component: CustomerAddComponent},
+  {path:"newCity",component: CityAddComponent},
   {path:"newPlantation",component: PlantationAddComponent},
   {path:"newMagazine",component: MagazineAddComponent},
   {path:"newEmployee",component:EmployeeAddComponent},
-  {path:"newBill",component:BillAddComponent}
+  {path:"newBill",component:BillAddComponent},
+  {path:"cities",component:CityListComponent}
 ];
 
 @NgModule({
