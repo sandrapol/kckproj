@@ -36,5 +36,10 @@ sort(field:string){
     return this.http.get('api/deliverySortBy', { params });
 }
 
+filter(field:string, min:number,max:number){
+    const params = new HttpParams().append('field', field).append('min',String(min)).append('max',String(max));
+    return this.http.get('api/filterDelivery', { params });
+}
+
 
 }

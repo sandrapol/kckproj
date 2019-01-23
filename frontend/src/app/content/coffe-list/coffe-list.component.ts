@@ -13,27 +13,29 @@ import { LabelType, Options } from 'ng5-slider';
 export class CoffeListComponent implements OnInit {
   private coffeeList:any;
   loading:boolean= true;
-
+  private minimalna:number;
+  private maksymalna:number;
   minValue: number = 100;
-  maxValue: number = 400;
+  maxValue: number = 300;
   options: Options = {
     floor: 0,
-    ceil: 500,
+    ceil: 5000,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:{
-          console.log(this.minValue);
+          this.minimalna=value;
           return '<b>Min Cena:</b> ' + value + 'zł';
         }
         case LabelType.High:{
-          console.log(this.maxValue);
+          this.maksymalna=value;
           return '<b>Max Cena:</b> ' + value + 'zł';
         }
         default:
-          return 'zł' + value;
+          return '';
       }
-    }
+      }
   };
+ 
  
 
 
@@ -44,6 +46,15 @@ export class CoffeListComponent implements OnInit {
       elem=> this.coffeeList= elem,
       err=> console.log(err),
       ()=> this.loading=false
+    )
+  }
+
+  policz(){
+
+    this.serv.filter("price",this.minimalna,this.maksymalna).subscribe(
+      elem=> this.coffeeList=elem,
+      err=> console.log(err),
+      ()=> {this.loading=false; }
     )
   }
   showDetails(id:number){

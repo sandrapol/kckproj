@@ -49,6 +49,18 @@ public class HarvestController {
         }
         return ResponseEntity.ok(harvestList);
     }
+
+    @RequestMapping(value = "/filterHarvest")
+    public ResponseEntity<List<Employee>> filterHarvest(String field, int min, int max) {
+        List harvestList;
+        System.out.println("doszło");
+        try {
+            harvestList= repo.filter(field,min,max,harvest);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(harvestList);
+    }
     @RequestMapping(value = "/addHarvest")
     public ResponseEntity<String> addHarvest(String mQuality,
                                              double mQuantity,

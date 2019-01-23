@@ -67,10 +67,21 @@ public class DBGeneric<T> {
         Transaction tr = session.beginTransaction();
         session.update(el);
         tr.commit();
+        System.out.println(el);
     }
     public List sortBy(String field, T cl){
         String className=  cl.getClass().getName();
         String hql = "FROM "+className+" c ORDER BY c."+field;
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tr = session.beginTransaction();
+        List<T> el = session.createQuery(hql).list();
+        tr.commit();
+        return el;
+    }
+
+    public List filter(String field,int min,int max, T cl){
+        String className=  cl.getClass().getName();
+        String hql = "FROM "+className+" c WHERE c."+field + " BETWEEN "+min+" AND "+ max;
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tr = session.beginTransaction();
         List<T> el = session.createQuery(hql).list();

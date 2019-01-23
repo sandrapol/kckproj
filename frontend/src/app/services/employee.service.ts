@@ -50,4 +50,8 @@ sort(field:string){
     return this.http.get('api/employeeSortBy', { params });
 }
 
+filter(field:string, min:number,max:number){
+    const params = new HttpParams().append('field', field).append('min',String(min)).append('max',String(max));
+    return this.http.get('api/filterEmployee', { params });
+}
 }

@@ -93,6 +93,18 @@ public class EmployeeController {
         return ResponseEntity.ok(list);
     }
 
+    @RequestMapping(value = "/filterEmployee")
+    public ResponseEntity<List<Employee>> filterEmployee(String field, int min, int max) {
+        List employeeList;
+        System.out.println("doszło");
+        try {
+            employeeList= repo.filter(field,min,max,employee);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(employeeList);
+    }
+
     @RequestMapping(value = "/updateEmployee", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<Employee> updateDelivery(@RequestBody Employee employee1) {

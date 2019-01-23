@@ -3,6 +3,7 @@ import { Coffee } from './../../statics/coffe';
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { find } from 'rxjs/operators';
+import { MagazineService } from 'src/app/services/magazine.service';
 
 
 @Component({
@@ -51,6 +52,8 @@ export class CoffeeDetailsComponent implements OnInit {
       this.error = true;
   }
 
+
+
   setPrice(value) {
     if (Number(value) > -1) {
       this.coffee.price = Number(value);
@@ -59,6 +62,8 @@ export class CoffeeDetailsComponent implements OnInit {
     else
       this.error = true;
   }
+
+ 
   submit() {
       this.serv.updateCoffee(this.coffee).subscribe(
         elem => this.coffee = elem,

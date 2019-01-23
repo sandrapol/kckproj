@@ -39,7 +39,8 @@ updateCustomer(customer: Customer) {
         "forename":customer.forename,
         "telephoneNumber":customer.telephoneNumber,
         "street":customer.street,
-        "houseNumber":customer.houseNumber
+        "houseNumber":customer.houseNumber,
+        "city":customer.city
     }
 
     return this.http.post('api/updateCustomer', data, {headers});

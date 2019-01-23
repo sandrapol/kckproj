@@ -37,6 +37,18 @@ public class MagazineController {
         return ResponseEntity.ok(magazineList);
     }
 
+    @RequestMapping(value = "/filterMagazine")
+    public ResponseEntity<List<Magazine>> filterMagazine(String field, int min, int max) {
+        List magazineList;
+        System.out.println("doszło");
+        try {
+            magazineList= repo.filter(field,min,max,magazine);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(magazineList);
+    }
+
     @RequestMapping(value = "/magazineSortBy")
     public ResponseEntity<List<Magazine>> sortBy(String field) {
         List magazineList;

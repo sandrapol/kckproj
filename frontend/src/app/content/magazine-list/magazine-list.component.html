@@ -3,12 +3,6 @@
 </div>
 <div *ngIf="!loading" class="content">
     <div class="button_cont">.
-        <div class="search-container">
-            <form action="/action_page.php">
-              <input type="text" placeholder="Search.." name="search">
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-          </div>
         <select id="sortDrop" (change)='setSelected()'>
             <option hidden="true">Sortuj</option>
             <option value="id">Id (rosnąco)</option>
@@ -19,6 +13,7 @@
             <option value="supplyOther">Zapasu (malejąco)</option>
           </select>
         <button routerLink="/newMagazine">Dodaj magazyn</button>
+        <button (click)="policz()">Wyszukaj</button>
       </div>
       <div class="content2">
           <div class="posts">
@@ -34,7 +29,7 @@
         <p><b>Identyfikator: </b> {{magazine.id}}</p>
         <p><b>Nazwa: </b> {{magazine.name}}</p>
         <b>Dostępność: </b><span *ngIf="magazine.coffeeAvailability">dostępna</span><span *ngIf="!(magazine.coffeeAvailability)">niedostępna</span>
-        <p><b>Dostawa: </b> {{magazine.supply}}</p>
+        <p><b>Zapas: </b> {{magazine.supply}}</p>
       </div>
     </div>
     <div class="actions">

@@ -33,9 +33,7 @@ button:hover {
     background: #666666 !important;
   }
 
-  .suwak .ng5-slider .ng5-slider-model-high{
-      margin-right: 30px;
-  }
+  
 
   .suwak .ng5-slider .ng5-slider-tick .ng5-slider-active ::after {
     background-color: yellow !important;

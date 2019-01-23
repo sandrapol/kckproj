@@ -12,6 +12,9 @@ import { Options, LabelType } from 'ng5-slider';
 export class EmployeeListComponent implements OnInit {
   private employeeList:any;
   loading:boolean= true;
+  private minimalna:number;
+  private maksymalna:number;
+
 
   minValue: number = 100;
   maxValue: number = 400;
@@ -20,10 +23,14 @@ export class EmployeeListComponent implements OnInit {
     ceil: 500,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
-        case LabelType.Low:
+        case LabelType.Low:{
+          this.minimalna=value;
           return '<b>Min Pensja:</b> ' + value + 'zł';
-        case LabelType.High:
-          return '<b>Max Pensja:</b> $' + value + 'zł';
+        }
+        case LabelType.High:{
+          this.maksymalna = value;
+          return '<b>Max Pensja:</b> ' + value + 'zł';
+        }
         default:
           return value+'zł' ;
       }
@@ -63,6 +70,15 @@ export class EmployeeListComponent implements OnInit {
         ()=> {this.loading=false; }
       )
     }
+
+    
+  policz(){
+    this.serv.filter("salary",this.minimalna,this.maksymalna).subscribe(
+      elem=> this.employeeList=elem,
+      err=> console.log(err),
+      ()=> {this.loading=false; }
+    )
+  }
   
 
 }

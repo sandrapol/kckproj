@@ -50,6 +50,18 @@ public class DeliveryController {
         }
         return ResponseEntity.ok(deliveryList);
     }
+
+    @RequestMapping(value = "/filterDelivery")
+    public ResponseEntity<List<Employee>> filterDelivery(String field, int min, int max) {
+        List deliveryList;
+        System.out.println("doszło");
+        try {
+            deliveryList= repo.filter(field,min,max,delivery);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(deliveryList);
+    }
     @RequestMapping(value = "/addDelivery")
     public ResponseEntity<String> addDelivery(String mConveyance,
                                               long plantationId,

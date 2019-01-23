@@ -3,12 +3,6 @@
 </div>
 <div *ngIf="!loading" class="content">
   <div class="button_cont">.
-    <div class="search-container">
-      <form action="/action_page.php">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
-    </div>
    
   </div>
     <div class="content2">
@@ -51,6 +45,7 @@
             <option value="priceOther">Ceny(malejąco)</option>
           </select>
           <button routerLink="/newCoffee">Dodaj kawę</button>
+          <button (click)="policz()">Wyszukaj</button>
         </div>
       </div>
     </div>

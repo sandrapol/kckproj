@@ -11,6 +11,11 @@
     width: 3%;
     height: 3%;
 }
+
+.price
+{
+    text-align: center;
+}
 .img{
     max-width: 50%;
     max-height: 50%;

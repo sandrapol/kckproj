@@ -13,18 +13,24 @@ import { Options, LabelType } from 'ng5-slider';
 export class MagazineListComponent implements OnInit {
   private magazineList:any;
   loading:boolean= true;
+  private minimalna:number;
+  private maksymalna:number;
 
   options: Options = {
     floor: 0,
     ceil: 500,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
-        case LabelType.Low:
-          return '<b>Min Zapas:</b> ' + value +'zł';
-        case LabelType.High:
-          return '<b>Max Zapas:</b> ' + value+ 'zł';
+        case LabelType.Low:{
+          this.minimalna=value;
+          return '<b>Min Zapas:</b> ' + value;
+        }
+        case LabelType.High:{
+          this.maksymalna = value;
+          return '<b>Max Zapas:</b> ' + value;
+        }
         default:
-          return value + 'zł';
+          return value + '';
       }
     }
   };
@@ -41,6 +47,14 @@ export class MagazineListComponent implements OnInit {
 
   showDetails(id:number){
     this.router.navigateByUrl("/magazine/"+id);
+  }
+
+  policz(){
+    this.serv.filter("supply",this.minimalna,this.maksymalna).subscribe(
+      elem=> this.magazineList=elem,
+      err=> console.log(err),
+      ()=> {this.loading=false; }
+    )
   }
   delete(id:number){
     this.loading=true;

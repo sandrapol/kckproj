@@ -96,6 +96,17 @@ public class CoffeeController {
         return ResponseEntity.ok(list);
     }
 
+    @RequestMapping(value = "/filterCoffee")
+    public ResponseEntity<List<Coffee>> filterCoffee(String field, int min, int max) {
+        List coffeeList;
+        try {
+                coffeeList= repo.filter(field,min,max,coffee);
+        } catch (Exception ex) {
+            return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
+        }
+        return ResponseEntity.ok(coffeeList);
+    }
+
     @RequestMapping(value = "/updateCoffee", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<Coffee> updateCoffee(@RequestBody Coffee coffee1) {

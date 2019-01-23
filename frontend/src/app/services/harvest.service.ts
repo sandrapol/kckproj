@@ -20,6 +20,11 @@ export class HarvestService {
         return this.http.get('api/addHarvest', {params});
 }
 
+filter(field:string, min:number,max:number){
+    const params = new HttpParams().append('field', field).append('min',String(min)).append('max',String(max));
+    return this.http.get('api/filterHarvest', { params });
+}
+
 findHarvest(id: number) {
     const params = new HttpParams().append('id', String(id));
     return this.http.get('api/detailsHarvest', { params });

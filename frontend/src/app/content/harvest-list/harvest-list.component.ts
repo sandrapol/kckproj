@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class HarvestListComponent implements OnInit {
   private harvestList:any;
   loading:boolean= true;
-
+  private minimalna:number;
+  private maksymalna:number;
   minValue: number = 100;
   maxValue: number = 400;
   options: Options = {
@@ -19,10 +20,14 @@ export class HarvestListComponent implements OnInit {
     ceil: 500,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
-        case LabelType.Low:
+        case LabelType.Low:{
+          this.minimalna=value;
           return '<b>Min Ilosc:</b> ' + value;
-        case LabelType.High:
+        }
+        case LabelType.High:{
+          this.maksymalna=value;
           return '<b>Max Ilosc:</b> ' + value;
+        }
         default:
           return ''+value;
       }
@@ -59,6 +64,14 @@ export class HarvestListComponent implements OnInit {
     let sel = e.selectedIndex;
     var opt = e.options[sel];
     this.serv.sort(opt.value).subscribe(
+      elem=> this.harvestList=elem,
+      err=> console.log(err),
+      ()=> {this.loading=false; }
+    )
+  }
+
+  policz(){
+    this.serv.filter("quantity",this.minimalna,this.maksymalna).subscribe(
       elem=> this.harvestList=elem,
       err=> console.log(err),
       ()=> {this.loading=false; }
