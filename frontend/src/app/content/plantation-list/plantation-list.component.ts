@@ -62,4 +62,5 @@ export class PlantationListComponent implements OnInit {
         ()=> this.loading=false
       )
     }
+  }
 }
