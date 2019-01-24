@@ -1,0 +1,28 @@
+<div class="post">
+  <header>
+    <div *ngIf="error">
+      <h2 style="color: red">POPRAW DANE</h2>
+      <p>{{errorDetails}}</p>
+    </div>
+    <h2>Wprowadź dane nowego etatu</h2>
+  </header>
+  <div class="cont">
+    <div class="one">
+      <p class="one"><b>Godzina rozpoczęcia: </b> &nbsp; </p>
+      <input class="one" placeholder="Godzina rozpoczęcia" type="time" required (mouseup)="setStart(nbox.value)" #nbox (keyup)="setStart(nbox.value)"><br>
+    </div>
+  </div>
+  <div class="cont">
+    <div class="one">
+      <p class="one"><b>Godzina zakończenia: </b>&nbsp; </p>
+      <input class="one" placeholder="Godzina zakończenia" type="time" required #box (mouseup)="setEnd(box.value)" (keyup)="setEnd(box.value)"><br>
+    </div>
+  </div>
+  <div class="cont">
+    <div class="one">
+      <p class="one"><b>Ilosc dni w tygodniu: </b>&nbsp; </p>
+      <input class="one" placeholder="dni" type="number" min=1 max=7 required #dbox (mouseup)="setDay(dbox.value)" (keyup)="setDay(dbox.value)"><br>
+      <button (click)="submit()">Zatwierdź</button>
+    </div>
+  </div>
+</div>

@@ -14,10 +14,10 @@
           <p><b>Data: </b> {{bill.time.time}}</p>
           <p><b>Data: </b> {{bill.time.day}}.{{bill.time.month}}.{{bill.time.year}}</p>
           <p><b>Klient: </b> {{bill.customer.name}} {{bill.customer.forename}}</p>
-      <div *ngFor="let sale of sales">
-          <p><b>Ilosc w kg: </b> {{sale.howMuchtoPay}</p>
-          <p><b>Ilosc w kg: </b> {{sale.quantityInKg}</p>
-          <p><b>Cena: </b> {{sale.coffee.name}</p> 
+      <div style="margin: 0% 3%; padding: 0% 2%; border: 0.5px solid" *ngFor="let sale of sales">
+          <p><b>Kawa: </b> {{sale.coffee.name}}</p> 
+          <p><b>Ilosc w kg: </b> {{sale.quantityInKg}}</p> 
+          <p><b>Cena: </b> {{sale.howMuchToPay}}</p>   
       </div>
           <p><b>Wartosc netto: </b> {{bill.netValue}}</p>
           <p><b>Wartosc brutto: </b> {{bill.grossValue}}</p>

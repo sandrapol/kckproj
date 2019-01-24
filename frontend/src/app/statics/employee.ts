@@ -1,3 +1,5 @@
+import { RegularPost } from "./regularPost";
+
 export class Employee {
     id: number;
     name: string;
@@ -5,5 +7,5 @@ export class Employee {
     position:string;
     salary:number;
     bonus: number;
-    regularPost:string;
+    regularPost:RegularPost;
   }

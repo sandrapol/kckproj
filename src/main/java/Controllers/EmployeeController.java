@@ -53,8 +53,7 @@ public class EmployeeController {
                                             String mForename,
                                             String mPosition,
                                             double mSalary,
-                                            double mBonus,
-                                              long regularPostId) {
+                                            double mBonus) {
         Employee employee= new Employee();
         employee.setName(mName);
         employee.setSalary(mSalary);
@@ -63,8 +62,8 @@ public class EmployeeController {
         employee.setForename(mForename);
 
         try {
-            RegularPost regularPostAdd= repoRegularPost.getById(regularPostId,regularPost);
-            employee.setRegularPost(regularPostAdd);
+           // RegularPost regularPostAdd= repoRegularPost.getById(regularPostId,regularPost);
+            //employee.setRegularPost(regularPostAdd);
             repo.create(employee);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Failed", "Cannot add employee");

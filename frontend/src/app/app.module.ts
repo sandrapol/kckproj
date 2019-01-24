@@ -38,6 +38,7 @@ import { HarvestListComponent } from './content/harvest-list/harvest-list.compon
 import { HarvestAddComponent } from './content/harvest-add/harvest-add.component';
 import { DeliveryListComponent } from './content/delivery-list/delivery-list.component';
 import { DeliveryAddComponent } from './content/delivery-add/delivery-add.component';
+import { RegularPostAddComponent } from './content/regular-post-add/regular-post-add.component';
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import { DeliveryAddComponent } from './content/delivery-add/delivery-add.compon
     HarvestDetailsComponent,
     HarvestAddComponent,
     DeliveryListComponent,
-    DeliveryAddComponent
+    DeliveryAddComponent,
+    RegularPostAddComponent
   ],
   imports: [
     BrowserModule,

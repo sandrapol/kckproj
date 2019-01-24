@@ -82,10 +82,10 @@ public class SaleController {
     public ResponseEntity<List<Sale>> findSale(Long billId) {
         List list;
         try {
-            repo.saleFindByIdBill(billId,sale);
-            list = repo.getAll(sale);
+            list =repo.saleFindByIdBill("bill.id",billId,sale);
         } catch (Exception ex) {
-            return ResponseFactory.ResponseError("Failed", "Cannot delete Sale");
+            ex.printStackTrace();
+            return ResponseFactory.ResponseError("Failed", "Cannot find Sale");
         }
         return ResponseEntity.ok(list);
     }

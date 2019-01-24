@@ -10,9 +10,9 @@ public class RegularPost {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-    private double startTime;
+    private String startTime;
     @Column
-    private double endTime;
+    private String endTime;
     @Column
     private int daysNumber;
     @OneToMany(mappedBy="regularPost",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -20,7 +20,7 @@ public class RegularPost {
     public RegularPost() {
     }
 
-    public RegularPost(double startTime, double endTime, int daysNumber) {
+    public RegularPost(String startTime, String endTime, int daysNumber) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.daysNumber = daysNumber;
@@ -34,19 +34,19 @@ public class RegularPost {
         this.id = id;
     }
 
-    public double getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(double startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public double getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(double endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 

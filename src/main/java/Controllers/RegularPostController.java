@@ -34,18 +34,20 @@ public class RegularPostController {
         return ResponseEntity.ok(regularPostList);
     }
     @RequestMapping(value = "/addRegularPost")
-    public ResponseEntity<String> addRegularPost(int mDaysnumber,
-                                                double mEndTime,
-                                                double mStartTime) {
-        RegularPost regularPost= new RegularPost();
-        regularPost.setDaysNumber(mDaysnumber);
-        regularPost.setEndTime(mEndTime);
-        regularPost.setStartTime(mStartTime);
-        try {
-            repo.create(regularPost);
-        } catch (Exception ex) {
-            return  ResponseFactory.ResponseError("Failed", "Cannot add regular post");
-        }
+    public ResponseEntity<String> addRegularPost(Integer daysNumber,
+                                                String endTime,
+                                                String startTime) {
+
+            RegularPost regularPost = new RegularPost();
+            regularPost.setDaysNumber(daysNumber.intValue());
+            regularPost.setEndTime(endTime);
+            regularPost.setStartTime(startTime);
+       try {
+           repo.create(regularPost);
+       } catch (Exception ex) {
+          ex.printStackTrace();
+           return  ResponseFactory.ResponseError("Failed", "Cannot add regular post");
+       }
         return ResponseEntity.ok().header("Success").build();
     }
     @RequestMapping(value = "/detailsRegularPost")

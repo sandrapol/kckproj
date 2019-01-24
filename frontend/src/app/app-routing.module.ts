@@ -30,6 +30,7 @@ import { LoginComponent } from './content/login/login.component';
 import { MagazineDetailsComponent } from './content/magazine-details/magazine-details.component';
 import { HarvestDetailsComponent } from './content/harvest-details/harvest-details.component';
 import { HarvestListComponent } from './content/harvest-list/harvest-list.component';
+import { RegularPostAddComponent } from './content/regular-post-add/regular-post-add.component';
 
 const routes: Routes = [
   {path:"", component: HomeComponent},
@@ -56,6 +57,7 @@ const routes: Routes = [
   {path:"newPlantation",component: PlantationAddComponent},
   {path:"newMagazine",component: MagazineAddComponent},
   {path:"newEmployee",component:EmployeeAddComponent},
+  {path:"newRegularPost",component:RegularPostAddComponent},
   {path:"newBill",component:BillAddComponent},
   {path:"newDelivery",component:DeliveryAddComponent},
   {path:"newHarvest",component:HarvestAddComponent},
