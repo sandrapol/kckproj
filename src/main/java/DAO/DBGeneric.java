@@ -97,7 +97,7 @@ public class DBGeneric<T> {
         tr.commit();
         return el;
     }
-    public List saleFindByIdBill( String field, Long like,  T cl){
+    public List findByForeginId( String field, Long like,  T cl){
         String className=  cl.getClass().getName();
         String hql = "FROM "+className+" c WHERE c."+field+"="+like;
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();

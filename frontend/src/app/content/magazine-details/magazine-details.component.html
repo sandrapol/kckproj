@@ -18,6 +18,10 @@
         <p *ngIf="!(magazine.coffeeAvailability)">niedostępna</p>
       </div>
       <p><b>Zapas:</b>{{magazine.supply}} kg </p>
+      <p><b>Dostępne kawy:</b></p>
+      <p *ngFor="let coffee of coffeeList">
+        - <b>{{coffee.name}}</b> : {{coffee.type}}
+      </p>
     </div>
   </div>
   <div *ngIf="edit">

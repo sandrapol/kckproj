@@ -82,7 +82,7 @@ public class SaleController {
     public ResponseEntity<List<Sale>> findSale(Long billId) {
         List list;
         try {
-            list =repo.saleFindByIdBill("bill.id",billId,sale);
+            list =repo.findByForeginId("bill.id",billId,sale);
         } catch (Exception ex) {
             ex.printStackTrace();
             return ResponseFactory.ResponseError("Failed", "Cannot find Sale");

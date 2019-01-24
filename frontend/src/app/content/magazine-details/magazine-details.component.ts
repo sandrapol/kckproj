@@ -1,3 +1,5 @@
+import { CoffeeService } from './../../services/coffee.service';
+import { Coffee } from 'src/app/statics/coffe';
 import { Magazine } from './../../statics/magazine';
 import { Component, OnInit } from '@angular/core';
 import { MagazineService } from 'src/app/services/magazine.service';
@@ -14,8 +16,9 @@ export class MagazineDetailsComponent implements OnInit {
   loading: boolean = true;
   edit: boolean = false;
   error: boolean = false;
+  coffeeList: Coffee[]
 
-  constructor(private route: ActivatedRoute, private serv: MagazineService) { }
+  constructor(private route: ActivatedRoute, private serv: MagazineService, private coffeeServ: CoffeeService) { }
 
   ngOnInit() {
     this.currentId = Number(this.route.snapshot.params['id']);
@@ -23,6 +26,10 @@ export class MagazineDetailsComponent implements OnInit {
       elem => this.magazine = elem,
       err => console.log(err)
     );
+    this.coffeeServ.coffeeByMagazines(this.currentId).subscribe(
+      elem => this.coffeeList = elem,
+      err => console.log(err)
+    )
   }
   editIt() {
     this.edit = true;

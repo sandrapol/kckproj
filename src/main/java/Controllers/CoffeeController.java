@@ -118,4 +118,15 @@ public class CoffeeController {
         }
         return ResponseEntity.ok(coffee1);
     }
+    @RequestMapping(value = "/findCoffee")
+    public ResponseEntity<List<Coffee>> findSale(Long magazineId) {
+        List list;
+        try {
+            list =repo.findByForeginId("magazine.id",magazineId,coffee);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return ResponseFactory.ResponseError("Failed", "Cannot find coffies");
+        }
+        return ResponseEntity.ok(list);
+    }
 }
