@@ -79,6 +79,20 @@ export class EmployeeListComponent implements OnInit {
       ()=> {this.loading=false; }
     )
   }
-  
+  search(value) {
+    console.log(value)
+    this.employeeList= this.employeeList.filter(elem => {
+      if (elem.name.includes(value))
+        return elem;
+    });
+    if(value==""){
+      this.loading=true;
+      this.serv.getEmployeeList().subscribe(
+        elem=> this.employeeList= elem,
+        err=> console.log(err),
+        ()=> this.loading=false
+      )
+    }
+  }
 
 }

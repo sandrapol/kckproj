@@ -81,5 +81,19 @@ export class CoffeListComponent implements OnInit {
       ()=> {this.loading=false; }
     )
   }
-
+  search(value) {
+    console.log(value)
+    this.coffeeList= this.coffeeList.filter(elem => {
+      if (elem.name.includes(value))
+        return elem;
+    });
+    if(value==""){
+      this.loading=true;
+      this.serv.getCoffeeList().subscribe(
+        elem=> this.coffeeList= elem,
+        err=> console.log(err),
+        ()=> this.loading=false
+      )
+    }
+  }
 }

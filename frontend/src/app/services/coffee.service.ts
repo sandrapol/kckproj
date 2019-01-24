@@ -38,7 +38,6 @@ updateCoffee(coffee: Coffee) {
         "species":coffee.species,
         "type":coffee.type,
         "price":coffee.price,
-        "magazine":coffee.magazine
     }
 
     return this.http.post('api/updateCoffee', data, {headers});

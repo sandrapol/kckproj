@@ -46,4 +46,19 @@ export class CustomerListComponent implements OnInit {
       ()=> {this.loading=false; }
     )
   }
+  search(value) {
+    console.log(value)
+    this.customerList = this.customerList.filter(elem => {
+      if (elem.name.includes(value))
+        return elem;
+    });
+    if(value==""){
+      this.loading=true;
+      this.serv.getCustomerList().subscribe(
+        elem=> this.customerList= elem,
+        err=> console.log(err),
+        ()=> this.loading=false
+      )
+    }
+  }
 }

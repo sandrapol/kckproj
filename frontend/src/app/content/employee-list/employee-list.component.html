@@ -3,6 +3,10 @@
   </div>
 <div *ngIf="!loading" class="content">
   <div class="button_cont">.
+      <div class="search-container">       
+          <input id="search" #xbox type="text" placeholder="Search.." name="search" (keyup)="search(xbox.value)">
+          <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
       <select id="sortDrop" (change)='setSelected()'>
           <option hidden="true">Sortuj</option>
           <option value="id">Id (rosnąco)</option>

@@ -48,5 +48,18 @@ export class PlantationListComponent implements OnInit {
       ()=> {this.loading=false; }
     )
   }
-
+  search(value) {
+    console.log(value)
+    this.plantationList= this.plantationList.filter(elem => {
+      if (elem.name.includes(value))
+        return elem;
+    });
+    if(value==""){
+      this.loading=true;
+      this.serv.getPlantationList().subscribe(
+        elem=> this.plantationList= elem,
+        err=> console.log(err),
+        ()=> this.loading=false
+      )
+    }
 }

@@ -76,5 +76,20 @@ export class MagazineListComponent implements OnInit {
       ()=> {this.loading=false; }
     )
   }
+  search(value) {
+    console.log(value)
+    this.magazineList= this.magazineList.filter(elem => {
+      if (elem.name.includes(value))
+        return elem;
+    });
+    if(value==""){
+      this.loading=true;
+      this.serv.getMagazineList().subscribe(
+        elem=> this.magazineList= elem,
+        err=> console.log(err),
+        ()=> this.loading=false
+      )
+    }
+  }
 
 }
