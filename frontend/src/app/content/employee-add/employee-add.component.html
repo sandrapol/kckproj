@@ -22,6 +22,15 @@
     </div>
   </div>
   <div class="cont">
+      <div class="one">
+        <p class="one"><b>Etat: </b> &nbsp; </p>
+        <select class="one" id="sortDrop" (change)='setRegular()'>
+          <option hidden="true">Etat</option>
+          <option *ngFor="let regular of regularList" value="{{regular.id}}">{{magazine.id}} - {{magazine.name}}</option>
+        </select>
+      </div>
+    </div>
+  <div class="cont">
     <div class="one">
       <p class="one"><b>Zarobki: </b> &nbsp; </p>
       <input class="one" placeholder="Zarobki" type="number" required #sabox (mouseup)="setSalary(sabox.value)"

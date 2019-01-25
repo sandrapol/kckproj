@@ -31,8 +31,7 @@ export class BillAddComponent implements OnInit {
   currentCoffee = new Coffee();
   sales: Sale[] = [];
   constructor(private router: Router, private serv: BillService, private coffeeServ: CoffeeService,
-    private custService: CustomerService, private paymentService: PaymentService) { }
-    private custService: CustomerService, private empServ: EmployeeService) { }
+    private custService: CustomerService, private paymentService: PaymentService,private empServ: EmployeeService) { }
 
   ngOnInit() {
     this.currentSale.howMuchToPay = 0;
@@ -147,8 +146,7 @@ export class BillAddComponent implements OnInit {
 
   submit() {
     if (!this.error && this.check()) {
-      this.serv.addBill(this.bill,this.sales,this.customerId,this.paymentId).subscribe(
-      this.serv.addBill(this.bill,this.sales,this.customerId, this.employeeId).subscribe(
+      this.serv.addBill(this.bill,this.sales,this.customerId,this.paymentId,this.employeeId).subscribe(
         elem => console.log(elem),
         err => console.log(err),
         () => this.router.navigateByUrl("/bills")

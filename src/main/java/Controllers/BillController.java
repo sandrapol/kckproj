@@ -28,12 +28,14 @@ public class BillController {
     DBGeneric<Sale> repoSale = new DBGeneric<>();
     DBGeneric<Customer> repoCust = new DBGeneric<>();
     DBGeneric<Employee> repoEmp = new DBGeneric<>();
+    DBGeneric<Payment> repoPay = new DBGeneric<>();
 
     private Bill bill = new Bill();
     private Time timeEx= new Time();
     private Sale saleEx= new Sale();
     private Customer customer=new Customer();
     private Employee employee= new Employee();
+    private Payment payment= new Payment();
 
     @RequestMapping(value = "/billList")
     public ResponseEntity<List<Bill>> upload() {
@@ -80,6 +82,8 @@ public class BillController {
             bill.setCustomer(cust);
             Employee emp= repoEmp.getById(newBill.getCustId(),employee);
             bill.setEmployee(emp);
+            Payment newPay= repoPay.getById(newBill.getPaymentId(), payment);
+            bill.setPayment(newPay);
             Long billId =Long.valueOf(repo.createAndGet(bill));
             bill=repo.getById(billId, bill);
             Sale[] sales=newBill.addBill(bill);
@@ -147,6 +151,15 @@ class BillAdd {
     Sale[] sales;
     Long custId;
     Long employeeId;
+    Long paymentId;
+
+    public Long getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(Long paymentId) {
+        this.paymentId = paymentId;
+    }
 
     public Long getEmployeeId() {
         return employeeId;
