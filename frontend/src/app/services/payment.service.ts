@@ -14,7 +14,7 @@ export class PaymentService {
         return this.http.get('api/paymentList');
     }
     addPayment(payment: Payment) {
-        const params = new HttpParams().append('mTypeOfPayment', payment.typeOfPayment).append('mProofOfPayment', String(payment.proofOfPayment));
+        const params = new HttpParams().append('mProofOfPayment', String(payment.proofOfPayment)).append('mTypeOfPayment', String(payment.typeOfPayment));
 
         return this.http.get('api/addPayment', { params });
     }
