@@ -53,7 +53,8 @@ public class EmployeeController {
                                             String mForename,
                                             String mPosition,
                                             double mSalary,
-                                            double mBonus) {
+                                            double mBonus,
+                                              Long regularId) {
         Employee employee= new Employee();
         employee.setName(mName);
         employee.setSalary(mSalary);
@@ -63,8 +64,8 @@ public class EmployeeController {
 
         try {
 
-         //  RegularPost regularPostAdd= repoRegularPost.getById(regularPostId,regularPost);
-           // employee.setRegularPost(regularPostAdd);
+           RegularPost regularPostAdd= repoRegularPost.getById(regularId,regularPost);
+            employee.setRegularPost(regularPostAdd);
 
             repo.create(employee);
         } catch (Exception ex) {

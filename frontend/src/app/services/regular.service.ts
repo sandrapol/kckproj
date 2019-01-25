@@ -36,7 +36,7 @@ export class RegularService {
             "id":regular.id,
             "startTime":regular.startTime,
             "endTime":regular.endTime,
-            "dayNumber":regular.dayNumnber,
+            "daysNumber":regular.dayNumnber,
             "employee": regular.employee
         }
 

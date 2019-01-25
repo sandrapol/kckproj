@@ -24,9 +24,9 @@
   <div class="cont">
       <div class="one">
         <p class="one"><b>Etat: </b> &nbsp; </p>
-        <select class="one" id="sortDrop" (change)='setRegular()'>
+        <select class="one" id="regularDrop" (change)='setRegular()'>
           <option hidden="true">Etat</option>
-          <option *ngFor="let regular of regularList" value="{{regular.id}}">{{magazine.id}} - {{magazine.name}}</option>
+          <option *ngFor="let regular of regularList" value="{{regular.id}}">{{regular.startTime}} - {{regular.endTime}} : {{regular.daysNumber}} dni</option>
         </select>
       </div>
     </div>

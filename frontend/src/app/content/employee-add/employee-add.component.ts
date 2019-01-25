@@ -3,6 +3,8 @@ import { Coffee } from 'src/app/statics/coffe';
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/statics/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { RegularPost } from 'src/app/statics/regularPost';
+import { RegularService } from 'src/app/services/regular.service';
 
 @Component({
   selector: 'app-employee-add',
@@ -12,9 +14,15 @@ import { EmployeeService } from 'src/app/services/employee.service';
 export class EmployeeAddComponent implements OnInit {
   employee:Employee= new Employee();
   error:boolean;
-  constructor(private router: Router, private serv: EmployeeService) { }
+  regularId:number;
+  regularList;
+  constructor(private router: Router, private serv: EmployeeService, private regularServ: RegularService) { }
 
   ngOnInit() {
+    this.regularServ.getRegularPostList().subscribe(
+      elem=> this.regularList=elem,
+      err=> console.log(err)
+    )
   }
   setName(value){
     this.employee.name=value;
@@ -34,7 +42,18 @@ export class EmployeeAddComponent implements OnInit {
     if(this.employee.position.length<1)
     this.error=true;
   }
-
+  setRegular() {
+    let e = (document.getElementById("regularDrop")) as HTMLSelectElement;
+    let sel = e.selectedIndex;
+    var opt = e.options[sel];
+    for (let elem of this.regularList) {
+      console.log(elem.id)
+      if (elem.id == Number(opt.value)) {
+        this.regularId = elem.id;
+        console.log(this.regularId)
+      }
+    }
+  }
   setSalary(value){
     if(Number(value)>0){
     this.employee.salary=Number(value);
@@ -53,7 +72,7 @@ export class EmployeeAddComponent implements OnInit {
   }
   submit(){
     if (!this.error) {
-      this.serv.addEmployee(this.employee).subscribe(
+      this.serv.addEmployee(this.employee, this.regularId).subscribe(
         elem=>console.log(elem),
         err=>console.log(err),
         ()=> this.router.navigateByUrl("/employees")

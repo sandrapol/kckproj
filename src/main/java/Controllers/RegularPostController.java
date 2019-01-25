@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RestController
@@ -33,38 +34,45 @@ public class RegularPostController {
         }
         return ResponseEntity.ok(regularPostList);
     }
-    @RequestMapping(value = "/addRegularPost")
-    public ResponseEntity<String> addRegularPost(Integer daysNumber,
-                                                String endTime,
-                                                String startTime) {
 
-            RegularPost regularPost = new RegularPost();
-            regularPost.setDaysNumber(daysNumber.intValue());
-            regularPost.setEndTime(endTime);
-            regularPost.setStartTime(startTime);
-       try {
-           repo.create(regularPost);
-       } catch (Exception ex) {
-          ex.printStackTrace();
-           return  ResponseFactory.ResponseError("Failed", "Cannot add regular post");
-       }
+    @RequestMapping(value = "/addRegularPost")
+    public ResponseEntity<String> addRegularPost(String startTime,
+                                                 String endTime,
+                                                 Integer daysNumber) {
+
+        System.out.println(startTime);
+        System.out.println(endTime);
+        System.out.println(daysNumber.intValue());
+        RegularPost regularPostt = new RegularPost();
+        regularPostt.setStartTime(startTime.substring(0, 5).replace(":","."));
+        regularPostt.setEndTime(endTime.substring(0, 5).replace(":","."));
+        regularPostt.setDaysNumber(daysNumber.intValue());
+        System.out.println(regularPostt.toString());
+        try {
+            repo.create(regularPostt);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return ResponseFactory.ResponseError("Failed", "Cannot add regular post");
+        }
         return ResponseEntity.ok().header("Success").build();
     }
+
     @RequestMapping(value = "/detailsRegularPost")
     public ResponseEntity<RegularPost> getRegularById(Long id) {
-        RegularPost postDetails= null;
+        RegularPost postDetails = null;
         try {
-            postDetails=repo.getById(id,regularPost);
+            postDetails = repo.getById(id, regularPost);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Failed", "Cannot find regular Post");
         }
         return ResponseEntity.ok(postDetails);
     }
+
     @RequestMapping(value = "/deleteRegularPost")
     public ResponseEntity<List<RegularPost>> deleteRegularPost(Long id) {
         List list;
         try {
-            repo.delete(id,regularPost);
+            repo.delete(id, regularPost);
             list = repo.getAll(regularPost);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Failed", "Cannot delete RegularPost");
@@ -77,7 +85,7 @@ public class RegularPostController {
     public ResponseEntity<RegularPost> updateRegularPost(@RequestBody RegularPost regularPost1) {
         try {
             repo.update(regularPost1);
-            regularPost1=repo.getById(regularPost1.getId(), regularPost1);
+            regularPost1 = repo.getById(regularPost1.getId(), regularPost1);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Failed", "Cannot update RegularPost");
         }

@@ -16,7 +16,7 @@
           <p><b>Stanowisko:</b>{{employee.position}} </p>
           <p><b>Pensja:</b>{{employee.salary}} </p>
           <p><b>Premia:</b>{{employee.bonus}} </p>
-          <p><b>Etat:</b></p>
+          <p><b>Etat:</b>{{employee.regularPost.startTime}} : {{employee.regularPost.endTime}} - dni: {{employee.regularPost.daysNumber}}</p>
         </div>
       </div>
     <div *ngIf="edit">
