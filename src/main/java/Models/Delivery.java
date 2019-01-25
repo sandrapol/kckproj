@@ -9,7 +9,7 @@ public class Delivery {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-    private Long quantity;
+    private double  quantity;
     @Column
     private String conveyance;
     @ManyToOne
@@ -28,11 +28,11 @@ public class Delivery {
         this.magazine = magazine;
     }
 
-    public Long getQuantity() {
+    public double  getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Long quantity) {
+    public void setQuantity(double  quantity) {
         this.quantity = quantity;
     }
 

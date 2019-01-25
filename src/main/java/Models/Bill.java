@@ -35,6 +35,14 @@ public class Bill {
     public Bill() {
     }
 
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
     public Bill(double netValue, double grossValue, double vatValue, double discount, Payment payment, Time time, Customer customer) {
         this.netValue = netValue;
         this.grossValue = grossValue;

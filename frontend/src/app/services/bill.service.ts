@@ -15,13 +15,14 @@ export class BillService {
         return this.http.get('api/billList');
     }
 
-    addBill(bill: Bill, sales: Sale[], idCust: number) {
+    addBill(bill: Bill, sales: Sale[], idCust: number, idEmployee:number) {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let data = {
                 "mDiscount": bill.discount,
                 "mGrossValue": bill.grossValue,
                 "sales": sales,
-                "custId": idCust
+                "custId": idCust,
+                "employeeId":idEmployee
         }
         console.log(data);
         return this.http.post('api/addBill', data, { headers });

@@ -1,3 +1,4 @@
+import { Employee } from './../../statics/employee';
 import { CustomerService } from 'src/app/services/customer.service';
 import { CoffeeService } from './../../services/coffee.service';
 import { Coffee } from 'src/app/statics/coffe';
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Sale } from 'src/app/statics/sale';
 import { Customer } from 'src/app/statics/customer';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-bill-add',
@@ -18,12 +20,14 @@ export class BillAddComponent implements OnInit {
   error: boolean;
   coffeeList;
   customers:Customer[];
+  employees;
   customerId;
+  employeeId;
   currentSale = new Sale();
   currentCoffee = new Coffee();
   sales: Sale[] = [];
   constructor(private router: Router, private serv: BillService, private coffeeServ: CoffeeService,
-    private custService: CustomerService) { }
+    private custService: CustomerService, private empServ: EmployeeService) { }
 
   ngOnInit() {
     this.currentSale.howMuchToPay = 0;
@@ -35,6 +39,22 @@ export class BillAddComponent implements OnInit {
       elem => this.customers = elem,
       err => console.log(err)
     )
+    this.empServ.getEmployeeList().subscribe(
+      elem => this.employees = elem,
+      err => console.log(err)
+    )
+  }
+  setEmp() {
+    let e = (document.getElementById("empDrop")) as HTMLSelectElement;
+    let sel = e.selectedIndex;
+    var opt = e.options[sel];
+    for (let elem of this.employees) {
+      console.log(elem.id)
+      if (elem.id == Number(opt.value)) {
+        this.employeeId = elem.id;
+        console.log(this.employeeId)
+      }
+    }
   }
   setCust() {
     let e = (document.getElementById("custDrop")) as HTMLSelectElement;
@@ -107,7 +127,7 @@ export class BillAddComponent implements OnInit {
 
   submit() {
     if (!this.error && this.check()) {
-      this.serv.addBill(this.bill,this.sales,this.customerId).subscribe(
+      this.serv.addBill(this.bill,this.sales,this.customerId, this.employeeId).subscribe(
         elem => console.log(elem),
         err => console.log(err),
         () => this.router.navigateByUrl("/bills")

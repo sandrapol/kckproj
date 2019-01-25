@@ -17,6 +17,7 @@ export class DeliveryAddComponent implements OnInit {
   plantationId: number = null;
   magazineList: any;
   magazineId: number = null;
+  quantity: number;
 
   constructor(private router: Router, private serv: DeliveryService, private plantServ: PlantationService ,private magServ: MagazineService) { }
 
@@ -29,7 +30,14 @@ export class DeliveryAddComponent implements OnInit {
       elem => this.magazineList = elem,
       err => console.log(err))
   }
-
+  setQuantity(value) {
+    if (Number(value) > -1) {
+      this.quantity = Number(value);
+      this.error = false;
+    }
+    else
+      this.error = true;
+  }
   setSelectedPlantation() {
     let e = (document.getElementById("sortDropPlant")) as HTMLSelectElement;
     let sel = e.selectedIndex;
@@ -65,7 +73,7 @@ export class DeliveryAddComponent implements OnInit {
   }
   submit() {
     if (!this.error && this.check()) {
-      this.serv.addDelivery(this.delivery,this.plantationId, this.magazineId).subscribe(
+      this.serv.addDelivery(this.delivery,this.plantationId, this.magazineId, this.quantity).subscribe(
         elem => console.log(elem),
         err => console.log(err),
         () => this.router.navigateByUrl("/deliveries")
