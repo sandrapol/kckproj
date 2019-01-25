@@ -177,6 +177,11 @@ button{
         padding-top: 10px;
     }
 
+    .przyciski{
+        display: flex;
+        flex-direction: column;
+    }
+
   }
 
  

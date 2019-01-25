@@ -62,8 +62,12 @@ public class EmployeeController {
         employee.setForename(mForename);
 
         try {
+<<<<<<< Updated upstream
            // RegularPost regularPostAdd= repoRegularPost.getById(regularPostId,regularPost);
             //employee.setRegularPost(regularPostAdd);
+=======
+            
+>>>>>>> Stashed changes
             repo.create(employee);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Failed", "Cannot add employee");
