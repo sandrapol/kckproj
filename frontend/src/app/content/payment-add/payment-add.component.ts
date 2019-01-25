@@ -16,6 +16,7 @@ export class PaymentAddComponent implements OnInit {
   constructor(private router: Router, private serv: PaymentService) { }
 
   ngOnInit() {
+    this.payment.proofOfPayment=true;
   }
 
   setTypeOfPayment(value){
@@ -26,11 +27,15 @@ export class PaymentAddComponent implements OnInit {
   }
 
   submit(){
+     
+      console.log(this.payment.proofOfPayment);
+    console.log(this.payment.typeOfPayment);
+    
     if (!this.error) {
       this.serv.addPayment(this.payment).subscribe(
         elem=>console.log(elem),
         err=>console.log(err),
-        ()=> this.router.navigateByUrl("/bills")
+        ()=> this.router.navigateByUrl("/newBill")
       );
      
     }

@@ -24,7 +24,7 @@ export class BillAddComponent implements OnInit {
   customers:Customer[];
   employees;
   customerId;
-  payments:Payment[];
+  payments:any;
   paymentId;
   employeeId;
   currentSale = new Sale();
@@ -45,6 +45,10 @@ export class BillAddComponent implements OnInit {
     )
     this.empServ.getEmployeeList().subscribe(
       elem => this.employees = elem,
+      err => console.log(err)
+    )
+    this.paymentService.getPaymentList().subscribe(
+      elem => this.payments = elem,
       err => console.log(err)
     )
   }

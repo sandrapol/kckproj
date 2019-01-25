@@ -36,10 +36,10 @@ public class PaymentController {
     }
     @RequestMapping(value = "/addPayment")
     public ResponseEntity<String> addPayment(boolean mProofOfPayment,
-                                                String mTypeOfPaymnet) {
+                                                String mTypeOfPayment) {
         Payment payment= new Payment();
         payment.setProofOfPayment(mProofOfPayment);
-        payment.setTypeOfPayment(mTypeOfPaymnet);
+        payment.setTypeOfPayment(mTypeOfPayment);
 
         try {
             repo.create(payment);

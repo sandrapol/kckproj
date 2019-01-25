@@ -12,11 +12,11 @@
     <div class="cont">
       <div class="one">
         <p class="one"><b>Czy chcesz dowód wplaty: </b> &nbsp; </p>
-        <form action="">
-          <input type="checkbox" name="vehicle" value="TAK"> TAK<br>
-          <input type="checkbox" name="vehicle" value="NIE" checked>NIE<br>
-          <input type="submit" value="Submit" (click)="submit()">
-        </form> 
+       
+          <input id="check" type="checkbox" name="proofOfPayment" value="true" (ngModel)="payment.proofOfPayment"> TAK<br>
+         
+     
+        <button (click)="submit()">Dodaj</button>
       </div>
     </div>
   </div>
