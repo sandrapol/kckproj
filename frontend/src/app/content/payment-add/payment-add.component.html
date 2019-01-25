@@ -1,0 +1,22 @@
+<div class="post">
+    <header>
+      <h2 *ngIf="error" style="color: red">POPRAW DANE</h2>
+      <h2>Wprowadź dane</h2>
+    </header>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Typ platnosci: </b> &nbsp; </p>
+        <input class="one" placeholder="Typ" type="text" required #tbox (keyup)="setTypeOfPayment(tbox.value)"><br>
+      </div>
+    </div>
+    <div class="cont">
+      <div class="one">
+        <p class="one"><b>Czy chcesz dowód wplaty: </b> &nbsp; </p>
+        <form action="">
+          <input type="checkbox" name="vehicle" value="TAK"> TAK<br>
+          <input type="checkbox" name="vehicle" value="NIE" checked>NIE<br>
+          <input type="submit" value="Submit" (click)="submit()">
+        </form> 
+      </div>
+    </div>
+  </div>

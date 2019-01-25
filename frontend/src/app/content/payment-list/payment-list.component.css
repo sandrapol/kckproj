@@ -1,0 +1,146 @@
+h1,h2{
+    margin: 0;
+    padding:1.5%;
+}
+.post {
+    width:90%;
+    height:200px;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(29, 29, 29, 0.082);
+    filter: alpha(opacity=50);
+    padding: 10px;
+  }
+
+  .img {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    flex-basis: 20%;
+  }
+
+  .info {
+    flex-grow: 3;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+  }
+
+  .nav{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+  }
+  .details p {
+    margin: 0px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+
+button{
+    margin-right: 2px;
+    float: right;
+}
+
+
+.button_cont{
+    height: fit-content;
+    width: 100%;
+    display: initial;
+    position: relative
+}
+
+
+.actions {
+    flex-grow: 1;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  
+  .actions div {
+    margin-left:10px;
+  }
+
+  select{
+    border: none;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: #9e9e9e;
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    padding-bottom: 14px;
+    padding-top: 15px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .search-container {
+    float: right;
+  }
+
+  input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+  }
+
+  .search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .search-container button:hover {
+    background: #ccc;
+  }
+  
+  .kawka{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+    display: inline;
+  }
+
+  @media all and (max-width: 900px) {
+    .post {
+        flex-direction: column;
+        height: initial;
+        justify-content: center;
+        align-items: center;
+    }
+    .actions {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+    }
+  }
+
+

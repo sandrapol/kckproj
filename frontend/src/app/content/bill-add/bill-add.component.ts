@@ -1,3 +1,5 @@
+import { Payment } from 'src/app/statics/payment';
+import { PaymentService } from './../../services/payment.service';
 import { CustomerService } from 'src/app/services/customer.service';
 import { CoffeeService } from './../../services/coffee.service';
 import { Coffee } from 'src/app/statics/coffe';
@@ -19,11 +21,13 @@ export class BillAddComponent implements OnInit {
   coffeeList;
   customers:Customer[];
   customerId;
+  payments:Payment[];
+  paymentId;
   currentSale = new Sale();
   currentCoffee = new Coffee();
   sales: Sale[] = [];
   constructor(private router: Router, private serv: BillService, private coffeeServ: CoffeeService,
-    private custService: CustomerService) { }
+    private custService: CustomerService, private paymentService: PaymentService) { }
 
   ngOnInit() {
     this.currentSale.howMuchToPay = 0;
@@ -45,6 +49,19 @@ export class BillAddComponent implements OnInit {
       if (elem.id == Number(opt.value)) {
         this.customerId = elem.id;
         console.log(this.customerId)
+      }
+    }
+  }
+
+  setPayment() {
+    let e = (document.getElementById("paymentDrop")) as HTMLSelectElement;
+    let sel = e.selectedIndex;
+    var opt = e.options[sel];
+    for (let elem of this.payments) {
+      console.log(elem.id)
+      if (elem.id == Number(opt.value)) {
+        this.paymentId = elem.id;
+        console.log(this.paymentId)
       }
     }
   }
@@ -98,6 +115,8 @@ export class BillAddComponent implements OnInit {
       return false;
     if (this.customerId == undefined)
       return false;
+      if (this.paymentId == undefined)
+      return false;
     if (this.bill.discount == undefined)
       return false;
     if (this.bill.grossValue == undefined)
@@ -107,7 +126,7 @@ export class BillAddComponent implements OnInit {
 
   submit() {
     if (!this.error && this.check()) {
-      this.serv.addBill(this.bill,this.sales,this.customerId).subscribe(
+      this.serv.addBill(this.bill,this.sales,this.customerId,this.paymentId).subscribe(
         elem => console.log(elem),
         err => console.log(err),
         () => this.router.navigateByUrl("/bills")

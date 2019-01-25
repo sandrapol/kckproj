@@ -1,0 +1,40 @@
+<div *ngIf="loading">
+  <app-loading></app-loading>
+</div>
+<div *ngIf="!loading" class="content">
+  <div class="button_cont">.
+    <div class="search-container">
+      <input id="search" #xbox type="text" placeholder="Search.." name="search" (keyup)="search(xbox.value)">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+    <select id="sortDrop" (change)='setSelected()'>
+      <option hidden="true">Sortuj</option>
+      <option value="id">Id (rosnąco)</option>
+      <option value="idOther">Id(malejąco)</option>
+      <option value="typeOfPayment">Rodzaj platnosci (A-Z)</option>
+      <option value="typeOfPaymentOther">Rodzaj platnosci (Z-A)</option>
+      <option value="proofOfPayment">Dowód Wplaty (A-Z)</option>
+      <option value="proofOfPaymentOther">Dowód Wplaty (Z-A)</option>
+    </select>
+    <button routerLink="/newPayment">Dodaj platnosc</button>
+  </div>
+  <div class="post" *ngFor="let payment of paymentList">
+    <div class="img" (click)="showDetails(payment.id)">
+      <img height="177px" width="250px" src="https://comps.canstockphoto.pl/pole-marihuana-obraz_csp46886517.jpg">
+    </div>
+    <div class="info">
+      <div class="nav" (click)="showDetails(payment.id)">
+        {{payment.id}}
+      </div>
+      <div class="details">
+        <p><b>Rodzaj platnosci: </b> {{payment.typeOfPayment}}</p>
+        <p><b>Dowód wplaty: </b> {{payment.proofOfPayment}}</p>
+      </div>
+    </div>
+    <div class="actions">
+      <div> <img width="5%" height="5%" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png" (click)="delete(plantation.id)"
+          style="cursor: pointer;">
+      </div>
+    </div>
+  </div>
+</div>

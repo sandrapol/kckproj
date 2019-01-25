@@ -39,6 +39,8 @@ import { HarvestAddComponent } from './content/harvest-add/harvest-add.component
 import { DeliveryListComponent } from './content/delivery-list/delivery-list.component';
 import { DeliveryAddComponent } from './content/delivery-add/delivery-add.component';
 import { RegularPostAddComponent } from './content/regular-post-add/regular-post-add.component';
+import { PaymentListComponent } from './content/payment-list/payment-list.component';
+import { PaymentAddComponent } from './content/payment-add/payment-add.component';
 
 
 @NgModule({
@@ -78,7 +80,9 @@ import { RegularPostAddComponent } from './content/regular-post-add/regular-post
     HarvestAddComponent,
     DeliveryListComponent,
     DeliveryAddComponent,
-    RegularPostAddComponent
+    RegularPostAddComponent,
+    PaymentListComponent,
+    PaymentAddComponent
   ],
   imports: [
     BrowserModule,

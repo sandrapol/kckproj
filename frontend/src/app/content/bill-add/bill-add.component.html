@@ -12,6 +12,15 @@
       </select>
     </div>
   </div>
+  <div class="cont">
+      <div class="one">
+        <p class="one"><b>Platnosc: </b> &nbsp; </p>
+        <select class="one" id="paymentDrop" (change)='setPayment()'>
+          <option hidden="true">Platnosc</option>
+          <option *ngFor="let payment of payments" value="{{payment.id}}">{{payment.typeOfPayment}}</option>
+        </select>
+      </div>
+    </div>
   <div *ngIf="sales">
     <div *ngFor="let sale of sales">
       <div class="cont">

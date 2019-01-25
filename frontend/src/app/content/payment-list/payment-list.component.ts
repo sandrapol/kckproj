@@ -1,37 +1,31 @@
-
-import { Plantation } from './../../statics/plantation';
+import { PaymentService } from './../../services/payment.service';
 import { Component, OnInit } from '@angular/core';
-import { PlantationService } from 'src/app/services/plantation.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-plantation-list',
-  templateUrl: './plantation-list.component.html',
-  styleUrls: ['./plantation-list.component.css']
+  selector: 'app-payment-list',
+  templateUrl: './payment-list.component.html',
+  styleUrls: ['./payment-list.component.css']
 })
-export class PlantationListComponent implements OnInit {
-  private plantationList:any;
+export class PaymentListComponent implements OnInit {
+
+  private paymentList:any;
   loading:boolean= true;
 
-
-  constructor(private router:Router, private serv: PlantationService) { }
+  constructor(private router:Router, private serv: PaymentService) { }
 
   ngOnInit() {
-    this.serv.getPlantationList().subscribe(
-      elem=> this.plantationList= elem,
+    this.serv.getPaymentList().subscribe(
+      elem=> this.paymentList= elem,
       err=> console.log(err),
       ()=> this.loading=false
     )
   }
 
-  showDetails(id:number){
-    this.router.navigateByUrl("/plantation/"+id);
-  }
-
   delete(id:number){
     this.loading=true;
     this.serv.delete(id).subscribe(
-      elem=> this.plantationList=elem,
+      elem=> this.paymentList=elem,
       err=> console.log(err),
       ()=> {this.loading=false; }
     )
@@ -43,24 +37,27 @@ export class PlantationListComponent implements OnInit {
     let sel = e.selectedIndex;
     var opt = e.options[sel];
     this.serv.sort(opt.value).subscribe(
-      elem=> this.plantationList=elem,
+      elem=> this.paymentList=elem,
       err=> console.log(err),
       ()=> {this.loading=false; }
     )
   }
+
+
   search(value) {
     console.log(value)
-    this.plantationList= this.plantationList.filter(elem => {
+    this.paymentList= this.paymentList.filter(elem => {
       if (elem.name.includes(value))
         return elem;
     });
     if(value==""){
       this.loading=true;
-      this.serv.getPlantationList().subscribe(
-        elem=> this.plantationList= elem,
+      this.serv.getPaymentList().subscribe(
+        elem=> this.paymentList= elem,
         err=> console.log(err),
         ()=> this.loading=false
       )
     }
   }
+
 }

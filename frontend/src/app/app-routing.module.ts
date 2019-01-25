@@ -6,6 +6,7 @@ import { BillAddComponent } from './content/bill-add/bill-add.component';
 import { BillDetailsComponent } from './content/bill-details/bill-details.component';
 import { EmployeeAddComponent } from './content/employee-add/employee-add.component';
 import { MagazineAddComponent } from './content/magazine-add/magazine-add.component';
+import { PaymentAddComponent } from './content/payment-add/payment-add.component';
 import { DeliveryAddComponent } from './content/delivery-add/delivery-add.component';
 import { PlantationAddComponent } from './content/plantation-add/plantation-add.component';
 import { CustomerAddComponent } from './content/customer-add/customer-add.component';
@@ -59,6 +60,7 @@ const routes: Routes = [
   {path:"newEmployee",component:EmployeeAddComponent},
   {path:"newRegularPost",component:RegularPostAddComponent},
   {path:"newBill",component:BillAddComponent},
+  {path:"newPayment",component:PaymentAddComponent},
   {path:"newDelivery",component:DeliveryAddComponent},
   {path:"newHarvest",component:HarvestAddComponent},
   {path:"cities",component:CityListComponent},
