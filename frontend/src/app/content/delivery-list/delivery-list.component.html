@@ -26,12 +26,10 @@
               <p class="origin"><b>Rodzaj transportu:</b> {{delivery.conveyance}}</p>
               <p class="origin"><b>Id Plantacji:</b> {{delivery.plantation.id}}</p>
               <p class="origin"><b>Id Magazynu:</b> {{delivery.magazine.id}}</p>
+              <p class="origin"><b>Ilosc kawy:</b> {{delivery.quantity}}</p>
             </div>
           </div>
           <div class="actions">
-            <div><img width="5%" height="5%" src="https://cdn2.iconfinder.com/data/icons/web/512/Trash_Can-512.png"
-                (click)="delete(delivery.id)" style="cursor: pointer;">
-            </div>
           </div>
         </div>
       </div>

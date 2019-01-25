@@ -21,6 +21,15 @@
         </select>
       </div>
     </div>
+  <div class="cont">
+      <div class="one">
+        <p class="one"><b>Pracownik: </b> &nbsp; </p>
+        <select class="one" id="empDrop" (change)='setEmp()'>
+          <option hidden="true">Klient</option>
+          <option *ngFor="let emp of employees" value="{{emp.id}}">{{emp.name}} - {{emp.forename}}</option>
+        </select>
+      </div>
+    </div>
   <div *ngIf="sales">
     <div *ngFor="let sale of sales">
       <div class="cont">

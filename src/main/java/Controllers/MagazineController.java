@@ -40,7 +40,6 @@ public class MagazineController {
     @RequestMapping(value = "/filterMagazine")
     public ResponseEntity<List<Magazine>> filterMagazine(String field, int min, int max) {
         List magazineList;
-        System.out.println("doszło");
         try {
             magazineList= repo.filter(field,min,max,magazine);
         } catch (Exception ex) {

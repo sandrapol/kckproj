@@ -14,9 +14,9 @@ export class DeliveryService {
         return this.http.get('api/deliveryList');
     }
 
-    addDelivery(delivery: Delivery, plantId:number, magId:number){   
+    addDelivery(delivery: Delivery, plantId:number, magId:number,quantity:number){   
         const params = new HttpParams().append('mConveyance', delivery.conveyance).append('plantationId', String(plantId)).
-        append('magazineId', String(magId));
+        append('magazineId', String(magId)).append('quantity', String(quantity));
 
         return this.http.get('api/addDelivery', {params});
 }

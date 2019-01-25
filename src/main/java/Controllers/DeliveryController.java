@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RestController
@@ -40,8 +41,8 @@ public class DeliveryController {
         List deliveryList;
         try {
             if (field.contains("Other")) {
-                field=field.replace("Other","");
-                deliveryList= repo.descSortBy(field,delivery);
+                field = field.replace("Other", "");
+                deliveryList = repo.descSortBy(field, delivery);
             } else {
                 deliveryList = repo.sortBy(field, delivery);
             }
@@ -56,22 +57,30 @@ public class DeliveryController {
         List deliveryList;
         System.out.println("doszło");
         try {
-            deliveryList= repo.filter(field,min,max,delivery);
+            deliveryList = repo.filter(field, min, max, delivery);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Data not found!", "File doesn't exist");
         }
         return ResponseEntity.ok(deliveryList);
     }
+
     @RequestMapping(value = "/addDelivery")
     public ResponseEntity<String> addDelivery(String mConveyance,
                                               long plantationId,
-                                              long magazineId) {
-        Delivery delivery= new Delivery();
+                                              long magazineId,
+                                              double quantity) {
+        Delivery delivery = new Delivery();
         delivery.setConveyance(mConveyance);
+        delivery.setQuantity(quantity);
         try {
-            Plantation plantationAdd= repoPlantation.getById(plantationId,plantation);
+            Plantation plantationAdd = repoPlantation.getById(plantationId, plantation);
             delivery.setPlantation(plantationAdd);
-            Magazine magazineAdd= repoMagazine.getById(magazineId,magazine);
+            Magazine magazineAdd = repoMagazine.getById(magazineId, magazine);
+            double currSupply = (magazineAdd.getSupply() + quantity);
+            magazineAdd.setSupply(currSupply);
+            magazineAdd.setCoffeeAvailability(true);
+            repoMagazine.update(magazineAdd);
+            magazineAdd = repoMagazine.getById(magazineId, magazine);
             delivery.setMagazine(magazineAdd);
             repo.create(delivery);
         } catch (Exception ex) {
@@ -79,21 +88,23 @@ public class DeliveryController {
         }
         return ResponseEntity.ok().header("Success").build();
     }
+
     @RequestMapping(value = "/detailsDelivery")
     public ResponseEntity<Delivery> getDeliveryById(Long id) {
-        Delivery details= null;
+        Delivery details = null;
         try {
-            details=repo.getById(id,delivery);
+            details = repo.getById(id, delivery);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Failed", "Cannot find delivery");
         }
         return ResponseEntity.ok(details);
     }
+
     @RequestMapping(value = "/deleteDelivery")
     public ResponseEntity<List<Delivery>> deleteDelivery(Long id) {
         List list;
         try {
-            repo.delete(id,delivery);
+            repo.delete(id, delivery);
             list = repo.getAll(delivery);
         } catch (Exception ex) {
             return ResponseFactory.ResponseError("Failed", "Cannot delete Delivery");
@@ -106,9 +117,9 @@ public class DeliveryController {
     public ResponseEntity<Delivery> updateDelivery(@RequestBody Delivery delivery1) {
         try {
             repo.update(delivery1);
-            delivery1=repo.getById(delivery1.getId(), delivery1);
+            delivery1 = repo.getById(delivery1.getId(), delivery1);
         } catch (Exception ex) {
-             return ResponseFactory.ResponseError("Failed", "Cannot update Delivery");
+            return ResponseFactory.ResponseError("Failed", "Cannot update Delivery");
         }
         return ResponseEntity.ok(delivery1);
     }
