@@ -157,4 +157,8 @@ export class BillAddComponent implements OnInit {
     }
   }
 
+  submitPayment() {
+      this.router.navigateByUrl("/newPayment")
+  }
+
 }
